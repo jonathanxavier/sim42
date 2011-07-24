@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Unit Operations</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="thebuildingblocksofasimulation.htm">previous</a> &nbsp; <a href="ports.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Unit Operations</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The key building block of a simulation is the unit operation. This might represent a flash drum, a valve, a distillation tower or even an entire sub flow sheet contained within a larger one. Unlike some other process simulators, a stream is just another unit operation.</p>
+<p class=body-text>In Sim42 unit operations have some special properties:</p>
+<p class=body-text>Any unit operation can contain other unit operations that could in turn contain other unit operations to any level of nesting. </p>
+<p class=body-text>As a result of the above, many unit operations are in fact built from other unit operations and are little flow sheets themselves. For instance a basic heat exchanger is built from a heater and a cooler with connected energy ports. </p>
+<p class=body-text>Each unit operation has a thermo provider associated with it. Normally this is just inherited from the containing unit operation, but different unit operations in the same flow sheet can have different component lists and use different thermo models or even different providers. For instance, in the case of the heat exchanger mentioned above, you could have a steam property package on one side and a Peng Robinson on the other. </p>
+<p class=body-text>A generic unit operation is shown below.</p>
+<p class=body-text><img src="_s42-45.jpg"></p>
+<p class=body-text>Unit operations are specified and controlled through just three mechanisms:</p>
+<p class=body-text>Ports, which will be discussed in the next section </p>
+<p class=body-text>Parameters, which are set by the user </p>
+<p class=body-text>The creation of contained objects </p>
+<p class=body-text>Parameters are generic and usually structural constants that do not change during the solution of a simulation case. For example the number of inlet ports that a mixer has, the text of an equation or perhaps the number of stages in a multistage operation would be examples of where parameters are used. However, most numerical values would be obtained from ports so that they could be manipulated during a solution.</p>
+<p class=body-text>Some complex operations allow or require that other objects be created and added to them. The simplest case is just adding other unit operations to a flow sheet. However a tower will contain stages and you can add things like draws, feeds or specifications to any stage. The objects you add will usually have ports to interact with other unit operations or perhaps, as in the case of tower stages, will in turn contain objects that have ports. These relationships are described in the figure below.</p>
+<p class=body-text>Note that the unit operation interacts with the external world by means of its ports and parameters. Also note that a unit operation can contain as many other unit operations as necessary, as well as many input and output ports as necessary.</p>
+<p class=body-text><img src="_s42-46.jpg"></p>
+<p></p>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tower Specifications</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onmousedown=d2hpopup() onload="d2hload()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none style="DISPLAY: none">
+</iframe>
+</div>
+<div id=ienav>
+<ILAYER id=nsnav>
+<br>
+<center>
+<p class=normal><A href="s42-toc.htm" target=left>contents</A> &nbsp; <A href="s42-index.htm" target=left>index</A> &nbsp; <A href="towerdegreesoffreedom.htm">previous</A> &nbsp; <A href="towerconvergencecriteria.htm">next</A></p>
+</center>
+<br>
+<hr noshade size=1>
+</ILAYER>
+</div>
+<p class=heading-4>Tower Specifications	</p>
+<p class=heading-4-p>&nbsp;</p>
+<p class=body-text>In Sim42, the tower specifications (with a single class of exceptions we will discuss further down) are done in exactly the same way as specifications in any other unit operation. For example, assume that we have a simple heater with the in and out material ports completely specified. In this case, all the degrees of freedom are fulfilled and the pressure drop and the energy port are automatically calculated. Lets do this mental experiment again, but assuming that we have two material streams connected to the in and out ports of the heater. In this scenario we completely specify the material streams connected to the heater. Then we have the information from the material streams being propagated to the in and out material ports and therefore the degrees of freedom around the heater are all specified and the pressure drop and the heater duty are calculated.</p>
+<p class=body-text>Now lets assume that we have a simple absorption tower, to which we attach a vapor and a liquid feed at the appropriate stages. The tower unit op will automatically detect that all the degrees of freedom are fulfilled, and will automatically solve. </p>
+<p class=body-text>Now lets make the experiment a bit more interesting. Lets assume we have a reboiled absorber, and we have attached (or directly specified via the material port) a material stream to the first stage. The tower will not solve because there’s one degree of freedom left to be specified. If we look at the tower as a simple unit operation, then we know that if we specify a single degree of freedom from any of the material or energy ports or attached material or energy streams, the tower will have enough degrees of freedom specified and it will attempt to solve. In this experiment, lets assume that we have material streams attached to the top and bottom stages (to represent the vapor and liquid products) and an energy stream attached to the last stage to represent a reboiler. <i>Note that the existence of streams is NOT necessary and their necessary specifications can always be directly done on the ports.</i> If we specify the flow of the bottoms material stream the tower will then automatically solve. </p>
+<p class=body-text>The most common specification is the overhead product vapor flow or the reboiler duty. Note that, this gives you extreme flexibility on the tower specs since you could have worked out part of your plant downstream from the tower and have a tower product as the feed to this plant section. Then the tower will take the values from this downstream section as product specs.</p>
+<p class=body-text>We are left with common tower specifications that really do not belong to material or energy ports such as reflux ratios, ratios of components, recoveries of components, Reid Vapor Pressure etc. In order to accommodate these specifications you can use the <b>StageSpecification</b> method as shown below.</p>
+<p class=source>cd&nbsp;c3splitter.Stage_0</p>
+<p class=source>reflux&nbsp;=&nbsp;Tower.StageSpecification('Reflux')</p>
+<p class=source>reflux.Value&nbsp;=&nbsp;16.4</p>
+<p class=body-text>Note that you have to move to the proper stage in order to perform the specification – note the <b>cd</b> command setting the focus on stage 0.</p>
+<p class=body-text>The following variables are available for stage specifications:</p>
+<p class=c1h-number>1. 'Reflux' Specify Reflux ratio</p>
+<p class=c1h-number>2. 'T' Temperature</p>
+<p class=c1h-number>3. 'MoleFlow' Molar Flow</p>
+<p class=body-text>Note that if you specify a mole flow you will also have to specify the <i>phase</i> (L or V) for the molar flow. This is useful when specifying crude columns where the over flash of the heated feed has to be defined.</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-141.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.9in">
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Note that you can also specify stage specifications by making a direct reference to the stage.</p>
+<p class=body-text>Stage_0.reflux =   StageSpecification(‘Reflux’)</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

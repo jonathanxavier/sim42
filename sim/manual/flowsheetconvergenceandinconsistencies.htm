@@ -1,0 +1,145 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Flowsheet Convergence and Inconsistencies</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="advancedtopics.htm">previous</a> &nbsp; <a href="creatingnewunitoperationswithoutpython.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Flowsheet Convergence and Inconsistencies</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>Sim42 uses specified tolerance for both convergence and inconsistency checking. For the latter this is just the&#160;absolute error divided by a scale factor associated with that type of variable. If the returned value is bigger than the tolerance for that unit operation (normally inherited from the parent unit operation), an inconsistency error is raised.</p>
+<p class=body-text>The same calculation is used for recycle convergence tolerances and the iterations continue until the largest error is smaller than the flowsheet tolerance AND there are no stacked inconsistencies.&#160; During solver iterations, consistency errors are stacked and discarded and will only make their effect known by preventing convergence. Unlike other simulators, a converged solution will not have inconsistencies.<br>
+Controller errors are handled similarly.</p>
+<p class=body-text>The scale factors for the different variables used by Sim42 are defined in the table below.</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 3.75in">
+<p class=body-text style="padding: 0in 0.075in">Variable</p></td>
+<td valign=top style="width: 1.075in">
+<p class=body-text style="padding: 0in 0.075in">Scale Factor</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 3.75in">
+<p class=body-text style="padding: 0in 0.075in">Temperature</p></td>
+<td valign=top style="width: 1.075in">
+<p class=body-text style="padding: 0in 0.075in">100</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Pressure</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1000</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Molar Enthalpy</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">10000</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Molar Volume</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">10</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Molar Specific Heat</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1000</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Vapor Fraction</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Mass Flow</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">50000</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Mole Flow</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1000</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Power</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">100000</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Fraction</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">CmpMoleFrac</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">CmpMassFrac</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">DeltaT</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">100</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">DeltaP</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1000</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Length</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">10</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Mass Density</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1000</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Generic</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p></p>
+</body>
+</html>

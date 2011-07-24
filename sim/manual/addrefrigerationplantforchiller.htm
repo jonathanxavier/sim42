@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Add Refrigeration Plant for Chiller</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="createdepropanizer.htm">previous</a> &nbsp; <a href="examples.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Add Refrigeration Plant for Chiller</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>To complete our example we now add a refrigeration plant using propane as the refrigerant. You may find useful to compare this section with the first tutorial example where we created a refrigeration plant using ammonia as the refrigeration fluid. We start by specifying the chiller cold side.</p>
+<p class=source>/deprop&gt;&nbsp;cd&nbsp;/Chiller.OutC</p>
+<p class=source>/Chiller.ColdSide.Out</p>
+<p class=source>/Chiller.ColdSide.Out&gt;&nbsp;VapFrac&nbsp;=&nbsp;1</p>
+<p class=source>/Chiller.ColdSide.Out&gt;&nbsp;Fraction&nbsp;=&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0</p>
+<p class=source>/Chiller.ColdSide.Out&gt;</p>
+<p class=body-text>We can now specify the approach we would like to have in the hot side inlet</p>
+<p class=source>/&gt;&nbsp;Chiller.DeltaTHI&nbsp;=&nbsp;30</p>
+<p class=body-text>Now we add a Joule-Thomson valve for modeling the propane expansion.</p>
+<p class=source>/&gt;&nbsp;V-100&nbsp;=&nbsp;Valve.Valve()</p>
+<p class=source>/&gt;&nbsp;V-100.Out&nbsp;-&gt;&nbsp;Chiller.InC</p>
+<p class=body-text>Now we add the propane condenser. Note that the temperature is specified to model a typical value one would have using an air cooler.</p>
+<p class=source>/&gt;&nbsp;&nbsp;E-103&nbsp;=&nbsp;Heater.Cooler()</p>
+<p class=source>/&gt;&nbsp;&nbsp;E-103.Out&nbsp;-&gt;&nbsp;V-100.In</p>
+<p class=source>/&gt;&nbsp;&nbsp;E-103.Out.T&nbsp;=&nbsp;120</p>
+<p class=source>/&gt;&nbsp;&nbsp;E-103.Out.VapFrac&nbsp;=&nbsp;0</p>
+<p class=source>/&gt;&nbsp;&nbsp;E-103.DeltaP&nbsp;=&nbsp;5</p>
+<p class=body-text>And the necessary refrigerant circulation rate is calculated</p>
+<p class=source>Port:&nbsp;/V-100.Out&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;/Chiller.ColdSide.In</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.450825068571&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2.71531908108&nbsp;=&nbsp;F</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;40.4489021565&nbsp;|&nbsp;psia</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;5.72163056997&nbsp;|&nbsp;lbmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;252.301021614&nbsp;|&nbsp;lb/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;833.169320593&nbsp;=&nbsp;Btu/lbmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;4766.28541662&nbsp;|&nbsp;Btu/hr</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;44.096&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.423803741478&nbsp;=</p>
+<p class=source>METHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;|</p>
+<p class=source>ETHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;|</p>
+<p class=source>PROPANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.0&nbsp;|</p>
+<p class=source>ISOBUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;|</p>
+<p class=source>n-BUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;|</p>
+<p class=source>ISOPENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;|</p>
+<p class=source>n-PENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;|</p>
+<p class=source>n-HEXANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;|</p>
+<p class=source>n-HEPTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;|</p>
+<p class=source>n-OCTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;|</p>
+<p class=body-text>Finally we add the propane compressor to finish the refrigeration loop. Note that if we were just interested in the determination of the necessary refrigerant circulation rate the compressor is not really necessary.</p>
+<p class=source>/&gt;&nbsp;&nbsp;K-100&nbsp;=&nbsp;Compressor.Compressor()</p>
+<p class=source>/&gt;&nbsp;&nbsp;K-100.Efficiency&nbsp;=&nbsp;.75</p>
+<p class=source>/&gt;&nbsp;&nbsp;Chiller.OutC&nbsp;-&gt;&nbsp;K-100.In</p>
+<p class=source>/&gt;&nbsp;&nbsp;K-100.Out&nbsp;-&gt;&nbsp;E-103.In</p>
+<p class=source>/&gt;&nbsp;&nbsp;K-100.Out</p>
+<p class=body-text>Finally, check out the sales gas conditions</p>
+<p class=source>/&gt;&nbsp;Gas-Gas.OutC</p>
+<p class=source>Port:&nbsp;/Gas-Gas.ColdSide.Out&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;None</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.0&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;50.0&nbsp;=&nbsp;F</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;570.0&nbsp;=&nbsp;psia</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;66.8116097102&nbsp;=&nbsp;lbmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1301.42419577&nbsp;=&nbsp;lb/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;3766.65694448&nbsp;=&nbsp;Btu/lbmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;251614.094897&nbsp;=&nbsp;Btu/hr</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;19.4790127258&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.849205514247&nbsp;=</p>
+<p class=source>METHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.824158870784&nbsp;=</p>
+<p class=source>ETHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.128945341198&nbsp;=</p>
+<p class=source>PROPANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0278844989209&nbsp;=</p>
+<p class=source>ISOBUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00973135974421&nbsp;=</p>
+<p class=source>n-BUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00622686180348&nbsp;=</p>
+<p class=source>ISOPENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00178421193598&nbsp;=</p>
+<p class=source>n-PENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00112417308618&nbsp;=</p>
+<p class=source>n-HEXANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.000131539735614&nbsp;=</p>
+<p class=source>n-HEPTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.18355240796e-005&nbsp;=</p>
+<p class=source>n-OCTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.30726797887e-006&nbsp;=</p>
+<p></p>
+</body>
+</html>

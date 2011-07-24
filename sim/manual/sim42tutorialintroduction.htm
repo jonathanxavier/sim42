@@ -1,0 +1,395 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Sim42 Tutorial - Introduction</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onmousedown=d2hpopup() onload="d2hload()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none style="DISPLAY: none">
+</iframe>
+</div>
+<div id=ienav>
+<ILAYER id=nsnav>
+<br>
+<center>
+<p class=normal><A href="s42-toc.htm" target=left>contents</a> &nbsp; <A href="s42-index.htm" target=left>index</a> &nbsp; <A href="sim42usersguide.htm">previous</a> &nbsp; <A href="thebuildingblocksofasimulation.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ILAYER>
+</div>
+<p class=heading-3>Sim42 Tutorial - Introduction</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>Given the interactive nature of Sim42, the best way to learn to use it is by running it and experimenting. In this case, we want to design a simple refrigeration plant using ammonia to remove 10000 W of energy. We want to keep the refrigerated room at –10 C, and the lowest water temperature we can have for the condenser is 25 C. Assume that the pressure drop for the condenser and chiller are equal to 20 kPa and that the efficiency of the compressor is 75%. What are the pressures in the system and what is the necessary refrigerant flow?</p>
+<p class=body-text>Sim42 was designed to take advantage of two characteristics related to the way we solve engineering problems. </p>
+<P class=body-text>&nbsp;</P>
+<p class=body-text><b>Partial Information Propagation</p></B><p class=body-text>Sim42 will propagate as much information as possible through the flowsheet as soon as you enter the information, forwards and backwards from the entry point.</p>
+<P class=body-text>&nbsp;</P>
+<p class=body-text><b>Automatic Flash Calculations</p></B><p class=body-text>Sim42 continuously monitors the information available in the flowsheet and as soon as degrees of freedom are satisfied, flash calculations are invoked, information is calculated and again propagated as described in the item above.</p>
+<p class=body-text>Sim42’s design allows us to start specifying a problem from the most convenient place without worrying about specific calculation sequences.</p>
+<p class=body-text>In this example, let’s create a script to model the refrigeration loop problem described above. Start your favorite text editor (any text editor that supports ASCII files will work just fine), such as notepad.</p>
+<p class=body-text>We start by typing some identification information for our simulation.</p>
+<p class=source>#&nbsp;Ammonia&nbsp;Refrigeration&nbsp;Loop</p>
+<p class=source>#&nbsp;Sim42&nbsp;Tutorial</p>
+<p class=source>#&nbsp;Script&nbsp;programmed&nbsp;by&nbsp;MAS&nbsp;06/06/2002</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note><IMG src="_s42-35.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.75in">
+<p class=body-text>Always document your work. Simulations live forever !</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal><IMG src="_s42-36.png"></p></td>
+<td valign=top>
+<p class=body-text>The symbol # is used to start comments. Everything after the # is ignored by the Sim42 command parser.</p></td>
+</tr>
+</table>
+<p class=body-text>Now it is a good time to choose a thermodynamic property package to power the physical property calculations.</p>
+<p class=source>#Create a thermodynamic case with name 
+thermo inside of the ThermodynamicAdministrator</p>
+<P class=source>#which is represented by $</P>
+<P class=source>$thermo&nbsp;=&nbsp;VirtualMaterials.Advanced_Peng-Robinson</P>
+<P class=source>&nbsp;</P>
+<P class=source>#Now link the thermodynamic case to the main flowsheet 
+represented by /</P>
+<P class=source>/ -&gt; $thermo</P>
+<P class=source>&nbsp;</P>
+<P class=source>#Now the the thermodynamic case can be accessed through $ or / 
+as $thermo or /thermo</P>
+<P class=source>#Add a compound</P>
+<p class=source>/thermo&nbsp;+&nbsp;AMMONIA</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-37.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.9in">
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Sim42 uses Virtual Materials Group property package system as the default provider to power its thermodynamic calculations. </p>
+<p class=body-text>You can download a keyless version of Virtual Materials Property Package from the Sim42 website. This keyless version supports two simple property packages – Redlich-Kwong (simple cubic equation of state) and ideal solution (activity coefficient model with all activity coefficients equal to one). A comprehensive selection of property packages for the natural gas, refinery, petrochemical, chemical and pharmaceutical industries can be obtained from Virtual Materials Group (<a href="http://www.virtualmaterials.com"><span class=hyperlink>www.virtualmaterials.com</span></a>)</p></td>
+</tr>
+</table>
+<p class=body-text>Let's see what we have done. The first 
+line creates an object named "thermo" that contains a property package available through the Virtual Materials interface named Advanced_Peng-Robinson. The second line links the thermodynamic case to the main flowsheet ("/") and the third line adds the component Ammonia to the property package.</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-38.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Note that the command interface is case sensitive, and therefore if you type stream_material() instead of Stream_Material() you will get a command error.</p>
+<p class=body-text>Note that the component names sent 
+      to the Virtual Materials Group thermo server are case insensitive and 
+      therefore methane and METHANE are the same. Everything else in Sim42 is 
+      case sensitive, therefore it is good practice to always input the compound names in upper case  which is the way they are represented internally.</p>
+      <P class=body-text>&nbsp;</P></td>
+</tr>
+</table>
+<p class=body-text>Now we are going to add 4 material streams to connect the chiller, compressor, condenser and valve.</p>
+<p class=source>S1&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>S2&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>S3&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>S4&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-39.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Unit operations are grouped in packages. For example, the package Stream wraps several objects such as Stream_Material.</p></td>
+</tr>
+</table>
+<p class=body-text>Note that we are creating 4 material stream objects by calling the Stream_Material()  method. This method takes care of constructing a new material stream and returning the reference to that stream to the desired object using the assignment "=" object.</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-40.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Note that you have to use leading spaces when using the assignment operator. For example,</p>
+<p class=body-text>Pump1=Pump.Pump() will cause a command error, while</p>
+<p class=body-text>Pump1 = Pump.Pump() will be interpreted correctly.</p>
+      <P class=body-text>&nbsp;</P></td>
+</tr>
+</table>
+<p class=body-text>Now let’s create all the necessary unit operations:</p>
+<p class=source>Chiller&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;Heater.Heater()</p>
+<p class=source>Compressor&nbsp;=&nbsp;Compressor.Compressor()</p>
+<p class=source>Condenser&nbsp;&nbsp;=&nbsp;Heater.Cooler()</p>
+<p class=source>JT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;Valve.Valve()</p>
+<p class=body-text>Note that we are repeating the same conceptual procedure used to create the material streams, except that instead of creating the objects from the Stream package we are using the Heater, Compressor and Valve packages. Also note that the Heater package supports other objects, in this case the Cooler and the Heater objects respectively.</p>
+<p class=body-text>With the streams and unit operations created, let’s specify the values we know from the problem statement.</p>
+<p class=source>S1.Out.T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;253.15&nbsp;K</p>
+<p class=source>S1.Out.VapFrac&nbsp;&nbsp;=&nbsp;1</p>
+<p class=source>S1.Out.Fraction&nbsp;=&nbsp;1</p>
+<p class=source>&nbsp;</p>
+<p class=source>S3.Out.T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;333.15&nbsp;K</p>
+<p class=source>S3.Out.VapFrac&nbsp;&nbsp;=&nbsp;0</p>
+<p class=source>S3.Out.Fraction&nbsp;=&nbsp;1</p>
+<p class=source>&nbsp;</p>
+<p class=source>Chiller.DeltaP&nbsp;=&nbsp;20</p>
+<p class=source>Chiller.InQ&nbsp;&nbsp;&nbsp;=&nbsp;10000</p>
+<p class=source>&nbsp;</p>
+<p class=source>Compressor.Efficiency&nbsp;=&nbsp;0.75</p>
+<p class=source>&nbsp;</p>
+<p class=source>Condenser.DeltaP&nbsp;=&nbsp;20</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note><IMG src="_s42-41.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.75in">
+<p class=body-text>Note that you can change units on the fly for specifications</p></td>
+</tr>
+</table>
+<p class=source>#Finally&nbsp;lets&nbsp;connect&nbsp;the&nbsp;streams&nbsp;and&nbsp;unit&nbsp;operations</p>
+<p class=source>S1.Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;Compressor.In</p>
+<p class=source>Compressor.Out&nbsp;-&gt;&nbsp;S2.In</p>
+<p class=source>S2.Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;Condenser.In</p>
+<p class=source>Condenser.Out&nbsp;&nbsp;-&gt;&nbsp;S3.In</p>
+<p class=source>S3.Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;JT.In</p>
+<p class=source>JT.Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;S4.In</p>
+<p class=source>S4.Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;Chiller.In</p>
+<p class=source>Chiller.Out&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;S1.In</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-42.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.9in">
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Note that setting a vapor fraction equal to 1 is equivalent to specifying a fluid at its dew point.</p>
+<p class=body-text>Note that setting a vapor fraction equal to 0 is equivalent to specifying a fluid at its bubble point.</p></td>
+</tr>
+</table>
+<p class=body-text>                    And you are done! Sim42 will calculate the refrigerant flow from the duty and specific enthalpy information we have available from the chiller outlet and the valve, and  the entire flowsheet is specified.</p>
+<p class=body-text>                                                     &nbsp;</p>
+<p class=body-text>                                       In order to run the script you can open  Sim42 and type the command:</p>
+<p class=source>#The read command is used to process a 
+Sim42 script.</p>
+<p class=source>#The following line assumes that your 
+script is called myammoniascript.tst and that</p>
+<p class=source>#it is stored in the current directory.</p>
+<p class=source>#To be in the safe side you could also type 
+the full path, for example</p>
+<p class=source>#read 
+C:\MySimulationScripts\myammoniascript.tst</p>
+<p class=source>read myammoniascript.tst</p>
+<p class=body-text>                                                     &nbsp;</p>
+<p class=body-text>                                            To save your case  you can type the command:</p>
+<p class=source>#The s42 extension is not inforced but 
+recommended</p>
+<p class=source>store&nbsp;ammonialoop.s42</p>
+<p class=body-text>                                                     &nbsp;</p>
+<p class=body-text>                                 If you want to check the results, just inspect the S1.Out values by typing S1.Out  and hitting the Enter key.</p>
+<p class=source>/&gt;&nbsp;/&gt;&nbsp;S4.Out</p>
+<p class=source>Port:&nbsp;/S4.Out&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;/Chiller.In</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.289573572791&nbsp;|</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-17.7213539124&nbsp;|&nbsp;C</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;210.524020682&nbsp;|&nbsp;kPa</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2.22932387017&nbsp;|&nbsp;kgmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;37.9676148329&nbsp;|&nbsp;kg/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-7779.89926844&nbsp;=&nbsp;kJ/kmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-4817.75420741&nbsp;|&nbsp;W</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;17.031&nbsp;|</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.283819894172&nbsp;|</p>
+<p class=source>AMMONIA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.0&nbsp;=</p>
+<p class=body-text>You may ask how come the flowsheet solved if we have not specified the energy streams for the chiller, condenser and compressor. You will notice that when we were performing the problem specifications we specified the chiller duty directly at the chiller duty port, and we did not use explicitly an energy stream. The energy port was automatically filled in for the condenser by doing an energy balance around it, and in the same way the energy port in the compressor was filled in based on the compression work necessary to compress the refrigerant. You can verify this by inspecting the energy ports.</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note><IMG src="_s42-43.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.75in">
+<p class=body-text>Sim42 allows you to connect unit operations directly without using material or energy streams using their material and signal ports.</p></td>
+</tr>
+</table>
+<p class=body-text>This points out to another way of solving the problem without using material streams, but rather, just the unit operation inlet and outlet ports. The complete script for this alternative solution is presented below.</p>
+<p class=source>#&nbsp;Ammonia&nbsp;Refrigeration&nbsp;Loop&nbsp;-&nbsp;no&nbsp;streams</p>
+<p class=source>#&nbsp;Sim42&nbsp;Tutorial</p>
+<p class=source>#&nbsp;Script&nbsp;programmed&nbsp;by&nbsp;MAS&nbsp;06/06/2002</p>
+<p class=source>&nbsp;</p>
+<p class=source>$thermo&nbsp;=&nbsp;VirtualMaterials.Advanced_Peng-Robinson</p>
+<p class=source>/ -&gt;$thermo</p>
+<p class=source>/thermo&nbsp;+&nbsp;Ammonia</p>
+<p class=source>&nbsp;</p>
+<p class=source>Chiller&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;Heater.Heater()</p>
+<p class=source>Compressor&nbsp;=&nbsp;Compressor.Compressor()</p>
+<p class=source>Condenser&nbsp;&nbsp;=&nbsp;Heater.Cooler()</p>
+<p class=source>JT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;Valve.Valve()</p>
+<p class=source>&nbsp;</p>
+<p class=source>Chiller.Out.T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;253.15&nbsp;K</p>
+<p class=source>Chiller.Out.VapFrac&nbsp;&nbsp;=&nbsp;1</p>
+<p class=source>Chiller.Out.Fraction&nbsp;=&nbsp;1</p>
+<p class=source>Chiller.DeltaP&nbsp;=&nbsp;20</p>
+<p class=source>Chiller.InQ&nbsp;&nbsp;&nbsp;=&nbsp;10000</p>
+<p class=source>&nbsp;</p>
+<p class=source>Condenser.Out.T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;333.15&nbsp;K</p>
+<p class=source>Condenser.Out.VapFrac&nbsp;&nbsp;=&nbsp;0</p>
+<p class=source>Condenser.Out.Fraction&nbsp;=&nbsp;1</p>
+<p class=source>Condenser.DeltaP&nbsp;=&nbsp;20</p>
+<p class=source>&nbsp;</p>
+<p class=source>Compressor.Efficiency&nbsp;=&nbsp;0.75</p>
+<p class=source>&nbsp;</p>
+<p class=source>Chiller.Out&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;Compressor.In</p>
+<p class=source>Compressor.Out&nbsp;-&gt;&nbsp;Condenser.In</p>
+<p class=source>Condenser.Out&nbsp;&nbsp;-&gt;&nbsp;JT.In</p>
+<p class=source>JT.Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;Chiller.In</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-44.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.9in">
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >The scripts for both examples on how to do the refrigeration loop can be found in the folder ..\sim\cmd\test:</p>
+<p class=body-text>man-refrig1.tst</p>
+<p class=body-text>man-refrig2.tst</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="MARGIN-LEFT: -0.015in">
+<tr>
+<td valign=top style="WIDTH: 1.812in">
+<p class=tableheading>Object</p></td>
+<td valign=top style="WIDTH: 2.937in">
+<p class=tableheading>Use</p></td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 1.812in">
+<p class=tabletext>#</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.937in">
+<p class=tabletext>Used for comments. Any tokens following the "#" symbol are ignored by Sim42's parser. Example: #this is an example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>units &lt;value&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Set the desired default unit system for calculations</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Example: units Field</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>=</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Used to assign an object to a variable</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Example: bert = 100.0</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Dereferencing operator. Used to assign a method or object from a container object into a local variable. </p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Example: fred =   VirtualMaterials.SRK</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>+</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Add a component to the property package object.</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Example: fred =   VirtualMaterials.SRK</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>  fred + Methane Ethane Water</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Stream</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Host object for material or energy streams.</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Example: bert =   Stream.Stream_Material()</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>fred = Stream.Stream_Energy()</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>bert has now a material stream (i.e. it supports flows, compositions, etc) while fred now has an energy stream (heat flow specs only)</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Out</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Output port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>In</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Input port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Compressor</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Compressor unit operation</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Example: comp =   Compressor.Compressor()</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Heater</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Heater exchange related unit operations</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Example: cool =   Heater.Cooler()</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>frodo = Heater.Heater()</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 1.812in">
+<p class=tabletext>Valve</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.937in">
+<p class=tabletext>Isenthalpic valve unit operation</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Example: vlv = Valve.Valve()</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

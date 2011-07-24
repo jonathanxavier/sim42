@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Flow Sheets</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="ports.htm">previous</a> &nbsp; <a href="thermoserverandpropertypackageselection.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Flow Sheets</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>In most respects flow sheets are just another unit operation and since any operation can contain networks of other unit operations, it would seem like they are nothing more than an empty unit operation. (Indeed that is exactly what the SubFlowsheet unit operation is.) However, they are special in a couple of ways.</p>
+<p class=body-text>At the root of the simulation hierarchy, there is always a flow sheet object. It is the container for all the other unit operations, including other flow sheets and sub flow sheets. More importantly, it is the flow sheet operation that contains the machinery that choreographs the solution of the simulation. It controls the sequence by which individual unit operations are called to attempt to calculate and share whatever they can. It is also the flow sheet that coordinates the forgetting of information when a value is changed or removed. Finally the flow sheet takes care of the solution of iterative recycles and controller loops.</p>
+<p class=body-text>So when would one use a flow sheet within another flow sheet and what about sub flow sheets? As mentioned above, a sub flow sheet is really just an empty unit operation. It would mainly be used to keep things tidy and organized or perhaps to use a different component list or thermodynamic methods for a group of operations. The solution of this flow sheet and its contents will be managed by its parent flow sheet (or grand parent or whatever if it is buried deeper in the hierarchy).</p>
+<p class=body-text>Nesting actual flow sheets is usually done to control iteration sequences for efficiency. Suppose you had a plant which relied upon a small control loop near the front of the calculation, but downstream of that there was a big ugly mess with lots of columns etc. On every iteration of the controller, all of that downstream stuff would get calculated, but by putting that upstream loop in its own nested flow sheet, it will get completely solved before the results are used by the outer flow sheet for the downstream operations. The figure below shows a flowsheet that contains several unit operations, including a subflowsheet unit operation. Note that Sim42 does not impose any limitation on the number of subflowsheets that can be created inside a flowsheet.</p>
+<p class=body-text><img src="_s42-54.jpg"></p>
+<p></p>
+</body>
+</html>

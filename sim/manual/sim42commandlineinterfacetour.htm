@@ -1,0 +1,186 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Sim42 Command Line Interface Tour</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onmousedown=d2hpopup() onload="d2hload()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none style="DISPLAY: none">
+</iframe>
+</div>
+<div id=ienav>
+<ILAYER id=nsnav>
+<br>
+<center>
+<p class=normal><A href="s42-toc.htm" target=left>contents</a> &nbsp; <A href="s42-index.htm" target=left>index</a> &nbsp; <A href="thecommandlineinterfacecli.htm">previous</a> &nbsp; <A href="cvsandsourcecode.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ILAYER>
+</div>
+<p class=heading-2>Sim42 Command Line Interface Tour</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=body-text>Sim42 simulations can be run as an interactive script ran by the Python interpreter. After you install Python in your system you can run the <b>CLI </b>from the DOS window.</p>
+<p class=source>C:\adams\sim\cmd&gt;python&nbsp;CommandInterface.py</p>
+<p class=body-text>The CommandInterface.py script starts an interactive, console driven session of Sim42 and it is useful for running other scripts or running interactive simulation cases.</p>
+<p class=body-text>To power the simulation we need to add a therm<A HREF="file://D:\sim\manual\specifynestedflowsheet.htm">file://D:\sim\manual\specifynestedflowsheet.htm</A>odynamic server.</p>
+<p class=source>/&gt;&nbsp;thermo&nbsp;=&nbsp;VirtualMaterials.RK</p>
+<p class=figures>The Command Line Interface prompts for commands with the following format: "CurrentObject&gt; ". As you can see, in the previous command the Current Object is the root flowsheet which is called "/"</p>
+<p class=figures-p>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note><IMG src="_s42-19.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.75in">
+<p class=body-text>You can navigate through the object hierarchy using common file folder commands:</p>
+<p class=body-text>dir shows the contents of the object</p>
+<p class=body-text>cd .. moves to the next object higher in the hierarchy</p>
+<p class=body-text>cd &lt;object name&gt; moves into the object named "object name"</p>
+<p class=body-text>cd / moves to the root object</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=source>/&gt;&nbsp;dir</p>
+<p class=source>thermo&nbsp;=&nbsp;sim.thermo.ThermoAdmin.ThermoCase;&nbsp;Uses&nbsp;--&gt;&nbsp;VirtualMaterials.RK</p>
+<p class=source>MaxError:&nbsp;MaxError&nbsp;=&nbsp;0.0001</p>
+<p class=source>Ignored:&nbsp;Ignored&nbsp;=&nbsp;None</p>
+<p class=source>MaxNumIterations:&nbsp;MaxNumIterations&nbsp;=&nbsp;20</p>
+<p class=body-text>Note that the dir command shows you what is contained in the root flowsheet object – in this case the thermo object, as well as properties of the root flowsheet object (which is itself a UnitOperation), such as the maximum error in convergence (MaxError), ignored objects (Ignored) and the maximum number of iterations for convergence (MaxNumIterations).</p>
+<p class=body-text>Another fundamental building block in  Sim42 is the UnitOperation object. Let's add a material stream to our simulation and see its contents.</p>
+<p class=source>/&gt;&nbsp;s&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>/&gt;&nbsp;dir</p>
+<p class=source>thermo:&nbsp;thermo&nbsp;=&nbsp;sim.thermo.ThermoAdmin.ThermoCase;&nbsp;Uses&nbsp;--&gt;&nbsp;VirtualMaterials.RK</p>
+<p class=source>s:&nbsp;s&nbsp;=&nbsp;sim.unitop.Stream.Stream_Material</p>
+<p class=source>MaxError:&nbsp;MaxError&nbsp;=&nbsp;0.0001</p>
+<p class=source>Ignored:&nbsp;Ignored&nbsp;=&nbsp;None</p>
+<p class=source>MaxNumIterations:&nbsp;MaxNumIterations&nbsp;=&nbsp;20</p>
+<p class=figures>&nbsp;</p>
+<p class=figures-p>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-20.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.9in">
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Note that the flowsheet object contains some important predefined parameters:</p>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >1.</p><p class=body-text style="MARGIN-TOP: -12pt; MARGIN-LEFT: 25pt">MaxError is the maximum error in the convergence of recycles.</p>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >2.</p><p class=body-text style="MARGIN-TOP: -12pt; MARGIN-LEFT: 25pt">MaxNumIterations is the maximum number of iterations for the convergence of recycles</p>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >3.</p><p class=body-text style="MARGIN-TOP: -12pt; MARGIN-LEFT: 25pt">Ignored is a flag which causes the unit operation (in this case the whole root flowsheet) to be ignored by the solver when it is set to a value other than None.</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-21.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >You can eliminate unit operations from the calculation sequence by ignoring them. This is useful when setting up large flow sheets and avoiding recalculations until you are ready to proceed. Ignoring a unit operation causes any unit operations contained by it to be ignored as well.</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-22.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Sim42 solves multiple recycles simultaneously. You do not have to set any special recycle controls.</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-23.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Sim42 has the ability of supporting multiple solvers. By default, unit operations are solved by the root flowsheet solver. If you want to control the sequence at which recycles are solved you can create additional flowsheet unit operations within the root flowsheet. Each flowsheet unit operation has its own solver and allows you to encapsulate complex sequences of unit operations and present them effectively as a new unit operation.</p></td>
+</tr>
+</table>
+<p class=body-text>You can now inspect the newly created Stream_Material object named "s":</p>
+<p class=source>/&gt;&nbsp;cd&nbsp;s</p>
+<p class=source>/s</p>
+<p class=source>/s&gt;&nbsp;dir</p>
+<p class=source>thermo:&nbsp;thermo&nbsp;=&nbsp;sim.thermo.ThermoAdmin.ThermoCase;&nbsp;Uses&nbsp;--&gt;&nbsp;VirtualMaterials.RK</p>
+<p class=source>In:&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Out:&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Ignored:&nbsp;Ignored&nbsp;=&nbsp;None</p>
+<p class=source>&nbsp;</p>
+<p class=body-text>Now inspect the In object (in Sim42's jargon this is known as an <i>in material port</i>).</p>
+<p class=source>/s&gt;&nbsp;cd&nbsp;In</p>
+<p class=source>/s.In</p>
+<p class=source>/s.In&gt;&nbsp;dir</p>
+<p class=source>&nbsp;</p>
+<p class=source>MolecularWeight:&nbsp;BasicProperty&nbsp;MolecularWeight</p>
+<p class=source>H:&nbsp;BasicProperty&nbsp;H</p>
+<p class=source>Energy:&nbsp;BasicProperty&nbsp;Energy</p>
+<p class=source>MassFlow:&nbsp;BasicProperty&nbsp;MassFlow</p>
+<p class=source>P:&nbsp;BasicProperty&nbsp;P</p>
+<p class=source>S:&nbsp;BasicProperty&nbsp;S</p>
+<p class=source>ZFactor:&nbsp;BasicProperty&nbsp;ZFactor</p>
+<p class=source>T:&nbsp;BasicProperty&nbsp;T</p>
+<p class=source>molarV:&nbsp;BasicProperty&nbsp;molarV</p>
+<p class=source>VapFrac:&nbsp;BasicProperty&nbsp;VapFrac</p>
+<p class=source>MoleFlow:&nbsp;BasicProperty&nbsp;MoleFlow</p>
+<p class=body-text>You will now recognize the objects contained by a process simulator such as molar enthalpy (H), temperature (T), pressure (P), etc.</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-24.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Sim42 operates based on the “port” concept. A port is an entry point in an area of the flowsheet where you want to perform material and energy balances. For example, a heater has 3 ports, an In material port, an Out material port and an In energy port. </p>
+<p class=body-text>Note that streams (energy or material) are just unit operations. You can construct simple flow sheets without using a single material or energy stream by just connecting the In and Out ports from different unit operations.  Streams do have the important property of allowing additional ports to be added to them which allows information to be effectively copied for side calculations that are often important in more complex calculations.</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-25.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Sometimes when you are creating complex connections you may not want to have the solver try to solve after every command. In order to stop the solver, you can issue a hold command. To restart the flowsheet solver after you have finished your connections you can issue a go command.</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-26.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >Note that Sim42 is software designed to be layered and work as a server for many different products. The command line interpreter we used in the example below is a very basic, highly functional interface to the Sim42 API. </p></td>
+</tr>
+</table>
+<p class=relatedhead>More:</p>
+<p class=relatedhead-p>&nbsp;</p>
+<p class=normal><A href="cvsandsourcecode.htm"><IMG src="button.gif" border=0></a><A style="TEXT-DECORATION: none" href="cvsandsourcecode.htm" >CVS and Source Code</a></p>
+<p class=normal><A href="interactivesimulationanddegreesoffreedommonitoring.htm"><IMG src="button.gif" border=0></a><A style="TEXT-DECORATION: none" href="interactivesimulationanddegreesoffreedommonitoring.htm" >Interactive Simulation and Degrees of Freedom Monitoring</a></p>
+<p></p>
+</body>
+</html>

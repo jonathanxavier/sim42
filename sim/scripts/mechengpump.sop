@@ -1,0 +1,46 @@
+inlet = Stream.Stream_Material()
+inlet.flow = Stream.SensorPort('MassFlow')
+inlet.molarV = Stream.SensorPort('molarV')
+inlet.p = Stream.SensorPort('P')
+inlet.mw = Stream.SensorPort('MolecularWeight')
+
+outlet = Stream.Stream_Material()
+outlet.p = Stream.SensorPort('P')
+outlet.molarV = Stream.SensorPort('molarV')
+outlet.mw = Stream.SensorPort('MolecularWeight')
+
+power = Stream.Stream_Energy()
+power.Q = Stream.SensorPort('Energy')
+
+pump = Heater.Heater()
+inlet.Out -> pump.In
+outlet.In -> pump.Out
+power.Out -> pump.InQ
+
+
+powerEqn = Equation.Equation()
+cd powerEqn
+Equation = '''
+Signal P(pIn, pOut) MassFlow(f)
+Signal Fraction(eff) Energy(Q)
+Signal molarV(v, vOut) MolecularWeight(mw, mwOut)
+vOut = v  # will cause inconsistancy if too different
+mwOut = mw  # should be known, but not calced until flash
+Q * eff = f*(pOut - pIn)*v/mw/3.6
+'''
+/inlet.flow -> f
+/inlet.p -> pIn
+/outlet.p -> pOut
+/inlet.molarV -> v
+/inlet.mw -> mw
+/outlet.molarV -> vOut
+/outlet.mw -> mwOut
+/power.Q -> Q
+cd ..
+
+inlet.In @ In
+outlet.Out @ Out
+power.In @ InQ
+pump.DeltaP @ DeltaP
+powerEqn.eff @ Efficiency
+

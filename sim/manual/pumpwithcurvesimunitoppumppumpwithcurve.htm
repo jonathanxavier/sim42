@@ -1,0 +1,195 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PumpWithCurve - sim.unitop.Pump.PumpWithCurve</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="pumpsimunitoppumppump.htm">previous</a> &nbsp; <a href="scriptunitop.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>PumpWithCurve - sim.unitop.Pump.PumpWithCurve</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The PumpWithCurve unit operation performs the mechanical energy balance necessary to determine the power necessary to move a liquid fluid for a given pressure increase taking into account the pump characteristics as represented by the pump curves.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>p&nbsp;=&nbsp;Pump.PumpWithCurve()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="width: 2.6875in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Pump.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>pump.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>In Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Pump inlet</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Out Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Pump outlet </p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>InQ Energy Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Pump duty</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>PumpSpeed</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Table(s) defining pump curves</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>NumberTables</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Number of Tables defining pump curves. The default is 1</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>PumpSpeed&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Pump speed for table n</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>FlowCurve&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Flow curve</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>FlowCurve0 = 0 1000.0 2000.0</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>HeadCurve&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Head curve </p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>HeadCurve0 = 0 10.0 20.0</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Power&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Power Curve</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Power0 = 0 700.0 800.0</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>EfficiencyCurve&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Efficiency Curve</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Efficiency Curve&lt;n&gt; = 0 0.5 0.7</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Equations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>&nbsp;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>#&nbsp;pump&nbsp;test</p>
+<p class=source>units&nbsp;SI</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.Peng-Robinson</p>
+<p class=source>thermo&nbsp;+&nbsp;&nbsp;WATER</p>
+<p class=source>&nbsp;</p>
+<p class=source>#&nbsp;A&nbsp;real&nbsp;pump&nbsp;with&nbsp;one&nbsp;set&nbsp;of&nbsp;pump&nbsp;curves&nbsp;------------------</p>
+<p class=source>#&nbsp;where&nbsp;head-flow-efficiency-power&nbsp;are&nbsp;restricted</p>
+<p class=source>realPump&nbsp;=&nbsp;Pump.PumpWithCurve()</p>
+<p class=source>cd&nbsp;realPump&nbsp;</p>
+<p class=source>&nbsp;</p>
+<p class=source>NumberTables&nbsp;=&nbsp;1</p>
+<p class=source>PumpSpeed0&nbsp;=&nbsp;100.0</p>
+<p class=source>FlowCurve0&nbsp;=&nbsp;0.0&nbsp;1000.0&nbsp;2000.0&nbsp;3000.0&nbsp;4000.0&nbsp;5000.0&nbsp;6000.0&nbsp;7000.0&nbsp;&nbsp;#&nbsp;mass&nbsp;flow</p>
+<p class=source>HeadCurve0&nbsp;=&nbsp;0.0&nbsp;&nbsp;10.0&nbsp;&nbsp;&nbsp;20.0&nbsp;&nbsp;&nbsp;30.0&nbsp;&nbsp;&nbsp;40.0&nbsp;&nbsp;&nbsp;50.0&nbsp;&nbsp;&nbsp;60.0&nbsp;&nbsp;&nbsp;70.0</p>
+<p class=source>Power0&nbsp;=&nbsp;0.0&nbsp;&nbsp;700.0&nbsp;800.0&nbsp;900.0&nbsp;1000.0&nbsp;1200.0&nbsp;1500.0&nbsp;2000.0</p>
+<p class=source>EfficiencyCurve0&nbsp;=&nbsp;0.0&nbsp;0.5&nbsp;0.7&nbsp;0.8&nbsp;0.8&nbsp;0.7&nbsp;0.5&nbsp;0.0</p>
+<p class=source>&nbsp;</p>
+<p class=source>PumpSpeed&nbsp;=&nbsp;30.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;operating&nbsp;pump&nbsp;speed,&nbsp;not&nbsp;used&nbsp;here</p>
+<p class=source>In.Fraction&nbsp;=&nbsp;1.0</p>
+<p class=source>In.P&nbsp;=&nbsp;101.325</p>
+<p class=source>In.T&nbsp;=&nbsp;20</p>
+<p class=source>In.MoleFlow&nbsp;=&nbsp;200.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;calculate&nbsp;delP&nbsp;from&nbsp;flow</p>
+<p class=source>&nbsp;</p>
+<p class=source>In</p>
+<p class=source>Out</p>
+<p class=source>InQ</p>
+<p class=source>&nbsp;</p>
+<p class=source>#&nbsp;calculate&nbsp;flow&nbsp;from&nbsp;delP</p>
+<p class=source>In.MoleFlow&nbsp;=&nbsp;None</p>
+<p class=source>Out</p>
+<p class=source>Out.P&nbsp;=&nbsp;400.0</p>
+<p class=source>Out</p>
+<p class=source>InQ</p>
+<p class=source>&nbsp;</p>
+<p class=source>#&nbsp;calculate&nbsp;flow&nbsp;and&nbsp;delP&nbsp;from&nbsp;InQ</p>
+<p class=source>Out.P&nbsp;=&nbsp;None</p>
+<p class=source>Out</p>
+<p class=source>InQ&nbsp;=&nbsp;1000.0</p>
+<p class=source>Out</p>
+<p></p>
+</body>
+</html>

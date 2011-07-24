@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>What is it?</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="whysim42.htm">previous</a> &nbsp; <a href="isitreallyfree.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>What is it?</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>Simulator42 is an open source process simulator project with the goal of providing an affordable and accessible simulator to the chemical engineering community. </p>
+<p class=body-text>Some interesting features of the project: </p>
+<p class=body-text>It is being written in the Python language </p>
+<p class=body-text>The simulator core has designed to be independent of both user interfaces and thermodynamic methods providers. </p>
+<p class=body-text>A graphical interface is being developed for the project and an independent command/scripting interface is also available. Other interfaces, including proprietary third party interfaces are expected. </p>
+<p class=body-text>The flow sheet solver can propagate partial information both backwards and forward through the flow sheet, which allows many complex problems to be solved without iterative calculation of recycle loops. Consistency checks are used to avoid unintended over specification of problems. </p>
+<p class=body-text>The simulator does not require recycle unit operations, but rather the use of estimate values allows the solver to recognize the existence of recycles and converge them simultaneously.</p>
+<p class=body-text>A distillation column employing a Russell inside/out algorithm and capable of solving complex pump around, side water draws and side stripper problems has been implemented. </p>
+<p></p>
+</body>
+</html>

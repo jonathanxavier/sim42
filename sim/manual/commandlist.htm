@@ -1,0 +1,333 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Command Line Interface Commands and Operators</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+    <p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp;
+    <a href="s42-index.htm" target="left">index</a> &nbsp;
+    <a href="troubleshootinginstallation.htm">previous</a> &nbsp;
+    <a href="nomenclature.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Command Line Interface Commands and Operators</p>
+<p class=heading-3-p>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.375in">
+<p class=tableheading>Command</p></td>
+<td valign=top style="width: 2.375in">
+<p class=tableheading>Meaning</p></td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>cd &lt;object path&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Changes the current object to the object described by
+        the object path.  This is a dot separated list of objects descending
+        from the current object.  The special items '/' represent the top object
+        (the root flowsheet) and '..' represents the parent of the current
+        object.</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.375in">
+<p class=tabletext>clear</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.375in">
+<p class=tabletext>destroys the current simulation and starts a new one</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>commonproperties &lt;property list&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>
+        Sets or displays the list of properties that the property provider will
+        calculate for each material port. If the list is present, then the current
+        display property list will be replaced, otherwise the current list is
+        displayed.</p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>delete &lt;object path&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Attempts to delete the object described by object
+        path.</p>
+</td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>dir &lt;object path&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Lists the objects contained in the object described
+        by the object path.  If the object path is omitted, the contents of the
+        current object are listed.</p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>displayproperties &lt;property list&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>
+        If the property list is omitted, the properties that are displayed for a
+        material port are listed.  If the list is present, then the current
+        display property list will be replaced.</p>
+    </td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>go</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>resume simulation calculations, usually used after a hold command was issued</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+    <td valign=top>
+        <p class=tabletext>hold</p>
+    </td>
+    <td valign=top>
+        <p class=tabletext>stop simulation calculations. Useful to set up
+        complex unit operation connections or change several simulation
+        specifications without restarting calculations</p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>language &lt;language&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>
+        Switch to using 'language' for warning and information messages.
+        Commands and variable names are not affected.  The languages currently
+        supported are English, Spanish and Portuguese.</p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>log &lt;file name&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Records all commands in a file.  If the file already
+        exists, the commands are appended to the end.  If the file does not
+        exist, it is created</p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>ls &lt;directory name&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Lists the files in the directory described by
+        directory path, which is relative to the current directory.  If no
+        directory is given, the contents of the current directory are listed. </p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>mkdir &lt;directory name&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Creates the directory described by
+        directory path, which is relative to the current directory.</p>
+    </td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>quit</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>end a simulation session</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>read &lt;file name&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>read a simulation script. Note that you can use "/" (Unix style) or "\" (DOS Style) as your folder separator.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>recall &lt;file name&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>read a simulation file. Same note as above</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>rm &lt;file path&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>removes file described by file path, which is
+        relative to the current directory. </p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>rmdir &lt;directory path&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Removes the directory described by directory path,
+        which is relative to the current directory. </p>
+    </td>
+</tr>
+<td valign=top>
+<p class=tabletext>store &lt;file name&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>store a simulation to disk. Same note as above</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>units &lt;unit system&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>
+        Switches the default input and output units to 'unit system'.  Unit
+        systems can be added and customized, but the most common are SI,
+        British and Field.
+        </p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>supportedproperties</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>
+        Displays the list of properties that the property provider can
+        calculate for each material port. The actual properties calculated are
+        set with the commonproperties command.</p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>valueOf &lt;object.keyword&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>
+        Method to get the Value of a variable or an object.  This is mainly used
+        by interface writers.  The command format is 'object.keyword'.<br>
+        If keyword =<br>'key': returns the keys if object is a collection<br>
+           'processvalue': returns the process value if object is a
+           basicVariable or parameter<br>
+           'path': returns the path of the object<br>
+        </p>
+    </td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>=</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Assignment operator used to set a variable value. Example:</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Feed.In.T = 100 C</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>-&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Connection operator used to attach ports. Example:</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Feed.Out -&gt; cooler.In</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>~=</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Estimate operator. Used to set an estimated value. Example:</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Feed.In.T ~= 100. This allows values to be automatically overwritten during convergence without creating consistency problems</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.375in">
+<p class=tabletext>.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.375in">
+<p class=tabletext>Dereferencing operator. This allows you to transverse the object hierarchy. Example:</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Feed.In.T allows you to access the Temperature BasicProperty object contained in the In material port object contained in the Feed Stream_Material object.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>+</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Depends on the left hand side object, but generally
+        adds something to it, such as adding components to a thermo case.</p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>-</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Depends on the left hand side object, but generally
+        subtracts something from it, such as removing components from a thermo case.</p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>@</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Alias operator - used to create an alias for the
+        left hand side object using the right hand side description.  Only
+        current use is to alias contained unitop ports in parent object, thus
+        creating a 'borrowed' port.</p>
+    </td>
+</tr>
+<tr>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>&gt;&gt;</p>
+    </td>
+    <td valign=top style="width: 2.375in">
+        <p class=tabletext>Move operator - Used to move
+        components within a thermo case or to fix the values in a port from another.</p>
+        <p class=tabletext>Examples:</p>
+        <p class=tabletext><ul class=tabletext>
+            <li>thermo.hypo1* &gt;&gt; WATER # Move hypo1* in front of water
+            <li>thermo.METHANE &gt;&gt; $  # Move methane to end
+            <li>Feed.In &gt;&gt; V101.In   # Use values in Feed.In to fix values in V101.In
+        </ul></p>
+        
+    </td>
+</tr>
+</table>
+</body>
+</html>

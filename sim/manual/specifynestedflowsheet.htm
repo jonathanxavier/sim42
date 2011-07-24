@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Specify Nested Flowsheet</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="createnestedflowsheetfordewpointcalculations.htm">previous</a> &nbsp; <a href="mixliquidstreamstofeeddepropanizer.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Specify Nested Flowsheet</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>We start by specifying a flash that will separate the hydrocarbon liquids from the chilled gas.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>/&gt;&nbsp;cd&nbsp;ContFS</p>
+<p class=source>/ContFS</p>
+<p class=source>/ContFS&gt;&nbsp;LTS&nbsp;=&nbsp;Flash.SimpleFlash()</p>
+<p class=source>/ContFS&gt;</p>
+<p class=body-text>Now we create a feed stream into the chilled gas separator</p>
+<p class=source>/ContFS&gt;&nbsp;LTS-Feed&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=body-text>And now we create a sensor port to make the temperature of the LTS-Feed stream available to a controller operation we will add. The controller will be used to match the sales gas dew point temperature we will specify.</p>
+<p class=source>/ContFS&gt;&nbsp;LTS-Feed.Signal&nbsp;=&nbsp;Stream.SensorPort('T')</p>
+<p class=body-text>The next step is to define the chilled gas separator gas stream</p>
+<p class=source>/ContFS&gt;&nbsp;LTS-Vap&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=body-text>We will need to perform some dew point calculations on the chilled gas without affecting any flowsheet calculations. This is conveniently done by creating a clone port.</p>
+<p class=source>/ContFS&gt;&nbsp;LTS-Vap.DPFeed&nbsp;=&nbsp;Stream.ClonePort(0)</p>
+<p class=body-text>Now we connect the Chiller hot side outlet to the LTS separator feed</p>
+<p class=source>/ContFS&gt;&nbsp;/Chiller.OutH&nbsp;-&gt;&nbsp;LTS-Feed.In</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><img src="_s42-148.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Note the use of the token "/". It tells the command line processor to go up to the root in order to find the desired object, in this case Chiller</p></td>
+</tr>
+</table>
+<p class=body-text>And finally we connect the LTS-Feed.Out port to the LTS.In port</p>
+<p class=source>/ContFS&gt;&nbsp;LTS-Feed.Out&nbsp;-&gt;&nbsp;LTS.In</p>
+<p class=body-text>Now we connect the vapor material port from the separator LTS to the LTS-Vap material stream we just created.</p>
+<p class=source>/ContFS&gt;&nbsp;LTS.Vap&nbsp;-&gt;&nbsp;LTS-Vap.In</p>
+<p class=body-text>And now we connect the chilled gas to the cold side of the Gas-Gas heat exchanger.</p>
+<p class=source>/ContFS&gt;&nbsp;LTS-Vap.Out&nbsp;-&gt;&nbsp;/Gas-Gas.InC</p>
+<p class=body-text>We now have to create the necessary dew point calculations. It is convenient to use a mole balance to replicate stream information</p>
+<p class=source>/ContFS&gt;&nbsp;DP&nbsp;=&nbsp;Balance.BalanceOp()</p>
+<p class=source>/ContFS&gt;&nbsp;DP.NumberStreamsInMat&nbsp;=&nbsp;1</p>
+<p class=source>/ContFS&gt;&nbsp;DP.NumberStreamsOutMat&nbsp;=&nbsp;1</p>
+<p class=source>/ContFS&gt;&nbsp;DP.BalanceType&nbsp;=&nbsp;2&nbsp;#mole&nbsp;balance</p>
+<p class=body-text>Now we connect the cloned port of the chilled gas material stream to the balance inlet.</p>
+<p class=source>/ContFS&gt;&nbsp;LTS-Vap.DPFeed&nbsp;-&gt;&nbsp;DP.In0</p>
+<p class=body-text>And using the mole balance outlet we specify the necessary variables for a dew point calculation.</p>
+<p class=source>/ContFS&gt;&nbsp;DP.Out0.P&nbsp;=&nbsp;815</p>
+<p class=source>/ContFS&gt;&nbsp;DP.Out0.VapFrac&nbsp;=&nbsp;1</p>
+<p class=body-text>With the dew point calculation defined, we now create a dew point temperature sensor to complete the variable set for the definition of our dew point controller unit operation.<br>
+</p>
+<p class=source>/ContFS&gt;&nbsp;DewPoint&nbsp;=&nbsp;Sensor.PropertySensor()</p>
+<p class=source>/ContFS&gt;&nbsp;DewPoint.SignalType&nbsp;=&nbsp;T</p>
+<p class=source>/ContFS&gt;&nbsp;DP.Out0&nbsp;-&gt;&nbsp;DewPoint.In</p>
+<p class=body-text>Now we can proceed and define the Controller. The Controller unit operation will manipulate the temperature of the LTS-Feed material stream until the dew point of the gas leaving the LTS separator is equal to a specified value.</p>
+<p class=source>/ContFS&gt;&nbsp;DPControl&nbsp;=&nbsp;Controller.Controller()</p>
+<p class=source>/ContFS&gt;&nbsp;DPControl.In&nbsp;-&gt;&nbsp;DewPoint.Signal</p>
+<p class=source>/ContFS&gt;&nbsp;DPControl.Out&nbsp;-&gt;&nbsp;LTS-Feed.Signal</p>
+<p class=source>/ContFS&gt;&nbsp;DPControl.Out&nbsp;=&nbsp;0</p>
+<p class=source>/ContFS&gt;&nbsp;DPControl.Target&nbsp;=&nbsp;15</p>
+<p class=source>/ContFS&gt;&nbsp;DPControl.StepSize&nbsp;=&nbsp;10</p>
+<p class=source>/ContFS&gt;</p>
+<p class=body-text>Note that the controller will start right away:</p>
+<p class=source>Controller&nbsp;solver&nbsp;for&nbsp;/ContFS&nbsp;calculating&nbsp;derivative&nbsp;0</p>
+<p class=source>Controller&nbsp;solver&nbsp;for&nbsp;/ContFS&nbsp;error&nbsp;-&nbsp;0.019607</p>
+<p class=source>Controller&nbsp;solver&nbsp;for&nbsp;/ContFS&nbsp;error&nbsp;-&nbsp;0.000087</p>
+<p class=body-text>As a check, lets inspect the dew point of our sales gas at the specified sales pressure of 815 psia.</p>
+<p class=source>Port:&nbsp;/ContFS.DP.Out0&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;/ContFS.DewPoint.In</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1&nbsp;*</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;14.9843902688&nbsp;=&nbsp;F</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;815.0&nbsp;*&nbsp;psia</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;66.8100384445&nbsp;=&nbsp;lbmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1301.36576493&nbsp;=&nbsp;lb/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;3058.53620449&nbsp;=&nbsp;Btu/lbmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;204306.559235&nbsp;=&nbsp;Btu/hr</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;19.4785962594&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.72162100092&nbsp;=</p>
+<p class=source>METHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.824171313245&nbsp;=</p>
+<p class=source>ETHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.12894230418&nbsp;=</p>
+<p class=source>PROPANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0278811867901&nbsp;=</p>
+<p class=source>ISOBUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00972881211961&nbsp;=</p>
+<p class=source>n-BUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00622490404059&nbsp;=</p>
+<p class=source>ISOPENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00178333434355&nbsp;=</p>
+<p class=source>n-PENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00112357282106&nbsp;=</p>
+<p class=source>n-HEXANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.000131440733803&nbsp;=</p>
+<p class=source>n-HEPTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.18256170248e-005&nbsp;=</p>
+<p class=source>n-OCTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.30610909107e-006&nbsp;=</p>
+<p class=body-text>We can now return to the top flowsheet and keep building our gas plant.</p>
+<p class=source>/ContFS&gt;&nbsp;cd&nbsp;/</p>
+<p></p>
+</body>
+</html>

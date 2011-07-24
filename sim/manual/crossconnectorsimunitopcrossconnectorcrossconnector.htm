@@ -1,0 +1,170 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>CrossConnector - sim.unitop.CrossConnector.CrossConnector</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="coolersimunitopheatercooler.htm">previous</a> &nbsp; <a href="energysensorsimunitopsensorenergysensor.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>CrossConnector - sim.unitop.CrossConnector.CrossConnector</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The cross connector is useful when you have unit operations using a different property package from the property package defined in the flowsheet.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>x&nbsp;=&nbsp;CrossConnector.CrossConnector()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="width: 2.6875in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>CrossConnector.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext> connector.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>In Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Cross Connector feed</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Out Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Cross Connector outlet</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>OutQ</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Cooler energy stream</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>IntensiveVar1</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Intensive variable 1 for flash. Default is T (Temperature)</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>IntensiveVar2</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Intensive variable 2 for flash. Default is P (Pressure)</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: 0in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note><img src="_s42-72.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.75in">
+<p class=body-text>Imagine the CrossConnector unit operation as a device that transports intensive variables and flows across a property package boundary, honoring the flows, compositions and two intensive variables that you specify.</p></td>
+</tr>
+</table>
+<p class=source>#&nbsp;Cross&nbsp;connecter&nbsp;thermo&nbsp;test</p>
+<p class=source>units&nbsp;SI</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.Peng-Robinson</p>
+<p class=source>thermo&nbsp;+&nbsp;PROPANE&nbsp;ISOBUTANE&nbsp;n-BUTANE&nbsp;n-PENTANE&nbsp;WATER</p>
+<p class=source>#&nbsp;lets&nbsp;have&nbsp;some&nbsp;streams&nbsp;for&nbsp;this&nbsp;test</p>
+<p class=source>coldInlet&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>hotInlet&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;hotInlet.In</p>
+<p class=source>T&nbsp;=&nbsp;200</p>
+<p class=source>P&nbsp;=&nbsp;150</p>
+<p class=source>Fraction&nbsp;=&nbsp;.01&nbsp;.02&nbsp;.01&nbsp;0&nbsp;1</p>
+<p class=source>MoleFlow&nbsp;=&nbsp;500</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>cd&nbsp;/coldInlet.In</p>
+<p class=source>Fraction</p>
+<p class=source>Fraction&nbsp;=&nbsp;.75&nbsp;15&nbsp;.08&nbsp;.02&nbsp;0</p>
+<p class=source>VapFrac&nbsp;=&nbsp;0</p>
+<p class=source>P&nbsp;=&nbsp;300</p>
+<p class=source>T&nbsp;=</p>
+<p class=source>MoleFlow&nbsp;=&nbsp;1000</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>&nbsp;</p>
+<p class=source>coldOutlet&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>&nbsp;</p>
+<p class=source>exch&nbsp;=&nbsp;Heater.HeatExchanger()</p>
+<p class=source>exch</p>
+<p class=source>cd&nbsp;exch</p>
+<p class=source>DeltaPC&nbsp;=&nbsp;10</p>
+<p class=source>DeltaPH&nbsp;=&nbsp;50</p>
+<p class=source>DeltaTHO&nbsp;=&nbsp;5&nbsp;K</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>&nbsp;</p>
+<p class=source>#&nbsp;hot&nbsp;side&nbsp;will&nbsp;use&nbsp;steam&nbsp;property&nbsp;package</p>
+<p class=source>exch.HotSide.thermo&nbsp;=&nbsp;VirtualMaterials.Steam95</p>
+<p class=source>exch.HotSide.thermo&nbsp;+&nbsp;water</p>
+<p class=source>&nbsp;</p>
+<p class=source>#&nbsp;create&nbsp;hot&nbsp;outlet&nbsp;and&nbsp;assign&nbsp;the&nbsp;hot&nbsp;inlet&nbsp;thermo</p>
+<p class=source>hotOutlet&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>hotOutlet.thermo&nbsp;=&nbsp;exch.HotSide.thermo</p>
+<p class=source>&nbsp;</p>
+<p class=source>#&nbsp;create&nbsp;CrossConnector</p>
+<p class=source>xc&nbsp;=&nbsp;CrossConnector.CrossConnector()</p>
+<p class=source>hotInlet.Out&nbsp;-&gt;&nbsp;xc.In</p>
+<p class=source>xc.In</p>
+<p class=source>xc.Out</p>
+<p class=source>&nbsp;</p>
+<p class=source>#connect&nbsp;things</p>
+<p class=source>coldInlet.Out&nbsp;-&gt;&nbsp;exch.InC</p>
+<p class=source>exch.OutC&nbsp;-&gt;&nbsp;coldOutlet.In</p>
+<p class=source>xc.Out&nbsp;-&gt;&nbsp;exch.InH</p>
+<p class=source>exch.OutH.T</p>
+<p class=source>exch.OutH&nbsp;-&gt;&nbsp;hotOutlet.In</p>
+<p class=source>&nbsp;</p>
+<p class=source>#&nbsp;results</p>
+<p class=source>coldInlet</p>
+<p class=source>coldInlet.Out</p>
+<p class=source>coldOutlet.Out</p>
+<p class=source>hotInlet.Out</p>
+<p class=source>hotOutlet.Out</p>
+<p class=source>exch.ColdSide.InQ</p>
+<p></p>
+</body>
+</html>

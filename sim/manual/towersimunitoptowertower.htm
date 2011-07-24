@@ -1,0 +1,871 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tower - sim.unitop.Tower.Tower</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onmousedown=d2hpopup() onload="d2hload()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none style="DISPLAY: none">
+</iframe>
+</div>
+<div id=ienav>
+<ILAYER id=nsnav>
+<br>
+<center>
+<p class=normal><A href="s42-toc.htm" target=left>contents</A> &nbsp; <A href="s42-index.htm" target=left>index</A> &nbsp; <A href="streamsignalsimunitopstreamstreamsignal.htm">previous</A> &nbsp; <A href="understandingsim42stowerspecifications.htm">next</A></p>
+</center>
+<br>
+<hr noshade size=1>
+</ILAYER>
+</div>
+<p class=heading-3>Tower - sim.unitop.Tower.Tower</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>The Tower unit operation is a powerful rigorous distillation tower using the inside-out algorithm for the solution of the material and energy balances that arise from the tray to tray connections. The tower uses RedTree’s implementation of Russell’s algorithm(Russell, 1980)</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>t&nbsp;=&nbsp;Tower.Tower()</p>
+<p class=body-text>Sim42 models a distillation tower as a series of equilibrium stages connected in countercurrent fashion as shown below:</p>
+<br>
+<p class=body-text>The material and energy balances are performed at every stage and combined to give rise to a matrix of equations solved as detailed in the Tower Equations section. The summary of most important terms is given in the table below. Check the nomenclature section for a more extensive coverage of used symbols.</p>
+<table cellpadding=0 cellspacing=0 border=1 style="MARGIN-LEFT: -0.015in">
+<tr>
+<td valign=top style="WIDTH: 2.375in">
+<p class=tableheading>Symbol</p></td>
+<td valign=top style="WIDTH: 2.375in">
+<p class=tableheading>Meaning</p></td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.375in">
+<p class=tabletext>N</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.375in">
+<p class=tabletext>Number of equilibrium stages</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>j</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Stage Number</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>F</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Molar feed into an equilibrium stage</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Q</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Energy feed in or out of an equilibrium stage</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>L</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Saturated molar liquid flow between stages</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>V</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Saturated molar vapor flow between stages</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>l</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Saturated molar liquid side draw</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.375in">
+<p class=tabletext>v</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.375in">
+<p class=tabletext>Saturated molar vapor side draw</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><b>Tower Equations</b></p>
+<p class=body-text>The basic equations that define the Tower unit operation are discussed below.</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Definitions</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-95.png">		- for component i, stage j</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-96.png">		- V is vapour flowing to stage above</p>
+<p class=body-text>			- L is liquid flowing to stage below</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-97.png">		- <p class=body-text><IMG src="_s42-98.png">is liquid draw n from stage j</p>
+<p class=body-text><IMG src="_s42-99.png">		- <p class=body-text><IMG src="_s42-100.png">is vapour draw n from stage j</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Efficiency Definition: effectively the vapour leaving a stage is the sum of the equilibrium vapour from that stage times the efficiency and the vapour from the stage below times one minus the efficiency</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>	<p class=body-text><IMG src="_s42-101.png">	- where <p class=body-text><IMG src="_s42-102.png">is the equilibrium flow of i from stage j</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>This leads to:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-103.png">	(1)</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Let:  <p class=body-text><IMG src="_s42-104.png">			(2)</p>
+<p class=body-text>(1) becomes:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-105.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-106.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-107.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-108.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-109.png">			(3)</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Stage Material Balance</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-110.png">	</p>
+<p class=body-text>								(4)</p>
+<p class=body-text>where <p class=body-text><IMG src="_s42-111.png">is a draw from stage k that is fed to stage j			 </p>
+<p class=body-text>substitute 3 into 4</p>
+<p class=body-text><IMG src="_s42-112.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-113.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-114.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-115.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>The matrix equation:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-116.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-117.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-118.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-119.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-120.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-121.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-122.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-123.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>The right hand side can be simplified to just <p class=body-text><IMG src="_s42-124.png"> if feeds are not considered in efficiencies.</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><b>Water draws</b></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Water draws will not be allowed as sources of pump around and so will only impact the balance for the stage they are on.</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Let:</p>
+<p class=body-text><IMG src="_s42-125.png"></p>
+<p class=body-text>and the component flow of the water draw be:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><sub><sub><IMG src="_s42-126.png"></sub><sub></p></SUB><p class=body-text>&nbsp;</p>
+<p class=body-text>then:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-127.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-128.png"></p>
+<p class=body-text>where:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-129.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>so:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-130.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>define:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-131.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>then:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><IMG src="_s42-132.png"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>This term will be subtracted from the matrix equation.</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="MARGIN-LEFT: -0.015in">
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Tower.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>c3splitter.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>demeth.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>deprop.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>deprop2.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>man-ethanol.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Perry5.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Perry6.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Perry8.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>Feed&lt;n&gt; </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Feed material port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>EnergyFeed&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Energy port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>LiquidDraw&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Side liquid draw material port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>VaporDraw&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Side vapor draw material port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>Estimate&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Signal with estimated values</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>TryToSolve</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Parameter telling Tower to solve. Default is 0 (do not solve). 1 signals Tower to start solving material and energy balance equations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>TryToRestart</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Parameter telling Tower if it should restart in the event it did not converge within specified parameters. The default is 1 (restart)</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>MaxOuterError</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Maximum error in outside loop. Default is 0.0001</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>MinInnerStep</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Smallest step to solve inner loop material balance. Default is 0.0001</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>MaxOuterLoops</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Maximum number of outer loop calculations. Default is 20</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>MaxInnerLoops</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Maximum number of inner loop calculations per outer loop. Default is 50</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>MaxInnerError</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Maximum error in inside loop. Default is 0.0001</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>DampingFactor</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Outer loop update step control. The default is 1</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+    <p class=tabletext>WaterDamping</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+    <p class=tabletext>Damping factor for water draw updates. The default is 0.5</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+    <p class=tabletext>Efficiencies</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+    <p class=tabletext>Stage efficiencies as defined above.  If a single value is given, it will be used
+    for all stages.  If a string is given, it will be interpreted as below to assign different efficiencies
+    to different stages.</p>
+    <p class=tabletext>
+    The string should start with a colon so it isn't confused with a number. The simplest form
+    is a list of stage number, efficiency pairs.  For example ':0 .2 1 .4 2 .6' would return
+    [.2, .4, .6] as the efficiency array for the stages</p>
+    <p class=tabletext>
+    Dashes can be used to indicate ranges (no spaces though) :0-3 .2 4 .6 yields [.2 .2 .2 .2 .6]<br>
+    A dash with nothing following means a range extending to the last element.<br>
+    A dash with nothing in front goes from 0 to the number following the dash.<br>
+    Elements not mentioned are assigned the default value, which is 1.0.<br>
+    As a special case, a single token without an index is assigned to all elements and
+    in this case the leading colon can be omitted. (as indicated in the first paragraph).
+    </p>
+      <P class=tabletext>The following syntax is used to specify efficiencies 
+      per compound:</P>
+      <P class=tabletext>':0 .32 1 .18 8 .91 @PROPANE 0 .2 1 .4 2 .6 3-7 .7 
+      @n-BUTANE 1 .3 4-5 .8 6- .4'</P>
+      <P class=tabletext>The first set of values are used for all the compounds 
+      that are not specified. The other sets of data begin with an @ followed 
+      with the name of the compound. No spaces allowed in between @ and the name 
+      of the comound, use an underscore '_' instead of ' ' (a space)&nbsp;for 
+      compounds that have spaces in their name.</P><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>InitKPower</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Controller for initial K-Value estimates.</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext><IMG src="_s42-133.png"><p class=tabletext><IMG src="_s42-134.png"> The default is 1</p>
+<p class=tabletext>If this parameter is set to 0, the tower combines all tower feeds to produce a single composition
+which is then flashed at the pressure and estimated temperature of each stage to produce initial estimates
+for K values.  This can produce much better starting conditions for systems like TEG absorbers, which may not get
+good estimates from the normal ideal K factor generators.</p>
+<p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>The Sim42 tower model generates several arrays and matrices containing tower parameters determined during the solution of the material and energy balance equations. These parameters are detailed in the table below and can be examined as tower objects in the command line interface.</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="MARGIN-LEFT: -0.015in">
+<tr>
+<td valign=top style="WIDTH: 1.583in">
+<p class=tableheading>Parameter</p></td>
+<td valign=top style="WIDTH: 0.666in">
+<p class=tableheading>Type</p></td>
+<td valign=top style="WIDTH: 2.5in">
+<p class=tableheading>Meaning</p></td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 1.583in">
+<p class=tabletext>A</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 0.666in">
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.5in">
+<p class=tabletext>simple K value model A</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>alpha</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext> component volatility</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>B</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext> simple K value model B</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>errors</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>error residual from material and energy balances and specification equation solution</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>f</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>component flow in feed</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>flowMatrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>???</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>fQ</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Enthalpy flow in equilibrium stage</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>hlModel</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Coefficients for inside loop liquid enthalpy model.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>hvModel</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Coefficients for inside loop vapor enthalpy model.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>jacobian</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>jacobian matrix for the solution of tower mass and energy balances and specifications</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>l</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>component liquid molar flow</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>L</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Saturated liquid flows</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>logSfactors</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>logarithm of stripping factors</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>mw</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>molecular weight of compounds</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>P</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>pressure profile</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>paLTerm</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>pump around liquid flow</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>paVTerm</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>pump around vapor flow</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>rlTerm</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>term in equation 4</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>rvTerm</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>term in equation 3</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>T</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Array</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>temperature profile</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>v</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>component vapor molar flow</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>y</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>component mole fraction in vapor</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>x</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Matrix</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext> component mole fraction in liquid</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note><IMG src="_s42-135.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.75in">
+<p class=body-text>By default the vapor flow from stage 0 is zero, and the liquid flow from stage N is zero. In order to create condenser vents or gas outflow from absorption towers you have to add a VaporDraw on stage 0. In order to create the bottoms flow from a distillation or absorption tower you have to add a LiquidDraw at stage N</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><IMG src="_s42-136.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Liquid and vapor draws are created 
+      using the syntax (assuming there is a column called "col"):</p>
+<p class=body-text>/col.Stage_0.v =  Tower.VapourDraw()</p>
+<p class=body-text>/col.Stage_0.l =  Tower.LiquidDraw()</p>
+      <P class=body-text>&nbsp;</P>
+<p class=body-text>Note that the name of the object 
+      you have created (in this case "v") is not important, the Tower object 
+      gets the proper type of draw from the type of draw created. col indicates 
+      the unit operation and Stage_0 indicates the stage (numbered from top to bottom with 0 at the top). The notation could be simplified by using&nbsp;the cd command as follows:</p>
+      <P class=body-text>cd /col.Stage_0&nbsp; #Make it the active object</P>
+      <P class=body-text>v =&nbsp;&nbsp;Tower.VapourDraw()</P>
+      <P class=body-text>l = Tower.LiquidDraw()</P>
+      <P class=body-text>&nbsp;</P>
+<p class=body-text>The draws have ports like material streams, and you can use these ports to define pressure profiles (more on pressure profiles below):</p>
+<p class=body-text>l.Port.P = 100</p>
+      <P class=body-text>&nbsp;</P>
+<p class=body-text>as well as specifications, such as:</p>
+<p class=body-text>l.Port.Fraction.METHANE =     0.01</p>
+      <P class=body-text>&nbsp;</P>
+      <P class=body-text>Note that the previous specification is "picked up" 
+      automatically by the tower with out needing to create a specific object. 
+      The specifications that are "picked up" automatically from the draws or 
+      clones are: Mole Fractions, Temperature, Mole Flow, Mass Flow, Volume Flow 
+      and&nbsp;Std Liq Vol Flow. Any other&nbsp;specification would 
+      require&nbsp;a specific object.</P></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<P class=body-text>&nbsp;</P>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><IMG src="_s42-137.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Feeds are created using the syntax 
+      (assume that a stage is already the active object):</p>
+<p class=body-text>f = Tower.Feed()</p>
+      <P class=body-text>&nbsp;</P>
+<p class=body-text>Note that the name you used for accessing the feed in the equilibrium stage of interest is not important.</p>
+<p class=body-text>You can connect any available material stream available in your flowsheet to the feed you just created to the equilibrium stage:</p>
+<p class=body-text>/Feed.Out -&gt; f.Port&nbsp;&nbsp; 
+      #Where "Feed" is a Material Stream</p>
+      <P class=body-text>&nbsp;</P>
+<p class=body-text>or you can also entirely define the feed using the feed port properties:</p>
+<p class=body-text>feed.In.Fraction = </p>
+<p class=body-text>feed.In.T = -135.5506</p>
+<p class=body-text>feed.In.P = 335</p>
+<p class=body-text>feed.In.MoleFlow = 21.2984</p>
+<p class=body-text>feed.In.Fraction = .0047 .0037 .7650 .1379 .0594 .0115 .0090 .0046 .0028 .0014</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<P class=body-text>&nbsp;</P>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><IMG src="_s42-138.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Energy feeds are created using the syntax:</p>
+<p class=body-text>reb = Tower.EnergyFeed(val)</p>
+<p class=body-text>where val = 0 for energy streams taking energy away from the equilibrium stage and val = 1 for energy streams taking energy into the equilibrium stage.</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<P class=body-text>&nbsp;</P>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><IMG src="_s42-139.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Estimates are created using the syntax:</p>
+<p class=body-text>estT = Tower.Estimate('val')</p>
+<p class=body-text>where val is one of T, Reflux or MoleFlow.</p>
+      <P class=body-text>&nbsp;</P>
+      <P class=body-text>&nbsp;</P></td>
+</tr>
+</table>
+
+<TABLE style="MARGIN-LEFT: 0in" cellSpacing=0 cellPadding=0 border=0>
+  
+  <TR>
+    <TD vAlign=top>
+      <P class=margin-note><IMG src="_s42-137.png"></P>
+      <P class=margin-note-p>&nbsp;</P></TD>
+    <TD vAlign=top>
+      <P class=body-text>Pressure profiles are created by 
+      linear interpolation of any known pressures which can be specified in different objects:</P>
+      <UL>
+        <LI>
+        <DIV class=body-text>In the P variable of&nbsp;the Material Port of any 
+        Liquid Draw, Vapour Draw, Internal Liquid Clone and Internal Vapour 
+        Clone</DIV>
+        <LI>
+        <DIV class=body-text>In the P_Profile object. For example, assuming 
+        there is a Tower unit operation called dist...</DIV></LI></UL>
+      <BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+        <P class=body-text>dist.P_Profile.Values&nbsp;&nbsp; #To view the 
+        profile</P>
+        <P class=body-text>dist.P_Profile.Item0&nbsp;&nbsp;&nbsp; #To view the 
+        value of the pressure in stage 0</P>
+        <P class=body-text>dist.P_Profile.Item2 = 100&nbsp; #To input 100 as the 
+        pressue of stage 2</P></BLOCKQUOTE>
+      <P class=body-text>&nbsp;</P></TD></TR></TABLE>
+<TABLE style="MARGIN-LEFT: 0in" cellSpacing=0 cellPadding=0 border=0>
+  <TR>
+    <TD vAlign=top>
+      <P class=margin-note><IMG src="_s42-137.png"></P>
+      <P class=margin-note-p>&nbsp;</P></TD>
+    <TD vAlign=top>
+      <P class=body-text>    The 
+      following syntax is used to subcool the liquids from the top stage (condenser):</P>
+      <P class=body-text>/col.Stage_0.dsc = Tower.DegSubCooling()</P>
+      <P class=body-text>/col.Stage_0.dsc.Port = 2&nbsp; #To assign a value</P>
+      <P class=body-text>delete /col.Stage_0.dsc&nbsp;&nbsp;&nbsp;&nbsp; #To 
+      delete it</P>
+      <P class=body-text>&nbsp;</P>
+      <P class=body-text>&nbsp;</P></TD></TR></TABLE>
+      
+<P 
+class=source>#&nbsp;Demethanizer&nbsp;test&nbsp;(from&nbsp;old&nbsp;Hysim&nbsp;manual)</P>
+<p class=source>units&nbsp;Field</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.Peng-Robinson</p>
+<p class=source>thermo&nbsp;+&nbsp;Nitrogen&nbsp;Carbon_Dioxide&nbsp;Methane&nbsp;Ethane&nbsp;PROPANE</p>
+<p class=source>thermo&nbsp;+&nbsp;ISOBUTANE&nbsp;n-BUTANE&nbsp;ISOPENTANE&nbsp;n-PENTANE&nbsp;n-Hexane</p>
+<p class=source>&nbsp;</p>
+<p class=source>feed&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>feed.In.Fraction&nbsp;=&nbsp;</p>
+<p class=source>feed.In.T&nbsp;=&nbsp;-135.5506</p>
+<p class=source>feed.In.P&nbsp;=&nbsp;335</p>
+<p class=source>feed.In.MoleFlow&nbsp;=&nbsp;21.2984</p>
+<p class=source>feed.In.Fraction&nbsp;=&nbsp;.0047&nbsp;.0037&nbsp;.7650&nbsp;.1379&nbsp;.0594&nbsp;.0115&nbsp;.0090&nbsp;.0046&nbsp;.0028&nbsp;.0014</p>
+<p class=source>&nbsp;</p>
+<p class=source>demeth&nbsp;=&nbsp;Tower.Tower()</p>
+<p class=source>demeth.Stage_0</p>
+<p class=source>demeth.Stage_0&nbsp;+&nbsp;4&nbsp;&nbsp;#&nbsp;just&nbsp;six&nbsp;stages`</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;demeth.Stage_0</p>
+<p class=source>&nbsp;</p>
+<p class=source>f&nbsp;=&nbsp;Tower.Feed()</p>
+<p class=source>f.Port.T&nbsp;=&nbsp;-142.2855</p>
+<p class=source>f.Port.P&nbsp;=&nbsp;330</p>
+<p class=source>f.Port.MoleFlow&nbsp;=&nbsp;6.1343</p>
+<p class=source>f.Port.Fraction&nbsp;=&nbsp;.0034&nbsp;.0051&nbsp;.7886&nbsp;.1678&nbsp;.0310&nbsp;.0025&nbsp;.0013&nbsp;.0003&nbsp;.0001&nbsp;0.0</p>
+<p class=source>&nbsp;</p>
+<p class=source>v&nbsp;=&nbsp;Tower.VapourDraw()</p>
+<p class=source>v.Port.P&nbsp;=&nbsp;330</p>
+<p class=source>#v.Port.MoleFlow&nbsp;=&nbsp;21.7&nbsp;&nbsp;#&nbsp;overhead&nbsp;flow&nbsp;spec</p>
+<p class=source>v.estF&nbsp;=&nbsp;Tower.Estimate('MoleFlow')</p>
+<p class=source>v.estF.Value&nbsp;=&nbsp;22</p>
+<p class=source>#estT&nbsp;=&nbsp;Tower.Estimate('T')</p>
+<p class=source>#estT.Value&nbsp;=&nbsp;-120</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;../Stage_1</p>
+<p class=source>f&nbsp;=&nbsp;Tower.Feed()</p>
+<p class=source>f.Port&nbsp;-&gt;&nbsp;/feed.Out</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;../Stage_5</p>
+<p class=source>l&nbsp;=&nbsp;Tower.LiquidDraw()</p>
+<p class=source>l.Port.P&nbsp;=&nbsp;335</p>
+<p class=source>reb&nbsp;=&nbsp;Tower.EnergyFeed(1)</p>
+<p class=source>#reb.Port.Energy&nbsp;=&nbsp;0.065e6</p>
+<p class=source>l.Port.Fraction.METHANE&nbsp;=&nbsp;0.01</p>
+<p class=source>&nbsp;</p>
+<p class=source>estT&nbsp;=&nbsp;Tower.Estimate('T')</p>
+<p class=source>estT.Value&nbsp;=&nbsp;0</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;..</p>
+<p class=source>&nbsp;</p>
+<p class=source>/overhead&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>/overhead.In&nbsp;-&gt;&nbsp;Stage_0.v.Port</p>
+<p class=source>&nbsp;</p>
+<p class=source>/bottoms&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>/bottoms.In&nbsp;-&gt;&nbsp;Stage_5.l.Port</p>
+<p class=source>&nbsp;</p>
+<p class=source>TryToSolve&nbsp;=&nbsp;1&nbsp;&nbsp;#&nbsp;start&nbsp;calculation&nbsp;-&nbsp;turned&nbsp;off&nbsp;by&nbsp;default</p>
+<p class=source>&nbsp;</p>
+<p class=source>/overhead.Out</p>
+<p class=source>/bottoms.Out</p>
+<p></p></SUB>
+</body>
+</html>

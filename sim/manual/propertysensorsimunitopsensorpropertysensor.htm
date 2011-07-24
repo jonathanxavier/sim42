@@ -1,0 +1,131 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PropertySensor - sim.unitop.Sensor.PropertySensor</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onmousedown=d2hpopup() onload="d2hload()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none style="DISPLAY: none">
+</iframe>
+</div>
+<div id=ienav>
+<ILAYER id=nsnav>
+<br>
+<center>
+<p class=normal><A href="s42-toc.htm" target=left>contents</A> &nbsp; <A href="s42-index.htm" target=left>index</A> &nbsp; <A href="mixersimunitopmixermixer.htm">previous</A> &nbsp; <A href="pumpsimunitoppumppump.htm">next</A></p>
+</center>
+<br>
+<hr noshade size=1>
+</ILAYER>
+</div>
+<p class=heading-3>PropertySensor – sim.unitop.Sensor.PropertySensor</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The property sensor detects a physical property from a port and sends a signal with the value of the physical property selected.  The PropertySensor is really just a Stream_Material with a single signal port and predates the introduction of SensorPorts on streams.  Using a normal Stream_Material with a SensorPort achieves the same result and is probably the preferred technique.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>ps&nbsp;=&nbsp;Sensor.PropertySensor()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="MARGIN-LEFT: -0.015in">
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Sensor.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>man-propsensor.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>In Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Property Sensor inlet</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>Out Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Property Sensor outlet </p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>Signal</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Signal being exported</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>SignalType</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Type of signal being exported (e.g. Enthalpy)</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=source>#Property&nbsp;Sensor&nbsp;Example</p>
+<p class=source>#generate&nbsp;a&nbsp;table&nbsp;of&nbsp;enthalpy&nbsp;versus&nbsp;molar&nbsp;fractions</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.Advanced_Peng-Robinson</p>
+<p class=source>thermo&nbsp;+&nbsp;WATER&nbsp;TRIETHYLENE_GLYCOL</p>
+<p class=source>&nbsp;</p>
+<p class=source>#generate&nbsp;WATER/TEG&nbsp;bubble&nbsp;temperature&nbsp;curve</p>
+<p class=source>units&nbsp;Field</p>
+<p class=source>&nbsp;</p>
+<p class=source>s&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>s.In.P&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>s.In.VapFrac&nbsp;=&nbsp;0.0</p>
+<p class=source>&nbsp;</p>
+<p class=source>ps&nbsp;=&nbsp;Sensor.PropertySensor()</p>
+<p class=source>s.Out&nbsp;-&gt;&nbsp;ps.In</p>
+<p class=source>ps.SignalType&nbsp;=&nbsp;H</p>
+<p class=source>&nbsp;</p>
+<p class=source>#generate&nbsp;enthalpy&nbsp;composition&nbsp;curve</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.0&nbsp;1.0</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.1&nbsp;0.9</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.2&nbsp;0.8</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.3&nbsp;0.7</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.4&nbsp;0.6</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.5&nbsp;0.5</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.6&nbsp;0.4</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.7&nbsp;0.3</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.8&nbsp;0.2</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.9&nbsp;0.1</p>
+<p class=source>ps.Signal</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;1.0&nbsp;0.0</p>
+<p class=source>ps.Signal</p>
+<p></p>
+</body>
+</html>

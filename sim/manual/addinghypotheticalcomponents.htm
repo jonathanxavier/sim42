@@ -1,0 +1,496 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Adding Hypothetical Components</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="propertypackageselection.htm">previous</a> &nbsp; <a href="unitoperations1.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Adding Hypothetical Components</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>If the thermo server you are using supports hypotheticals then you can define new components when you create a new simulation. You can provide any of the following pure component physical properties using the following defined tags.</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.0104167in">
+<tr>
+<td valign=top style="width: 2.0125in">
+<p class=normal style="padding: 0in 0.0104167in"><b><font color=#000000>Name</font></b><font color=#000000></font></p></td>
+</font><td valign=top style="width: 2.675in">
+<p class=normal style="padding: 0in 0.0104167in">Description</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>Name</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Chemical Component Name</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>Formula</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Chemical Formula</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>CASN</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Chemical Abstracts Service Number</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>ChemicalFamily</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Chemical family according to DIPPR classification</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>UNIFACStructure</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">UNIFAC Structure coded as &lt;ng ngcode&gt;, e.g. n-Heptane = 2 1 5 2</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>IdentificationNumber</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Component ID number from VMG database</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidThermalConductivityEqType</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Equation type for liquid thermal conductivity calculations</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>MinT</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Minimum temperature for component to seed phase splitting calculation</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>MaxT</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Maximum temperature for component to seed phase splitting calculation</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>MinP</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Minimum pressure for component to seed phase splitting calculation</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>MaxP</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Maximum pressure for component to seed phase splitting calculation</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>NormalBoilingPoint</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Boiling point at 1 atm</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>MolecularWeight</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Molecular weight</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>CriticalTemperature</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Critical Temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>CriticalPressure</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Critical Pressure</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>CriticalVolume</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Critical Volume</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>CriticalCompressibility</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Critical Compressibility</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>AcentricFactor</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Pitzer Acentric factor</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>DipoleMoment</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Dipole moment</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>Poly5IdealGasCpA</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal Gas heat capacity coefficient A</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>Poly5IdealGasCpB</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal Gas heat capacity coefficient B</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>Poly5IdealGasCpC</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal Gas heat capacity coefficient C</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>Poly5IdealGasCpD</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal Gas heat capacity coefficient D</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>Poly5IdealGasCpE</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal Gas heat capacity coefficient E</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>Poly5IdealGasCpTmin</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas heat capacity minimum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>Poly5IdealGasCpTmax</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas heat capacity maximum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>RackettLiquidDensityA</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Rackett coefficient A</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>RackettLiquidDensityB</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Rackett coefficient B</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>RackettLiquidDensityN</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Rackett coefficient N</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>RackettLiquidDensityTc</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Rackett Critical Temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>RackettLiquidDensityTmin</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Rackett minimum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>RackettLiquidDensityTmax</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Rackett maximum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>StandardLiquidDensity</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Standard Liquid density </p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidDensityRefT</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Temperature for standard liquid density</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidDensity@298</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid density at 25 C</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidThermalConductivityA</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid Thermal conductivity coefficient A</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidThermalConductivityB</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid Thermal conductivity coefficient B</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidThermalConductivityC</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid Thermal conductivity coefficient C</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidThermalConductivityTmin</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">LiquidThermalConductivity minimum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidThermalConductivityTmax</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">LiquidThermalConductivity maximum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasThermalConductivityA</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Gas Thermal conductivity coefficient A</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasThermalConductivityB</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Gas Thermal conductivity coefficient B</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasThermalConductivityC</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Gas Thermal conductivity coefficient C</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasThermalConductivityTmin</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">GasThermalConductivity minimum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasThermalConductivityTmax</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">GasThermalConductivity maximum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidViscosityA</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid viscosity coefficient A</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidViscosityB</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid viscosity coefficient B</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidViscosityC</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid viscosity coefficient C</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidViscosityD</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid viscosity coefficient D</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidViscosityTmin</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid viscosity minimum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>LiquidViscosityTmax</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Liquid viscosity maximum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasViscosityA</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Gas viscosity coefficient A</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasViscosityB</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Gas viscosity coefficient B</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasViscosityC</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Gas viscosity coefficient C</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasViscosityTmin</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Gas viscosity minimum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>GasViscosityTmax</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Gas viscosity maximum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>SurfaceTensionA</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Surface tension coefficient A</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>SurfaceTensionB</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Surface tension coefficient B</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>SurfaceTensionN</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Surface tension coefficient N</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>SurfaceTensionTmin</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Surface tension minimum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>SurfaceTensionTmax</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Surface tension maximum temperature</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>IdealGasEnthalpyOfFormationA</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas enthalpy of formation coefficient A</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>IdealGasEnthalpyOfFormationB</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas enthalpy of formation coefficient B</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>IdealGasEnthalpyOfFormationC</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas enthalpy of formation coefficient C</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>IdealGasEnthalpyOfFormation@298</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas enthalpy of formation at 25 C</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.0104167in">
+<tr>
+<td valign=top style="width: 1.9375in">
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>IdealGasGibbsFreeEnergyOfFormationA</font></p></td>
+</font><td valign=top style="width: 2.75in">
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas Gibbs free energy of formation coefficient A</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>IdealGasGibbsFreeEnergyOfFormationB</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas Gibbs free energy of formation coefficient B</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>IdealGasGibbsFreeEnergyOfFormationC</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas Gibbs free energy of formation coefficient C</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=normal style="padding: 0in 0.0104167in"><font color=#000000>IdealGasGibbsFreeEnergyOfFormation@298</font></p></td>
+</font><td valign=top>
+<p class=normal style="padding: 0in 0.0104167in">Ideal gas Gibbs free energy of formation at 25 C</p></td>
+</tr>
+<br>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>See the Virtual Materials Group <b>Thermodynamic Models </b>manual for detailed description about all the tags. The script fragment below shows how to add a hypothetical compound where the only available properties are the normal boiling point, molecular weight and liquid density at 25 C.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>/&gt;&nbsp;thermo.hypo1&nbsp;=&nbsp;HypoCompound&nbsp;'''</p>
+<p class=source>...&nbsp;NormalBoilingPoint&nbsp;=&nbsp;100&nbsp;C</p>
+<p class=source>...&nbsp;MolecularWeight&nbsp;=&nbsp;&nbsp;108.0</p>
+<p class=source>...&nbsp;LiquidDensity@298&nbsp;=&nbsp;880.0&nbsp;kg/m3</p>
+<p class=source>...&nbsp;'''</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-57.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.9in">
+<p class=body-text style="padding: 0in 0.075in">Note that all physical properties necessary to define a hypothetical are enclosed using the triple quote (''') symbol.</p>
+<p class=body-text>Note that you can use the Sim42 unit conversion system when defining a hypothetical compound</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-58.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Make sure you understand the physical property estimation rules used by your thermo provider. </p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-59.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">If you are using Virtual Materials Group property package system the minimum amount of information you have to give for the estimation of a hypothetical compound physical properties is the normal boiling point.</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Example - Ethanol Production Tower</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="examplepropanepropylenesuperfractionation.htm">previous</a> &nbsp; <a href="ethanolproductionplant.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Example &#8211; Ethanol Production Tower</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>In this example we use live steam to fractionate an ethanol-water mixture into near azeotrope ethanol/water at the top and negligible loss of ethanol at the bottoms.</p>
+<p class=source>#ethanol&nbsp;distillation</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.PSRK</p>
+<p class=source>thermo&nbsp;+&nbsp;Ethanol&nbsp;Water</p>
+<p class=source>&nbsp;</p>
+<p class=source>units&nbsp;SI</p>
+<p class=source>&nbsp;</p>
+<p class=source>Feed&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>Feed.In.MoleFlow&nbsp;=&nbsp;34.43</p>
+<p class=source>Feed.In.Fraction&nbsp;=&nbsp;0.3&nbsp;0.7</p>
+<p class=source>Feed.In.VapFrac&nbsp;=&nbsp;0.0</p>
+<p class=source>Feed.In.P&nbsp;=&nbsp;101.325</p>
+<p class=source>Feed.In</p>
+<p class=source>&nbsp;</p>
+<p class=source>Steam&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>Steam.In.P&nbsp;=&nbsp;24.7&nbsp;psia</p>
+<p class=source>Steam.In.Fraction&nbsp;=&nbsp;0&nbsp;1</p>
+<p class=source>Steam.In.MoleFlow&nbsp;=&nbsp;51.1</p>
+<p class=source>Steam.In.VapFrac&nbsp;=&nbsp;1.0</p>
+<p class=source>Steam.In</p>
+<p class=source>&nbsp;</p>
+<p class=source>dist&nbsp;=&nbsp;Tower.Tower()</p>
+<p class=source>dist.MaxOuterLoops&nbsp;=&nbsp;40</p>
+<p class=source>dist.Stage_0&nbsp;+&nbsp;12</p>
+<p class=source>cd&nbsp;dist.Stage_0</p>
+<p class=source>l&nbsp;=&nbsp;Tower.LiquidDraw()</p>
+<p class=source>l.Port.P&nbsp;=&nbsp;101.325</p>
+<p class=source>l.Port.MoleFlow&nbsp;=&nbsp;12.91</p>
+<p class=source>#reflux&nbsp;=&nbsp;Tower.RefluxRatioSpec()</p>
+<p class=source>#reflux.Port&nbsp;=&nbsp;3.0</p>
+<p class=source>cond&nbsp;=&nbsp;Tower.EnergyFeed(0)</p>
+<p class=source>estT&nbsp;=&nbsp;Tower.Estimate('T')</p>
+<p class=source>estT.Value&nbsp;=&nbsp;78</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;../Stage_11</p>
+<p class=source>f&nbsp;=&nbsp;Tower.Feed()</p>
+<p class=source>/Feed.Out&nbsp;-&gt;&nbsp;f.Port</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;../Stage_13</p>
+<p class=source>l&nbsp;=&nbsp;Tower.LiquidDraw()</p>
+<p class=source>l.Port.P&nbsp;=&nbsp;101.325</p>
+<p class=source>f&nbsp;=&nbsp;Tower.Feed()</p>
+<p class=source>/Steam.Out&nbsp;-&gt;&nbsp;f.Port</p>
+<p class=source>estT&nbsp;=&nbsp;Tower.Estimate('T')</p>
+<p class=source>estT.Value&nbsp;=&nbsp;100</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;..</p>
+<p class=source>/distillate&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>/stillage&nbsp;&nbsp;&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>/distillate.In&nbsp;-&gt;&nbsp;Stage_0.l.Port</p>
+<p class=source>/stillage.In&nbsp;-&gt;&nbsp;Stage_13.l.Port</p>
+<p class=source>&nbsp;</p>
+<p class=source>TryToSolve&nbsp;=&nbsp;1</p>
+<p></p>
+</body>
+</html>

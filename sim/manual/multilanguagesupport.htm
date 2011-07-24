@@ -1,0 +1,105 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Multilanguage Support</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onmousedown=d2hpopup() onload="d2hload()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none style="DISPLAY: none">
+</iframe>
+</div>
+<div id=ienav>
+<ILAYER id=nsnav>
+<br>
+<center>
+<p class=normal><A href="s42-toc.htm" target=left>contents</a> &nbsp; <A href="s42-index.htm" target=left>index</a> &nbsp; <A href="subflowsheetssimsolverflowsheetsubflowsheet.htm">previous</a> &nbsp; <A href="sim42constants.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ILAYER>
+</div>
+<p class=heading-3>Multilanguage Support</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>You can add multilanguage support in Sim42 and replace the default English based messages from the simulator using any language you desire. In order to customize Sim42 for your language needs you may need to add a dictionary corresponding to your target language.</p>
+<p class=body-text>Initially locate the folder  <b>..\sim\cmd\cmdlanguages</b>. You will notice that Sim42 comes with support for three languages – English, Spanish and Portuguese. If you want to create a new dictionary please add your new Python file. You will need to add a method to your new file to support a dictionary:</p>
+<p class=source>def&nbsp;Messages():</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;=&nbsp;{}</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m</p>
+<p class=body-text>And then you will have to create your 
+dictionary (dictionary is a built-in data type in Python).&nbsp;Use the keys 
+that exist in the English language as the base&nbsp;to create your own 
+dictionary.&nbsp;English is the standard language of sim42 and has the most up to date message keys.</p>
+<P class=body-text>This is a small part of the&nbsp;Spanish dictionary&nbsp;for 
+the Command Line Interface of sim42</P>
+<P class=body-text>&nbsp;</P>
+<P class=source>def&nbsp;Messages():</P>
+<P class=source>&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;=&nbsp;{}</P>
+<P 
+class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CMDBadOperator']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"Operador&nbsp;desconocido&nbsp;%s"</P>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CMDCDInvalidObject']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"No&nbsp;se&nbsp;puede&nbsp;cd&nbsp;al&nbsp;objeto&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CMDInvalidUnitSet']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"Set&nbsp;de&nbsp;unidades&nbsp;no&nbsp;válido&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CMDInvalidContents']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"No&nbsp;se&nbsp;puede&nbsp;obtener&nbsp;contenido&nbsp;de&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CMDInvalidObject']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"Objeto&nbsp;no&nbsp;válido&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CMDUnknownObject']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"Objeto&nbsp;desconocido&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CMDNoCmpsMismatch']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"Número&nbsp;incorrecto&nbsp;de&nbsp;composiciones"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CMDAmbiguousUnit']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"Unidad&nbsp;ambigua&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CMDUnknownUnit']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"Unidad&nbsp;desconocida&nbsp;%s"</p>
+<P class=source>&nbsp;&nbsp;&nbsp; </P>
+<P class=source>&nbsp;&nbsp;&nbsp; #... more messages go here</P>
+<P class=source>&nbsp;</P>
+<P class=source>&nbsp;&nbsp;&nbsp; return&nbsp;m</P>
+<p class=source>&nbsp;</p>
+<P class=source>&nbsp;</P>
+<p class=body-text>After you finish your dictionary you can add it to the list of supported Sim42’s languages by modifying the file <b>__init__.py</b>:</p>
+<p class=source>__all__&nbsp;=&nbsp;['English','Spanish',‘Portuguese’]</p>
+<P class=source>&nbsp;</P>
+<p class=body-text>After creating a new dictionary for the command interpreter you will need to create a dictionary for the solver. Locate the folder <b>..sim\solver\languages </b>and create a new Python file to support your desired language:</p>
+<p class=source>def&nbsp;Messages():</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;"""create&nbsp;dictionary&nbsp;of&nbsp;Spanish&nbsp;messages"""</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;=&nbsp;{}</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m</p>
+<p class=body-text>and add the desired dictionary definition. The example below shows part of the Spanish solver dictionary.</p>
+<p class=source>def&nbsp;Messages():</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;"""create&nbsp;dictionary&nbsp;of&nbsp;Spanish&nbsp;messages"""</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;=&nbsp;{}</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['BalanceInvalidPort']&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"Puerto&nbsp;no&nbsp;válido&nbsp;para&nbsp;balance(no&nbsp;materia&nbsp;o&nbsp;energía)"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['ConnectSameTypePorts']&nbsp;&nbsp;=&nbsp;"Intento&nbsp;de&nbsp;conectar&nbsp;puertos&nbsp;de&nbsp;diferentes&nbsp;tipos&nbsp;en&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CantAddToStage']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"No&nbsp;se&nbsp;puede&nbsp;agregar&nbsp;%s&nbsp;a&nbsp;la&nbsp;etapa&nbsp;%d&nbsp;de&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CantDeleteFromStage']&nbsp;&nbsp;&nbsp;=&nbsp;"No&nbsp;se&nbsp;puede&nbsp;borrar&nbsp;%s&nbsp;de&nbsp;la&nbsp;etapa&nbsp;%d&nbsp;de&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['TowerQSpecError']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"No&nbsp;se&nbsp;puede&nbsp;asignar&nbsp;flujo&nbsp;de&nbsp;energía&nbsp;a&nbsp;la&nbsp;etapa&nbsp;%d"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['CantAddToDraw']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"No&nbsp;se&nbsp;puede&nbsp;agregar&nbsp;%s&nbsp;a&nbsp;la&nbsp;salida&nbsp;%s&nbsp;en&nbsp;la&nbsp;etapa&nbsp;%d&nbsp;de&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['InvalidTowerSpecPhase']&nbsp;=&nbsp;"Fase&nbsp;no&nbsp;válida&nbsp;en&nbsp;la&nbsp;espec&nbsp;en&nbsp;la&nbsp;etapa&nbsp;%d&nbsp;de&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['InvalidDrawPhase']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"Fase&nbsp;no&nbsp;válida&nbsp;para&nbsp;la&nbsp;salida&nbsp;en&nbsp;la&nbsp;etapa&nbsp;%d&nbsp;de&nbsp;%s"</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;m['TooManyTowerSpecs']&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"%d&nbsp;especs&nbsp;encontradas,&nbsp;solo&nbsp;%d&nbsp;es&nbsp;necesaria&nbsp;en&nbsp;%s"</p>
+<P class=source>&nbsp;</P>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;#... more messages 
+gohere</p>
+<P class=source>&nbsp;</P>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m</p>
+<p class=source>&nbsp;</p>
+<p class=body-text>After you finish your dictionary you can add it to the list of supported Sim42’s languages by modifying the file <b>__init__.py</b>:</p>
+<p class=source>__all__&nbsp;=&nbsp;['English','Spanish',&nbsp;‘Portuguese’]</p>
+<P class=source>&nbsp;</P>
+<p class=body-text>Finally, after you have added your language you can instruct Sim42 to use it by issuing the following command:</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>/&gt;&nbsp;language&nbsp;Spanish</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="MARGIN-LEFT: -0.075in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     ><IMG src="_s42-154.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.9in">
+<p class=body-text style="PADDING-RIGHT: 0.075in; PADDING-LEFT: 0.075in; PADDING-BOTTOM: 0in; PADDING-TOP: 0in" 
+     >The default language for Sim42 is English.</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

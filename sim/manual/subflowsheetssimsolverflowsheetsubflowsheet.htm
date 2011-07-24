@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Subflowsheets - sim.solver.Flowsheet.SubFlowsheet</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="creatingnewunitoperationswithoutpython.htm">previous</a> &nbsp; <a href="multilanguagesupport.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Subflowsheets - sim.solver.Flowsheet.SubFlowsheet</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The subflowsheet unit operation allows you to group a series of unit operations and treat them as a single unit operation. The subflowsheet unit operation is also useful for controlling the calculation sequence for complex flow sheets. When you create a Subflowsheet unit operation you define the desired input and output ports that are going to be visible to other subflowsheets. All the other unit operations and corresponding ports will be invisible.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>units&nbsp;SI</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.Peng-Robinson</p>
+<p class=source>thermo&nbsp;+&nbsp;Methane&nbsp;Ethane&nbsp;Propane</p>
+<p class=source>&nbsp;</p>
+<p class=source>Feed&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>Feed.In.T&nbsp;=&nbsp;20</p>
+<p class=source>Feed.In.P&nbsp;=&nbsp;3000</p>
+<p class=source>Feed.In.MoleFlow&nbsp;=&nbsp;100</p>
+<p class=source>Feed.In.Fraction&nbsp;=&nbsp;70&nbsp;20&nbsp;10</p>
+<p class=source>&nbsp;</p>
+<p class=source>&nbsp;</p>
+<p class=source>valve&nbsp;=&nbsp;Flowsheet.SubFlowsheet('read&nbsp;cv_valve.sop')</p>
+<p class=source>Feed.Out&nbsp;-&gt;&nbsp;valve.In</p>
+<p class=source>Outlet&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>valve.Out&nbsp;-&gt;&nbsp;Outlet.In</p>
+<p class=source>valve.Cv&nbsp;=&nbsp;0.05</p>
+<p class=source>&nbsp;</p>
+<p class=source>Outlet.Out</p>
+<p class=source>Feed.In.MoleFlow&nbsp;=&nbsp;200</p>
+<p class=source>Outlet.Out</p>
+<p class=source>&nbsp;</p>
+<p class=source>hx&nbsp;=&nbsp;Heater.HeatExchanger('read&nbsp;heatexdp.sop')</p>
+<p class=source>&nbsp;</p>
+<p class=source>hx.InC&nbsp;-&gt;&nbsp;Outlet.Out</p>
+<p class=source>hx.InC.P</p>
+<p class=source>hx.OutC.P</p>
+<p class=source>hx.CvC&nbsp;=&nbsp;.01</p>
+<p class=source>hx.OutC.P</p>
+<p class=source>hx.CvC&nbsp;=&nbsp;None</p>
+<p class=source>hx.OutC.P&nbsp;=&nbsp;800</p>
+<p class=source>hx.CvC</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: 0in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note><img src="_s42-153.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.75in">
+<p class=body-text>Make sure that you set the proper path when creating a subflowsheet from a file.</p>
+<p class=body-text>For example, the instruction:</p>
+<p class=body-text>valve = Flowsheet.SubFlowsheet('read cv_valve.sop')</p>
+<p class=body-text>will work only if you started the CommandInterface.py module in the folder that contains the cv_valve.sop file. In general, you should include the complete path to your subflowsheet library folder.</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

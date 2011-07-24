@@ -1,0 +1,28 @@
+# need to stick in streams to get flow and delta p from
+coldIn = Stream.Stream_Material()
+coldIn.portF = Stream.SensorPort('MoleFlow')
+
+coldIn.Out -> ColdSide.In
+
+# change the alias to the interposed stream
+coldIn.In @ InC
+
+deltaPSig = Stream.Stream_Signal()
+deltaPSig.In -> ColdSide.DeltaP
+deltaPSig.clone = Stream.ClonePort()
+deltaPSig.Out @ DeltaPC
+
+cv_eqn = Equation.Equation()
+cd cv_eqn
+Equation = '''
+Signal MoleFlow(f)
+Signal Generic(cv) DP(deltaP)
+
+deltaP = cv*f^2
+'''
+
+cd ..
+cv_eqn.deltaP -> deltaPSig.clone
+cv_eqn.f -> coldIn.portF
+
+cv_eqn.cv @ CvC

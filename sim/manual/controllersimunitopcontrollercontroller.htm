@@ -1,0 +1,180 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Controller - sim.unitop.Controller.Controller</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="compressorexpandersimunitopcompressorcompressorsimunitopcompressorexpander.htm">previous</a> &nbsp; <a href="convreactorsimunitopconvrxnconvreactor.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Controller - sim.unitop.Controller.Controller </p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The controller unit operation allows you to modify the value of a parameter (monitored variable) in order to match a specification (controlled variable) based on the calculations depending on the parameter being modified.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>control&nbsp;=&nbsp;Controller.Controller()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="width: 2.6875in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Controller.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>man-controller.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>controller.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Signal Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>In Signal &#8211; Monitored Variable</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Signal Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Out Signal &#8211; Controlled Variable</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Signal Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Target Value &#8211; desired value of monitored variable</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Signal Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>StepSize &#8211; step size for controlled variable for solution bracketing</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Signal Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Minimum &#8211; minimum value for controlled variable</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Signal Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Maximum &#8211; maximum value for controlled variable</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Equation</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext><img src="_s42-65.png"></p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Note the F(X) is the resulting value of an arbitrary flowsheet expressed as a function of an arbitrary controlled variable X until F(X) is equal to the value of the monitored variable within a small tolerance.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-66.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.9in">
+<p class=body-text style="padding: 0in 0.075in">Note that within a flowsheet multiple controllers are solved simultaneously using Broyden&#8217;s method.</p></td>
+</tr>
+</table>
+<p class=source>#Controller&nbsp;Example</p>
+<p class=source>#Adjust&nbsp;flash&nbsp;temperature&nbsp;until&nbsp;liquid&nbsp;molar&nbsp;flow&nbsp;is&nbsp;equal&nbsp;to&nbsp;300&nbsp;kmol/h</p>
+<p class=source>&nbsp;</p>
+<p class=source>units&nbsp;SI</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.SRK</p>
+<p class=source>thermo&nbsp;+&nbsp;Methane&nbsp;Ethane&nbsp;Propane&nbsp;n-Butane&nbsp;n-Pentane&nbsp;n-Hexane&nbsp;n-Heptane&nbsp;n-Octane&nbsp;n-Nonane&nbsp;n-Decane</p>
+<p class=source>&nbsp;</p>
+<p class=source>S1&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>S1.In.T&nbsp;=&nbsp;25</p>
+<p class=source>S1.In.P&nbsp;=&nbsp;200</p>
+<p class=source>S1.In.MoleFlow&nbsp;=&nbsp;1000</p>
+<p class=source>S1.In.Fraction&nbsp;=&nbsp;100&nbsp;10&nbsp;7&nbsp;5&nbsp;4&nbsp;3&nbsp;2&nbsp;1&nbsp;1&nbsp;1</p>
+<p class=source>S1.In</p>
+<p class=source>&nbsp;</p>
+<p class=source>Sep&nbsp;=&nbsp;Flash.SimpleFlash()</p>
+<p class=source>&nbsp;</p>
+<p class=source>S2&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>S3&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>&nbsp;</p>
+<p class=source>S1.Out&nbsp;-&gt;&nbsp;Sep.In</p>
+<p class=source>Sep.Vap&nbsp;-&gt;&nbsp;S2.In</p>
+<p class=source>Sep.Liq0&nbsp;-&gt;&nbsp;S3.In</p>
+<p class=source>&nbsp;</p>
+<p class=source>S1.In</p>
+<p class=source>S2.In</p>
+<p class=source>S3.In</p>
+<p class=source>&nbsp;</p>
+<p class=source>S3.FlowSig&nbsp;=&nbsp;Stream.SensorPort("MoleFlow")</p>
+<p class=source>&nbsp;</p>
+<p class=source>S1.TempSig&nbsp;=&nbsp;Stream.SensorPort("T")</p>
+<p class=source>&nbsp;</p>
+<p class=source>S3.FlowSig</p>
+<p class=source>S1.TempSig</p>
+<p class=source>&nbsp;</p>
+<p class=source>ctr&nbsp;=&nbsp;Controller.Controller()</p>
+<p class=source>ctr.In&nbsp;-&gt;&nbsp;S3.FlowSig</p>
+<p class=source>&nbsp;</p>
+<p class=source>#&nbsp;before&nbsp;connecting&nbsp;the&nbsp;Outlet,&nbsp;we&nbsp;should&nbsp;get&nbsp;rid&nbsp;of&nbsp;the&nbsp;value&nbsp;downstream&nbsp;of&nbsp;the&nbsp;controlled</p>
+<p class=source>#&nbsp;port.&nbsp;&nbsp;The&nbsp;controller&nbsp;changes&nbsp;the&nbsp;fixed&nbsp;values&nbsp;in&nbsp;this&nbsp;port&nbsp;and&nbsp;everything&nbsp;else&nbsp;must&nbsp;be</p>
+<p class=source>#&nbsp;calculated&nbsp;from&nbsp;it&nbsp;or&nbsp;an&nbsp;inconsistancy&nbsp;will&nbsp;occur</p>
+<p class=source>S1.In.T&nbsp;=&nbsp;None</p>
+<p class=source>&nbsp;</p>
+<p class=source>ctr.Out&nbsp;-&gt;&nbsp;S1.TempSig</p>
+<p class=source>ctr.Out&nbsp;=&nbsp;25</p>
+<p class=source>#&nbsp;note&nbsp;that&nbsp;you&nbsp;could&nbsp;not&nbsp;have&nbsp;assigned&nbsp;ctr.Out&nbsp;until&nbsp;the&nbsp;connection&nbsp;was&nbsp;made&nbsp;as&nbsp;the&nbsp;type&nbsp;of</p>
+<p class=source>#&nbsp;signal&nbsp;was&nbsp;not&nbsp;known</p>
+<p class=source>&nbsp;</p>
+<p class=source>ctr.Target&nbsp;=&nbsp;300</p>
+<p class=source>ctr.StepSize&nbsp;=&nbsp;30</p>
+<p class=source>&nbsp;</p>
+<p class=source>ctr.In</p>
+<p class=source>ctr.Out</p>
+<p></p>
+</body>
+</html>

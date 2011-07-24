@@ -1,0 +1,300 @@
+ID	UnitTypeID	ItemName	Scale	Offset	OperationID	Notes
+1	5	acre	4046.856	0	1	Advances in Well Test Analysis
+2	5	darcy	9.86923E-13	0	1	Advances in Well Test Analysis
+3	5	ft2	0.09290304	0	1	Advances in Well Test Analysis
+4	5	hectre	10000	0	1	Advances in Well Test Analysis
+5	5	mile2	2589988	0	1	Advances in Well Test Analysis
+6	5	in2	0.00064516	0	1	Advances in Well Test Analysis
+7	5	cm2	0.0001	0	1	Advances in Well Test Analysis
+8	5	m2	1	0	1	Advances in Well Test Analysis
+9	4	g/cm3	1000	0	1	Advances in Well Test Analysis
+10	4	lb/ft3	16.01846	0	1	Advances in Well Test Analysis
+11	4	lb/gallon	119.8264	0	1	Advances in Well Test Analysis
+12	4	kg/m3	1	0	1	Advances in Well Test Analysis
+13	4	SG(60/60)	999.022	0	1	Perry 6th ed. P. 3-75 (from Dr. Satyro)
+14	6	dyne	0.00001	0	1	Advances in Well Test Analysis
+15	6	kg-force	9.80665	0	1	Advances in Well Test Analysis
+16	6	lb-force	4.448222	0	1	Advances in Well Test Analysis
+17	6	N	1	0	1	Advances in Well Test Analysis
+18	7	m	1	0	1	Advances in Well Test Analysis
+19	7	angstrom	1E-10	0	1	Advances in Well Test Analysis
+20	7	cm	0.01	0	1	Advances in Well Test Analysis
+21	7	ft	0.3048	0	1	Advances in Well Test Analysis
+22	7	in	0.0254	0	1	Advances in Well Test Analysis
+23	7	micron	0.000001	0	1	Advances in Well Test Analysis
+24	7	mile(US)	1609.344	0	1	Advances in Well Test Analysis
+25	3	m3	1	0	1	Advances in Well Test Analysis
+26	3	acre-ft	1233.482	0	1	Advances in Well Test Analysis
+27	3	bbl	0.1589873	0	1	Advances in Well Test Analysis
+28	3	ft3	0.02831685	0	1	Advances in Well Test Analysis
+29	3	gallon	0.003785412	0	1	Advances in Well Test Analysis
+30	3	litre	0.001000028	0	1	API Technical Data Book
+31	8	kg	1	0	1	Advances in Well Test Analysis
+32	8	gm	0.001	0	1	Advances in Well Test Analysis
+33	8	ounce	0.02834952	0	1	Advances in Well Test Analysis
+34	8	lb	0.45359237	0	1	Advances in Well Test Analysis
+35	8	slug	14.5939	0	1	Advances in Well Test Analysis
+36	8	ton(US.short)	907.1847	0	1	Advances in Well Test Analysis
+37	8	ton(US.long)	1016.047	0	1	Advances in Well Test Analysis
+38	8	ton(metric)	1000	0	1	Advances in Well Test Analysis
+39	1	Pa	1	0	1	Advances in Well Test Analysis
+40	1	atm	101325	0	1	Advances in Well Test Analysis
+41	1	bar	100000	0	1	Advances in Well Test Analysis
+42	1	cmHg(0C)	1333.22	0	1	Advances in Well Test Analysis
+43	1	dyne/cm2	0.1	0	1	Advances in Well Test Analysis
+44	1	feet H2O(4C)	2988.98	0	1	Advances in Well Test Analysis
+45	1	kg-force/cm2	98066.5	0	1	Advances in Well Test Analysis
+46	1	psia	6894.757	0	1	Advances in Well Test Analysis
+47	1	psig	6894.757	101325	1	Advances in Well Test Analysis
+48	1	kPa	1000	0	1	Advances in Well Test Analysis
+49	2	K	1	0	1	Advances in Well Test Analysis
+50	2	R	0.555555556	0	1	Advances in Well Test Analysis
+51	2	C	1	273.15	1	Advances in Well Test Analysis
+52	2	F	0.555555556	255.3722	1	Advances in Well Test Analysis
+53	9	s	1	0	1	Advances in Well Test Analysis
+54	9	day	86400	0	1	Advances in Well Test Analysis
+55	9	hr	3600	0	1	Advances in Well Test Analysis
+56	9	min	60	0	1	Advances in Well Test Analysis
+57	10	Pa-s	1	0	1	Advances in Well Test Analysis
+58	10	cp	0.001	0	1	Advances in Well Test Analysis
+59	10	centistoke	0.001	0	1	Advances in Well Test Analysis
+60	10	poise	0.1	0	1	Advances in Well Test Analysis
+61	10	lb/ft-s	1.488164	0	1	Advances in Well Test Analysis
+62	10	lb/ft-hr	0.000413379	0	1	Advances in Well Test Analysis
+63	10	lb-force-s/ft2	47.88026	0	1	Advances in Well Test Analysis
+64	14	(J/m3)1/2	1	0	1	Base unit of SolubilityParameter
+65	14	(cal/cm3)1/2	2045.48283	0	1	DIPPR-801
+66	14	(erg/cm3)1/2	0.3162278	0	1	DIPPR-801
+67	14	(kcal/cm3)1/2	64682.8465	0	1	DIPPR-801
+68	14	(J/cm3)1/2	1000	0	1	DIPPR-801
+69	14	(Btu/ft3)1/2	193.02594	0	1	Margaret calculated from DIPPR
+70	11	m3/hr	1	0	1	API Technical Data Book
+71	11	l/s	3.6001	0	1	API Technical Data Book
+72	11	ft3/min	1.699	0	1	API Technical Data Book
+73	11	ft3/s	101.94	0	1	API Technical Data Book
+74	11	gal(US)/min	0.22713	0	1	API Technical Data Book
+75	12	J	1	0	1	(Absolute J) Advances in Well Test Analysis
+76	12	calorie(I.T.)	4.1868	0	1	(Int. Steam Table) Perry back cover 5th ed.
+77	12	calorie(mean)	4.19002	0	1	Perry back cover 5th ed.
+78	12	calorie	4.184	0	1	(Thermochemical cal.)Perry back cover 5th ed.
+79	12	calorie(15C)	4.1858	0	1	Perry back cover 5th ed.
+80	12	calorie(20C)	4.1819	0	1	Perry back cover 5th ed.
+81	12	kcal(mean)	4190.02	0	1	Perry back cover 5th ed.
+82	13	cal(I.T.)/g-K	4.1868	0	1	From Cal(I.T.) conversion
+83	13	kJ/kg-K	1	0	1	(Abs. J) API Technical Data Book
+85	15	atm-l/gmol-K.	1	0.08206	5	McGill notes
+86	15	Btu/lbmol-R.	1	1.987	5	McGill notes
+87	15	g-cal/gmol-K.	1	1.987	5	McGill notes
+88	15	psia-ft3/lbmol-R.	1	10.73	5	McGill notes
+89	15	lbf-ft/lbmol-R.	1	1544	5	McGill notes
+90	15	atm-ft3/lbmol-R.	1	0.7302	5	McGill notes
+91	15	kJ/kmol-K.	1	8.31434	5	McGill notes
+92	1	mmHg(0C)	133.322	0	1	From cmHg conversion
+93	1	inHg(32F)	3386.38283	0	1	"API Technical Data Book, atm conversion data"
+94	1	kPa(g)	1000	101325	1	kPa conversion + 1 atm.
+95	7	Yard	0.9144	0	1	API Technical Data Book
+96	7	Mile	1609.3	0	1	API Technical Data Book
+97	7	fathoms	1.8288	0	1	CRC Handbook of Chemistry and Physics
+98	7	mm	0.001	0	1	API Technical Data Book
+99	7	km	1000	0	1	API Technical Data Book
+100	5	yard2	0.83613	0	1	API Technical Data Book
+101	5	mm2	0.000001	0	1	From cm2 conversion
+102	3	in3	0.000016387	0	1	API Technical Data Book
+103	3	yard3	0.76455	0	1	API Technical Data Book
+104	3	cm3	0.000001	0	1	API Technical Data Book
+105	3	FluidOunce(US)	0.000029574	0	1	API Technical Data Book
+106	3	quart	0.00094635	0	1	API Technical Data Book
+107	3	gallon(US)	0.0037854	0	1	API Technical Data Book
+108	3	ImpGallon	0.0045461	0	1	API Technical Data Book
+109	3	milliliter	1.00003E-06	0	1	API Technical Data Book
+110	8	Grain	0.000064799	0	1	API Technical Data Book
+111	8	TroyOz	0.031103	0	1	API Technical Data Book
+112	4	lb/in3	27680	0	1	API Technical Data Book
+114	4	lb/gal(US)	119.83	0	1	API Technical Data Book
+115	11	m3/s	3600	0	1	From sec. conversion
+116	11	gal(US)/hr	0.0037854	0	1	API Technical Data Book
+117	11	bbl/day	0.0066245	0	1	API Technical Data Book
+118	11	bbl/hr	0.15898	0	1	API Technical Data Book
+119	12	Btu	1055	0	1	API Technical Data Book
+120	12	kW-hr	3600000	0	1	(Absolute kW)API Technical Data Book
+121	12	HorsePower	2684500	0	1	API Technical Data Book
+122	12	lbf-ft	1.3558	0	1	(lb-force) API Technical Data Book
+123	12	psi-ft3	195.24	0	1	API Technical Data Book
+124	12	l-atm	101.33	0	1	API Technical Data Book
+125	12	CentigradeHeatUnit	1899.1	0	1	API Technical Data Book
+126	16	W	1	0	1	(Abs. W) API Technical Data Book
+127	16	Btu/min	17.584	0	1	API Technical Data Book
+128	16	Btu/hr	0.29307	0	1	API Technical Data Book
+129	16	ft-lb/s	1.3558	0	1	API Technical Data Book
+130	16	ft-lb/min	0.022597	0	1	API Technical Data Book
+131	16	HorsePower	745.7	0	1	API Technical Data Book
+132	16	MetricHorsePower	735.5	0	1	API Technical Data Book
+133	16	cal/s	4.184	0	1	API Technical Data Book
+134	16	cal(I.T.)/s	4.1868	0	1	From Energy cal(I.T.) conversion
+135	16	J/s	1	0	1	(Abs. J) API Technical Data Book
+136	17	kJ/kg	1	0	1	API Technical Data Book
+137	17	kJ(I.T)/kg	1.0002	0	1	API Technical Data Book
+138	12	J(Int.)	1.0002	0	1	(International J) API Technical Data Book
+139	17	cal/g	4.184	0	1	(Abs. cal.) API Technical Data Book
+140	17	cal(I.T.)/g	4.1867	0	1	API Technical Data Book
+141	17	Btu/lb	2.326	0	1	API Technical Data Book
+142	13	cal/g-K	4.184	0	1	(Abs. cal.) API Technical Data Book
+143	13	Btu/lb-F	4.1868	0	1	From cal/g-K conversion (assume equal)
+144	10	microPoise	0.0000001	0	1	micro = 1e-6
+145	13	kcal/kg-K	4.184	0	1	From cal/g-K conversion
+146	18	kJ/kmol-K	1	0	1	From mass Cp conversion
+147	18	kJ(I.T.)/kmol-K	1.0002	0	1	From mass Cp conversion
+148	18	cal/mol-K	4.184	0	1	From mass Cp conversion
+149	18	cal(I.T.)/mol-K	4.1868	0	1	From mass Cp conversion
+150	18	Btu/lbmol-F	4.1868	0	1	From mass Cp conversion
+151	13	kJ(I.T.)/kg-K	1.0002	0	1	API Technical Data Book
+154	20	kJ/kmol	1	0	1	From Mass Entahlpy Conversion
+155	20	kJ(I.T.)/kmol	1.0002	0	1	From Mass Entahlpy Conversion
+156	20	cal/mol	4.184	0	1	From Mass Entahlpy Conversion
+157	20	cal(I.T.)/mol	4.1867	0	1	From Mass Entahlpy Conversion
+158	20	Btu/lbmol	2.3256	0	1	From Mass Entahlpy Conversion
+159	21	W/cm2	1	0	1	API Technical Data Book
+160	21	Btu/hr-ft2	0.0003155	0	1	API Technical Data Book
+161	21	cal(I.T.)/s-cm2	4.1868	0	1	W to cal(I.T.) conversion
+162	21	kcal(I.T.)/hr-in2	0.0001163	0	1	API Technical Data Book
+163	22	W/cm2-K	1	0	1	API Technical Data Book
+164	22	Btu/hr-ft2-F	0.0005678	0	1	API Technical Data Book
+165	22	cal(I.T.)/s-cm2-K	4.1868	0	1	From W to cal/s conversion
+166	22	kcal(I.T.)/hr-m2-K	0.0001163	0	1	API Technical Data Book
+167	25	W/m-K	1	0	1	API Technical Data Book
+168	25	Btu/hr-ft2-F/in	0.1442	0	1	API Technical Data Book
+169	25	W/cm-K	100	0	1	From cm to m conversion
+170	25	Btu/hr-ft-F	1.731	0	1	API Technical Data Book
+171	25	cal(I.T.)/s-cm-K	418.68	0	1	From W to cal(I.T.)/s conversion
+172	25	kcal/hr-m-K	1.163	0	1	API Technical Data Book
+173	27	Fraction	1	0	1	Base unit of Fraction
+174	27	ppm	0.000001	0	1	Definition of ppm
+175	28	m2/s	1	0	1	Base unit of DiffusionCoeff
+176	28	cm2/s	0.0001	0	1	From cm2 to m2 conversion
+177	28	ft2/s	0.09290304	0	1	From ft2 to m2 conversion
+178	24	1/K	1	0	1	Base unit of ThermalExpansion
+179	24	1/R	1.8	0	1	From C to F conversion
+180	23	Coulomb-m	1	0	1	Base unit of DipoleMoment
+181	23	debye	3.33564E-30	0	1	DIPPR-801
+182	23	(J-m3)1/2	1.05491E-05	0	1	"Properties of gases and Liq, p26 1debye=3.162e-25 (J-m3)1/2"
+183	19	m3/kmol	1	0	1	Base unit of MolarVolume
+184	19	ft3/lbmol	0.062427961	0	1	CRC Handbook of Chem and Phy (60 ed.) ft3/lb conv.
+185	19	cm3/mol	0.001	0	1	From cm3 and kmol conversion
+186	26	dyne/cm	1	0	1	CRC Handbook of Chem. and Phys.
+187	26	N/m	1000	0	1	Use 1e5 dyne/N conversion
+188	26	ergs/cm2	1	0	1	CRC Handbook of Chem. and Phys.
+189	26	poundal/in	0.000183719	0	1	CRC Handbook of Chem. and Phys.
+190	20	kJ/mol	1000	0	1	Conversion from mol to kmol
+191	27	%	0.01	0	1	Definition of percent
+192	23	c-m	1	0	1	YK assume to be identical to Coulomb-m
+193	15	erg/gmol-K.	1	83140000	5	McGill notes
+194	15	atm-cm3/gmol-K.	1	82.06	5	McGill notes
+195	15	mmHg-l/gmol-K.	1	62.37	5	McGill notes
+196	15	bar-l/gmol-K.	1	0.08315	5	McGill notes
+197	15	kgf-l/m2-gmol-K.	1	847.9	5	McGill notes
+198	15	inHg-ft3/lbmol-R.	1	21.85	5	McGill notes
+199	15	hp-h/lbmol-R.	1	0.00078	5	McGill notes
+200	15	kwh/lbmol-R.	1	0.000583	5	McGill notes
+201	15	cmHg-ft3/lbmol-R.	1	55.4	5	McGill notes
+202	15	lbf-in/lbmol-R.	1	18540	5	McGill notes
+203	29	Pa-kmol/m3	1	0	1	Base Unit of Prewwure/MolarVolume
+204	29	kPa-kmol/m3	1000	0	1	1000 / 1
+205	29	psia-lbmol/ft3	110443.4117	0	1	6894.757/.062427961
+206	29	bar-mol/cm3	100000000	0	1	100000/.001
+207	30	m/s	1	0	1	base unit of velocity
+208	30	ft/s	0.3048	0	1	conversion from ft to m
+209	30	miles/hr	0.44704	0	1	CRC Handbook of Chem. and Phys. Miles/hr -> m/min -> m/z
+210	30	km/hr	0.277777778	0	1	1000/3600
+211	13	J/kg-K	0.001	0	1	J to kJ conversion
+212	17	J/kg	0.001	0	1	J to kJ conversion
+213	18	J/kmol-K	0.001	0	1	J to kJ conversion
+214	20	J/kmol	0.001	0	1	J to kJ conversion
+215	15	J/kmol-K.	1	8314.24	5	J to kJ conversion
+216	29	Pa-mol/m3	0.001	0	1	mol to kmol conversion
+217	31	1/Pa	1	0	1	Base unit for isothermal compressibility
+218	31	1/kPa	0.001	0	1	Pa to kPa conversion
+219	31	1/psia	0.000145038	0	1	Pa to psia conversion
+220	31	1/bar	0.00001	0	1	Pa to bar conversion
+221	32	kg/s	1.0	0.00	1	Perry's
+222	32	lb/h	1.259979e-04	0.0	1	Perry's
+223	33	kgmole/s	1.0	0.0	1	Perry's
+224	33	lbmole/h	1.259979e-4	0.0	1	Perry's
+225	32	kg/h	2.77777777e-4	0.0	1	Perry's
+226	32	lb/s	0.4535924	0.0	1	Perry's
+227	33	lbmole/s	0.4535924	0.0	1	Perry's
+228	33	kgmole/h	2.77777777e-4	0.0	1	Perry's
+229	34	C	1.0	0.0	1	Craig
+230	34	K	1.0	0.0	1	Craig
+231	34	F	0.555555556	0.0	1	Craig
+232	34	R	0.555555556	0.0	1	Craig
+233	35	Kpa	1.0	0.0	1	Craig
+234	35	psi	6.894757	0.0	1	Craig
+235	35	Pa	0.001	0	1	Craig
+236	35	atm	101.325	0	1	Craig
+237	35	bar	100.000	0	1	Craig
+238	35	cmHg(0C)	1.33322	0	1	Craig
+239	35	dyne/cm2	0.0001	0	1	Craig
+240	35	feet H2O(4C)	2.98898	0	1	Craig
+241	35	kg-force/cm2	98.0665	0	1	Craig
+242	33	SCFH	3.3202722e-07	0.0	1	Marco
+243	33	MSCFH	3.3202722e-04	0.0	1	Marco
+244	33	MMSCFH	3.3202722e-01	0.0	1	Marco
+245	33	SCFD	1.3834461e-08	0.0	1	Marco
+246	33	MSCFD	1.3834461e-05	0.0	1	Marco
+247	33	MMSCFD	1.3834461e-02	0.0	1	Marco
+248	16	kJ/h	0.277777777	0	1	Raul
+249	16	kcal/h	1.16222	0	1	Raul
+250	36	W/K	1.0	0.0	1	Raul
+251	36	Btu/hr-F	0.52750346	0	1	Raul
+252	36	cal(I.T.)/s-K	4.1868	0	1	Raul
+253	36	kcal(I.T.)/hr-K	1.163	0	1	Raul
+254	37	kmol/hr-m-kPa	1.0	0	1	Izzi
+255	37	mol/s-m-Pa	3600	0	1	Izzi
+256	37	lbmol/hr-ft-psia	0.2159	0	1	Shahrul
+257	38	m2/s	1.0000000e+00	0.0	1	Base unit for kinematic viscosity
+258	38	mm2/s	1.0000000e-06	0.0	1	Marco
+259	38	ft2/s	9.2903044e-02	0.0	1	Marco
+260	38	in2/s	6.4516004e-04	0.0	1	Marco
+261	38	m2/h	2.7777778e-04	0.0	1	Marco
+262	38	mm2/h	2.7777778e-10	0.0	1	Marco
+263	38	ft2/h	2.5806401e-05	0.0	1	Marco
+264	38	in2/h	1.7921112e-07	0.0	1	Marco
+265	38	cSt	1.0000000e-06	0.0	1	Marco
+266	38	St	1.0000000e-04	0.0	1	Marco
+267	33	SCFM	1.9921633E-05	0.0	1	YauKun converted from SCFH
+268	33	MSCFM	1.9921633E-02	0.0	1	YauKun converted from MSCFH
+269	33	MMSCFM	1.9921633E+01	0.0	1	YauKun converted from MMSCFH
+270	4	API(60/60F)	141361.613	131.5	6	API = 141.5/[SG(60/60)] - 131.5
+271	39	kmol/s-m3	1.0	0.0	1	Raul
+272	39	kmol/s-dm3	1000.0	0.0	1	Raul
+273	39	mol/s-dm3	1.0	0.0	1	Raul
+274	39	kmol/h-m3	2.777777e-4	0.0	1	Raul
+275	39	lbmol/s-ft3	16.01846	0.0	1	Raul
+276	40	kmol/s-kg	1.0	0.0	1	Raul
+277	40	mol/s-g	1.0	0.0	1	Raul
+278	40	lbmol/s-lb	1.0	0.0	1	Raul
+279	39	mol/s-m3	0.001	0.0	1	Raul
+280	40	mol/s-kg	0.001	0.0	1	Raul
+281	41	kmol/m3	1.0	0.0	1	Raul
+282	41	lbmol/ft3	16.01846	0.0	1	Raul
+283	41	mol/cm3	1000.0	0.0	1	Raul
+284	41	mol/m3	0.001	0.0	1	Raul
+285	41	mol/litre	1.0	0.0	1	Raul
+286	41	mol/dm3	1.0	0.0	1	Raul
+287	1	MPa	1000000.0	0	1	Modified from kPa
+288	1	bar(g)	100000.0	101325.0	1	Modified from bar
+289	33	Nm3/s	0.044642857	0.0	1	YK Mod for Japanese Gas Company 
+290	33	Nm3/h	1.24008E-05	0.0	1	YK Mod for Japanese Gas Company 
+291	20	Btu/SCF	882.5201627	0.0	1	Raul to be used in LHV and GHV
+292	42	K/kPa	1.0	0.0	1	Marco
+293	42	R/psia	8.0576524e-02	0.0	1	Marco
+294	42	C/kPa	1.0	0.0	1	Marco
+295	42	F/psia	8.0576524e-02	0.0	1	Marco
+296	42	K/Pa	1000.0	0.0	1	Raul
+297	43	grain/kg	1.0	0.0	1	Raul for humidity
+298	43	grain/g	1000.0	0.0	1	Raul
+299	43	grain/lb	2.20462262	0.0	1	Raul
+300	43	kg/kg	15430.0	0.0	1	Raul
+301	33	SCMD	4.885572e-7	0.0	1	YK converted from SCFD and ft3
+302	33	MSCMD	4.885572e-4	0.0	1	YK converted from SCFD and ft3
+303	33	MMSCMD	4.885572e-1	0.0	1	YK converted from SCFD and ft3

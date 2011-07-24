@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <style type="text/css">
+        <!--
+        .indented
+        {
+            padding-left: 20pt;
+        }
+        -->
+        </style>
+
+        <title></title>
+
+        <meta name="description" content="process, simulator, thermodynamics, software, chemical engineering, mass, heat, balance, distillation">
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    </head>
+
+    <body bgcolor="#FFFFEF">
+        <table width="149" bgcolor="#FFFFFF"
+               border="1" align="center"
+               bordercolor="#FFFFEF"
+               bordercolorlight="#FFFFEF"
+               bordercolordark="#FFFFEF"
+               cellpadding="5"
+               align=center>
+                        
+            <tr bgcolor="blue" bordercolor="#FFFFCC"> 
+                <td align="center"> 
+                    <div align="left">
+
+                        <a href="http://sim42.org" target="_self">
+                            <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="white">
+                                Home</font>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr bgcolor="blue" bordercolor="#FFFFCC"> 
+                <td align="center"> 
+                    <div align="left">
+
+                        <a href="http://sim42.org/news.html" target="_top">
+                            <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="white">
+                                News</font>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr bgcolor="blue" bordercolor="#FFFFCC"> 
+                <td align="center"> 
+                    <div align="left">
+
+                        <a href="http://sim42.org/manual" target="_top">
+                            <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="white">
+                                Documentation</font>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr bgcolor="blue" bordercolor="#FFFFCC"> 
+                <td align="center"> 
+                    <div align="left">
+
+                        <a href="http://lists.redtree.com/mailman/listinfo/simulators" target="_blank">
+                            <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="white">
+                                Mailing List</font>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr bgcolor="blue" bordercolor="#FFFFCC"> 
+                <td align="center"> 
+                    <div align="left">
+
+                        <a href="source.html" target="_self">
+                            <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="white">
+                                Source</font>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr bgcolor="blue" bordercolor="#FFFFCC"> 
+                <td align="center"> 
+                    <div align="left">
+                        <a href="http://bugs.sim42.org" target="_blank">
+                            <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="white">
+                                Bugs</font>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr bgcolor="blue" bordercolor="#FFFFCC"> 
+                <td align="center"> 
+                    <div align="left">
+
+                        <a href="history.html" target="_self">
+                            <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="white">
+                                History</font>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr bgcolor="blue" bordercolor="#FFFFCC"> 
+                <td align="center"> 
+                    <div align="left">
+                        <a href="bylaws" target="_self">
+                            <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="white">
+                                Sim42 Foundation</font>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr bgcolor="blue" bordercolor="#FFFFCC"> 
+                <td align="center"> 
+                    <div align="left">
+                        <a href="cast.html" target="_self">
+                            <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="white">
+                                Cast Members</font>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

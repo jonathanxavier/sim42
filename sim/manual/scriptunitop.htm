@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Script Unit Op</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="pumpwithcurvesimunitoppumppumpwithcurve.htm">previous</a> &nbsp; <a href="simpleflashsimunitopflashsimpleflash.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Script Unit Op</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>Script unit operations are powerful calculator-like structures that can be read by flow sheets. They can be used to create a new unit operation or to modify the behavior of an existing one.</p>
+<p class=body-text>Lets examine in detail the script below used to define a new unit operation to model a CV valve.</p>
+<p class=body-text>We start by defining the basic streams and unit operations we want in the <b>script unit op</b> flowsheet in a text file we will call cv_valve.sop</p>
+<p class=source>inlet&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>&nbsp;</p>
+<p class=source>valve&nbsp;=&nbsp;Valve.Valve()</p>
+<p class=source>inlet.Out&nbsp;-&gt;&nbsp;valve.In</p>
+<p class=source>outlet&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>valve.Out&nbsp;-&gt;&nbsp;outlet.In</p>
+<p class=body-text>builds a small flowsheet with the following contents:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><img src="_s42-79.jpg"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Afterwards we create sensor ports to broadcast or receive pressures in the input and output material streams as well as a sensor port to communicate mole flows.</p>
+<p class=body-text><img src="_s42-80.jpg"></p>
+<p class=body-text>Next we define the actual CV valve equation.</p>
+<p class=source>cv_eqn&nbsp;=&nbsp;Equation.Equation()</p>
+<p class=source>cd&nbsp;cv_eqn</p>
+<p class=source>Equation&nbsp;=&nbsp;'''</p>
+<p class=source>Signal&nbsp;P(pIn,&nbsp;pOut)&nbsp;MoleFlow(f)</p>
+<p class=source>Signal&nbsp;Generic(cv)&nbsp;DP(deltaP)</p>
+<p class=source>&nbsp;</p>
+<p class=source>pIn-pOut&nbsp;=&nbsp;cv*f^2</p>
+<p class=source>deltaP&nbsp;=&nbsp;pIn-pOut</p>
+<p class=source>'''</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>The <b>cv_eqn</b> is the newly created Equation object that will encapsulate the CV valve calculations.</p>
+<p class=body-text>The <b>Equation</b> paragraph defines the actual equation to be used for the calculations. Note that the <i>entire</i> equation definition has to be done within the triple quotes sign (&#8216;&#8217;&#8217;).</p>
+<p class=body-text>The lines starting with <b>Signal</b> soon after the <b>Equation = &#8216;&#8217;&#8217;</b> paragraph define the variable types to be used in the equation:</p>
+<p class=body-text><b>pIn</b>, <b>pOut</b>, are of type pressure</p>
+<p class=body-text><b>f</b> is of type MoleFlow</p>
+<p class=body-text><b>cv</b> is of generic type</p>
+<p class=body-text><b>deltaP</b> is of type delta pressure</p>
+<p class=body-text>The line <b>pIn &#8211; pOut = cv * f^2</b> is the actual CV equation</p>
+<p class=body-text>The line <b>deltaP = pIn &#8211; pOut</b> is the actual pressure drop equation</p>
+<p class=body-text>Note that the last line is the triple quote (&#8216;&#8217;&#8217;) closing the equation definition</p>
+<p class=body-text><img src="_s42-81.jpg"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Now we connect the equation variables with the CV valve flowsheet variables.</p>
+<p class=source>cd&nbsp;..</p>
+<p class=source>cv_eqn.pIn&nbsp;-&gt;&nbsp;inlet.portP</p>
+<p class=source>cv_eqn.pOut&nbsp;-&gt;&nbsp;outlet.portP</p>
+<p class=source>cv_eqn.f&nbsp;-&gt;&nbsp;inlet.flowPort</p>
+<p class=source>&nbsp;</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><img src="_s42-82.jpg"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Now we create the necessary ports to communicate with the calling object and make our script unit operation behave like a common unit operation.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>inlet.In&nbsp;@&nbsp;In</p>
+<p class=source>outlet.Out&nbsp;@&nbsp;Out</p>
+<p class=source>cv_eqn.cv&nbsp;@&nbsp;Cv</p>
+<p class=source>cv_eqn.deltaP&nbsp;@&nbsp;DeltaP</p>
+<p class=source>&nbsp;</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><img src="_s42-83.jpg"></p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>Once this script file is prepared, we can install it into a flow sheet using the SubFlowsheet unit op with a command like:</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>valve = Flowsheet.SubFlowsheet('read cv_valve.sop')</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>To see how it all looks after the cv_valve.sop is loaded up on the flowsheet just run the <b>scriptop.tst</b> script and examine the valve unit operation:</p>
+<p class=source>/&gt;&nbsp;/&gt;&nbsp;valve</p>
+<p class=source>Operation:&nbsp;valve&nbsp;=&nbsp;sim.solver.Flowsheet.SubFlowsheet</p>
+<p class=source>Port:&nbsp;In&nbsp;=&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Port:&nbsp;Out&nbsp;=&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Port:&nbsp;DeltaP&nbsp;=&nbsp;sim.solver.Ports.Port_Signal&nbsp;(/valve.cv_eqn.S_deltaP.In)</p>
+<p class=source>Port:&nbsp;Cv&nbsp;=&nbsp;sim.solver.Ports.Port_Signal&nbsp;(/valve.cv_eqn.S_cv.In)</p>
+<p class=source>Child:&nbsp;cv_eqn&nbsp;=&nbsp;sim.unitop.Equation.Equation</p>
+<p class=source>Child:&nbsp;inlet&nbsp;=&nbsp;sim.unitop.Stream.Stream_Material</p>
+<p class=source>Child:&nbsp;outlet&nbsp;=&nbsp;sim.unitop.Stream.Stream_Material</p>
+<p class=source>Child:&nbsp;valve&nbsp;=&nbsp;sim.unitop.Valve.Valve</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-84.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.9in">
+<p class=body-text style="padding: 0in 0.075in">Note that Sim42&#8217;s solver will take care of solving the CV valve if we specify the delta P (thus calculating the flow through the valve) or the outlet pressure if the flow is provided. You do not have to code anything special in the CV model to handle different specifications.</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

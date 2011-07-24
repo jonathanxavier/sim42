@@ -1,0 +1,559 @@
+
+Init SimpleFlash ++++++++++++++++++++++++++++++
+Cmps:  ['PROPANE', 'n-BUTANE', 'ISOBUTANE', 'n-PENTANE']
+Names Ports In:  ['In']
+Names Ports Out:  ['Vap', 'Liq0']
+Return value from Solve() 1
+
+Composition of port in " In ":
+fraction of  PROPANE :  0.25
+fraction of  n-BUTANE :  0.25
+fraction of  ISOBUTANE :  0.25
+fraction of  n-PENTANE :  0.25
+
+Some props of port in " In ":
+T :  273.15
+H :  8045.76822554
+MoleFlow :  10.0
+
+Array properties available:  ['MassFraction']
+Array of  LnFugacity  of port in " In ":
+
+Composition of port out " Vap ":
+fraction of  PROPANE :  0.329404263995
+fraction of  n-BUTANE :  0.25874274294
+fraction of  ISOBUTANE :  0.27627350461
+fraction of  n-PENTANE :  0.135579488455
+
+Some props of port out " Vap ":
+T :  273.15
+H :  14657.5269354
+MoleFlow :  6.97854367444
+
+Array properties available:  ['MassFraction']
+Array of  LnFugacity  of port out " Vap ":
+
+Composition of port out " Liq0 ":
+fraction of  PROPANE :  0.0666029674041
+fraction of  n-BUTANE :  0.229807216499
+fraction of  ISOBUTANE :  0.189317077711
+fraction of  n-PENTANE :  0.514272738385
+
+Some props of port out " Liq0 ":
+T :  273.15
+H :  -7225.16140235
+MoleFlow :  3.02145632556
+
+Array properties available:  ['MassFraction']
+Array of  LnFugacity  of port out " Liq0 ":
+
+Finished SimpleFlash ++++++++++++++++++++++++++++++
+    
+
+Init SimpleFlash2LPhase ++++++++++++++++++++++++++++++
+Cmps:  ['PROPANE', 'n-BUTANE', 'ISOBUTANE', 'n-PENTANE', 'WATER']
+Names Ports In:  ['In']
+Names Ports Out:  ['Vap', 'Liq0', 'Liq1']
+Return value from Solve() 1
+
+Composition of port in " In ":
+fraction of  PROPANE :  0.2
+fraction of  n-BUTANE :  0.2
+fraction of  ISOBUTANE :  0.2
+fraction of  n-PENTANE :  0.2
+fraction of  WATER :  0.2
+
+Some props of port in " In ":
+T :  273.15
+H :  -598.336819961
+MoleFlow :  10.0
+
+Composition of port out " Vap ":
+fraction of  PROPANE :  0.325874999693
+fraction of  n-BUTANE :  0.257544612881
+fraction of  ISOBUTANE :  0.274538711525
+fraction of  n-PENTANE :  0.136325863522
+fraction of  WATER :  0.00571581237865
+
+Some props of port out " Vap ":
+T :  273.15
+H :  14636.1586735
+MoleFlow :  5.65753944998
+
+Composition of port out " Liq0 ":
+fraction of  PROPANE :  0.0658294495581
+fraction of  n-BUTANE :  0.228596187498
+fraction of  ISOBUTANE :  0.188115310255
+fraction of  n-PENTANE :  0.51734591263
+fraction of  WATER :  0.000113140059001
+
+Some props of port out " Liq0 ":
+T :  273.15
+H :  -7230.50394887
+MoleFlow :  2.37506669923
+
+Composition of port out " Liq1 ":
+fraction of  PROPANE :  8.80421283072e-016
+fraction of  n-BUTANE :  5.09098563e-018
+fraction of  ISOBUTANE :  1.76756055648e-018
+fraction of  n-PENTANE :  3.6966577618e-021
+fraction of  WATER :  1.0
+
+Some props of port out " Liq1 ":
+T :  273.15
+H :  -36400.9901294
+MoleFlow :  1.96739385079
+
+Finished SimpleFlash2LPhase ++++++++++++++++++++++++++++++
+    
+
+Init MixAndFlash ++++++++++++++++++++++++++++++
+Cmps:  ['PROPANE', 'n-BUTANE', 'ISOBUTANE', 'n-PENTANE']
+Names Ports In:  ['In0', 'In1']
+Names Ports Out:  ['Vap', 'Liq0']
+Return value from Solve() 1
+
+Composition of port in " In0 ":
+fraction of  PROPANE :  0.5
+fraction of  n-BUTANE :  0.5
+fraction of  ISOBUTANE :  0.0
+fraction of  n-PENTANE :  0.0
+
+Some props of port in " In0 ":
+T :  460.15
+H :  32980.6006617
+MoleFlow :  10.0
+
+Composition of port in " In1 ":
+fraction of  PROPANE :  0.0
+fraction of  n-BUTANE :  0.0
+fraction of  ISOBUTANE :  0.5
+fraction of  n-PENTANE :  0.5
+
+Some props of port in " In1 ":
+T :  200.15
+H :  -17000.7139991
+MoleFlow :  10.0
+
+Composition of port out " Vap ":
+fraction of  PROPANE :  0.394351155769
+fraction of  n-BUTANE :  0.231857860152
+fraction of  ISOBUTANE :  0.259978927352
+fraction of  n-PENTANE :  0.113812056727
+
+Some props of port out " Vap ":
+T :  328.991869183
+H :  18760.3014114
+MoleFlow :  7.5203312675
+
+Composition of port out " Liq0 ":
+fraction of  PROPANE :  0.163013034761
+fraction of  n-BUTANE :  0.260932573972
+fraction of  ISOBUTANE :  0.243986632098
+fraction of  n-PENTANE :  0.332067759169
+
+Some props of port out " Liq0 ":
+T :  328.991869183
+H :  1499.6536448
+MoleFlow :  12.4796687325
+
+Finished MixAndFlash ++++++++++++++++++++++++++++++
+    
+
+Init LiqLiqEx ++++++++++++++++++++++++++++++
+Cmps:  ['n-HEPTANE', 'BENZENE', 'TRIETHYLENE GLYCOL']
+Names Ports In:  ['Feed', 'Solvent']
+Names Ports Out:  ['Extract', 'Raffinate']
+Return value from Solve() 1
+
+Composition of port in " Feed ":
+fraction of  n-HEPTANE :  0.5
+fraction of  BENZENE :  0.5
+fraction of  TRIETHYLENE GLYCOL :  0.0
+
+Some props of port in " Feed ":
+T :  273.15
+H :  -18564.702313
+MoleFlow :  10.0
+
+Composition of port in " Solvent ":
+fraction of  n-HEPTANE :  0.0
+fraction of  BENZENE :  0.0
+fraction of  TRIETHYLENE GLYCOL :  1.0
+
+Some props of port in " Solvent ":
+T :  273.15
+H :  -45117.3521232
+MoleFlow :  10.0
+
+Composition of port out " Extract ":
+fraction of  n-HEPTANE :  0.00632477815222
+fraction of  BENZENE :  0.286084673895
+fraction of  TRIETHYLENE GLYCOL :  0.707590547952
+
+Some props of port out " Extract ":
+T :  273.15
+H :  -40987.3105809
+MoleFlow :  14.099261675
+
+Composition of port out " Raffinate ":
+fraction of  n-HEPTANE :  0.832674742648
+fraction of  BENZENE :  0.163358423822
+fraction of  TRIETHYLENE GLYCOL :  0.00396683353009
+
+Some props of port out " Raffinate ":
+T :  273.15
+H :  -13902.6607823
+MoleFlow :  5.89759676364
+
+Finished LiqLiqEx ++++++++++++++++++++++++++++++
+    
+
+Init SimpleDistCol ++++++++++++++++++++++++++++++
+Cmps:  ['PROPANE', 'n-BUTANE', 'ISOBUTANE', 'n-PENTANE']
+Names Ports In:  ['In8', 'In9', 'In4', 'In5', 'In6', 'In7', 'In0', 'In1', 'In2', 'In3', 'In21', 'In20', 'In18', 'In19', 'In16', 'In17', 'In14', 'In15', 'In12', 'In13', 'In10', 'In11']
+Names Ports Out:  ['Vap19', 'Vap18', 'Vap13', 'Vap12', 'Vap11', 'Vap10', 'Vap17', 'Vap16', 'Vap15', 'Vap14', 'Liq18', 'Liq19', 'Liq14', 'Liq15', 'Liq16', 'Liq17', 'Liq10', 'Liq11', 'Liq12', 'Liq13', 'Vap9', 'Vap8', 'Vap7', 'Vap6', 'Vap5', 'Vap4', 'Vap3', 'Vap2', 'Vap1', 'Vap0', 'Vap20', 'Vap21', 'Liq21', 'Liq20', 'Liq6', 'Liq7', 'Liq4', 'Liq5', 'Liq2', 'Liq3', 'Liq0', 'Liq1', 'Liq8', 'Liq9']
+Return value from Solve() 1
+
+Composition of port in " In10 ":
+fraction of  PROPANE :  0.05
+fraction of  n-BUTANE :  0.4
+fraction of  ISOBUTANE :  0.4
+fraction of  n-PENTANE :  0.15
+
+Some props of port in " In10 ":
+T :  303.15
+H :  None
+MoleFlow :  10.0
+
+Composition of port out " Liq0 ":
+fraction of  PROPANE :  0.0999489180604
+fraction of  n-BUTANE :  0.350249054489
+fraction of  ISOBUTANE :  0.548330040242
+fraction of  n-PENTANE :  0.00148461659044
+
+Some props of port out " Liq0 ":
+T :  322.634422336
+H :  333.449126548
+MoleFlow :  5.0
+
+Composition of port out " Liq21 ":
+fraction of  PROPANE :  4.62981846208e-005
+fraction of  n-BUTANE :  0.449757385671
+fraction of  ISOBUTANE :  0.251661235258
+fraction of  n-PENTANE :  0.298521250353
+
+Some props of port out " Liq21 ":
+T :  343.356725817
+H :  3680.07596188
+MoleFlow :  None
+
+Finished SimpleDistCol ++++++++++++++++++++++++++++++
+    
+
+Init Heater ++++++++++++++++++++++++++++++
+Cmps:  ['PROPANE', 'n-BUTANE', 'ISOBUTANE', 'n-PENTANE']
+Names Ports In:  ['In']
+Names Ports Out:  ['Out']
+Return value from Solve() 1
+
+Composition of port in " In ":
+fraction of  PROPANE :  0.25
+fraction of  n-BUTANE :  0.25
+fraction of  ISOBUTANE :  0.25
+fraction of  n-PENTANE :  0.25
+
+Some props of port in " In ":
+T :  256.357717014
+P :  101.325
+H :  -7200
+MoleFlow :  10.0
+
+Composition of port out " Out ":
+fraction of  PROPANE :  0.25
+fraction of  n-BUTANE :  0.25
+fraction of  ISOBUTANE :  0.25
+fraction of  n-PENTANE :  0.25
+
+Some props of port out " Out ":
+T :  1815.98933463
+P :  101.325
+H :  352800.0
+MoleFlow :  10.0
+
+Finished Heater ++++++++++++++++++++++++++++++
+    
+
+Init Heat Exchanger ++++++++++++++++++++++++++++++
+Stream HotIn
+T :  375.0
+P :  500.0
+H :  25621.9990002
+MoleFlow :  800.0
+
+Composition
+fraction of  PROPANE :  0.25
+fraction of  n-BUTANE :  0.25
+fraction of  ISOBUTANE :  0.25
+fraction of  n-PENTANE :  0.25
+
+Stream HotOut
+T :  265.19559505
+P :  450.0
+H :  -7422.72342939
+MoleFlow :  800.0
+
+Composition
+fraction of  PROPANE :  0.25
+fraction of  n-BUTANE :  0.25
+fraction of  ISOBUTANE :  0.25
+fraction of  n-PENTANE :  0.25
+
+Stream ColdIn
+T :  260.19559505
+P :  300.0
+H :  -5722.58913318
+MoleFlow :  1000.0
+
+Composition
+fraction of  PROPANE :  0.95
+fraction of  n-BUTANE :  0.05
+fraction of  ISOBUTANE :  0.0
+fraction of  n-PENTANE :  0.0
+
+Stream ColdOut
+T :  369.698475144
+P :  290.0
+H :  20713.1888105
+MoleFlow :  1000.0
+
+Composition
+fraction of  PROPANE :  0.95
+fraction of  n-BUTANE :  0.05
+fraction of  ISOBUTANE :  0.0
+fraction of  n-PENTANE :  0.0
+
+Finished Heat Exchanger ++++++++++++++++++++++++++++++
+    
+
+Init Flowsh1 ++++++++++++++++++++++++++++++
+conn 1
+conn2 1
+conn3 1
+Composition of port in " In ":
+fraction of  PROPANE :  0.25
+fraction of  n-BUTANE :  0.25
+fraction of  ISOBUTANE :  0.25
+fraction of  n-PENTANE :  0.25
+
+Some props of flash port in " In ":
+T :  329.736752551
+H :  7984.79011986
+MoleFlow :  6000.0
+
+Composition of flash port out " Vap ":
+fraction of  PROPANE :  0.395241855951
+fraction of  n-BUTANE :  0.231460918513
+fraction of  ISOBUTANE :  0.259643100371
+fraction of  n-PENTANE :  0.113654125165
+
+Some props of flash port out " Vap ":
+T :  329.736752551
+H :  18810.5221876
+MoleFlow :  2221.128329
+
+Composition of flash port out " Liq0 ":
+fraction of  PROPANE :  0.164630389996
+fraction of  n-BUTANE :  0.260896818593
+fraction of  ISOBUTANE :  0.244332021493
+fraction of  n-PENTANE :  0.330140769919
+
+Some props of flash port out " Liq0 ":
+T :  329.736752551
+H :  1621.69087606
+MoleFlow :  3778.871671
+
+Finished Flowsh1 ++++++++++++++++++++++++++++++
+    
+
+Init Flowsh2 ++++++++++++++++++++++++++++++
+conn 1
+conn2 1
+conn3 1
+Composition of port in " In ":
+fraction of  PROPANE :  0.25
+fraction of  n-BUTANE :  0.25
+fraction of  ISOBUTANE :  0.25
+fraction of  n-PENTANE :  0.25
+
+Some props of flash port in " In ":
+T :  329.736752551
+H :  7984.79011986
+MoleFlow :  6000.0
+
+Composition of flash port out " Vap ":
+fraction of  PROPANE :  0.395241855951
+fraction of  n-BUTANE :  0.231460918513
+fraction of  ISOBUTANE :  0.259643100371
+fraction of  n-PENTANE :  0.113654125165
+
+Some props of flash port out " Vap ":
+T :  329.736752551
+H :  18810.5221876
+MoleFlow :  2221.128329
+
+Composition of flash port out " Liq0 ":
+fraction of  PROPANE :  0.164630389996
+fraction of  n-BUTANE :  0.260896818593
+fraction of  ISOBUTANE :  0.244332021493
+fraction of  n-PENTANE :  0.330140769919
+
+Some props of flash port out " Liq0 ":
+T :  329.736752551
+H :  1621.69087606
+MoleFlow :  3778.871671
+
+Now lets add two cmps and delete one ++++++++++++++++++++++++++++++
+    
+Composition of flash port in " In ":
+fraction of  PROPANE :  0.25
+fraction of  n-BUTANE :  0.25
+fraction of  ISOBUTANE :  0.25
+fraction of  n-HEXANE :  0.275
+fraction of  n-DODECANE :  0.225
+
+Some props of flash port in " In ":
+T :  351.756492586
+H :  10735.4823707
+MoleFlow :  6000.0
+
+Composition of flash port out " Vap ":
+fraction of  PROPANE :  0.416559803243
+fraction of  n-BUTANE :  0.241458008828
+fraction of  ISOBUTANE :  0.279188351998
+fraction of  n-HEXANE :  0.0623282483994
+fraction of  n-DODECANE :  0.000465587531916
+
+Some props of flash port out " Vap ":
+T :  351.756492586
+H :  21089.844919
+MoleFlow :  1540.65044188
+
+Composition of flash port out " Liq0 ":
+fraction of  PROPANE :  0.125181250716
+fraction of  n-BUTANE :  0.185676767702
+fraction of  ISOBUTANE :  0.172641398054
+fraction of  n-HEXANE :  0.274473651507
+fraction of  n-DODECANE :  0.242026932022
+
+Some props of flash port out " Liq0 ":
+T :  351.756492586
+H :  7158.17274246
+MoleFlow :  4459.34955812
+
+Finished Flowsh2 ++++++++++++++++++++++++++++++
+    
+
+Init TestRecycle ++++++++++++++++++++++++++++++
+***************
+fraction of  PROPANE :  0.0982526394077
+fraction of  n-BUTANE :  0.193291458087
+fraction of  ISOBUTANE :  0.168725472147
+fraction of  n-NONANE :  0.539730430358
+***************
+Some properties of splitter Out0
+T :  360.150012341
+P :  715.0
+H :  8150.82036012
+MoleFlow :  1342.4150994
+****reset pressure***
+*************** splitter out1
+fraction of  PROPANE :  0.103512223589
+fraction of  n-BUTANE :  0.200830962059
+fraction of  ISOBUTANE :  0.175946484052
+fraction of  n-NONANE :  0.5197103303
+***************
+Some properties of splitter Out0
+T :  357.361454215
+P :  715.0
+H :  7411.71112237
+MoleFlow :  1401.93913078
+Finished TestRecycle ++++++++++++++++++++++++++++++
+    
+
+Init TestRecycle2 ++++++++++++++++++++++++++++++
+***************
+fraction of  PROPANE :  0.0982526506027
+fraction of  n-BUTANE :  0.193291494899
+fraction of  ISOBUTANE :  0.168725499781
+fraction of  n-NONANE :  0.539730354717
+***************
+Some properties of splitter Out0
+T :  360.150002761
+P :  715.0
+H :  8150.81775305
+MoleFlow :  1338.4400725
+Some properties of mixed Out
+T :  360.150002761
+P :  715.0
+H :  15264.6209604
+MoleFlow :  3191.1220725
+Some properties of stream Out
+T :  360.15
+P :  715.0
+H :  15740.282136
+MoleFlow :  2991.1220725
+****reset pressure***
+*************** splitter out1
+fraction of  PROPANE :  0.0543740776496
+fraction of  n-BUTANE :  0.109571006656
+fraction of  ISOBUTANE :  0.094946370255
+fraction of  n-NONANE :  0.74110854544
+***************
+Some properties of splitter Out0
+T :  399.999958391
+P :  715.0
+H :  20172.2847439
+MoleFlow :  593.797749769
+Finished TestRecycle2 ++++++++++++++++++++++++++++++
+    
+
+Init TestMoleBalance ++++++++++++++++++++++++++++++
+moleFlowIn1 1000
+moleFlowIn2 -500.0
+moleFlowOut1 1500
+moleFlowOut2 -1000.0
+moleBalance 0.0
+Finished TestMoleBalance ++++++++++++++++++++++++++++++
+    
+
+Init ThAdminSaveLoad ++++++++++++++++++++++++++++++
+Just saved an loaded a flowsheet with a separator. Now solve.. 
+
+H value =  14657.5269354
+Th cases: ['thCase1']
+Prop pkg for thCase1 : Peng-Robinson
+Compounds for thCase1 : ['PROPANE', 'n-BUTANE', 'ISOBUTANE', 'n-PENTANE'] 
+
+Finished ThAdminSaveLoad ++++++++++++++++++++++++++++++
+    
+
+Init PropertiesHandling ++++++++++++++++++++++++++++++
+Thermo providers:  ['VirtualMaterials'] 
+
+Initial common properties:  ('T', 'P', 'H', 'S', 'molarV', 'ZFactor', 'MolecularWeight') 
+
+Supported properties:  ['T', 'P', 'MolecularWeight', 'ZFactor', 'molarV', 'MassDensity', 'H', 'S', 'Cp', 'Cv', 'GibbsFreeEnergy', 'HelmholtzEnergy', 'IdealGasEnthalpy', 'IdealGasEntropy', 'IdealGasCp', 'ResidualEnthalpy', 'ResidualEntropy', 'ResidualCp', 'ResidualCv', 'Viscosity', 'ThermalConductivity', 'SurfaceTension', 'SpeedOfSound', 'IsothermalCompressibility', 'dPdVt', 'IdealGasFormation', 'IdealGasGibbs', 'MechanicalZFactor', 'InternalEnergy', 'pH', 'rxnBaseH'] 
+
+A separator was added, now let's request Viscosity from one of its ports
+Viscosity value =  None . It is None, because it ain't there :) 
+
+Now lets set the following as commonProps ['T', 'P', 'H', 'S', 'molarV', 'ZFactor', 'MolecularWeight', 'Viscosity'] 
+
+These are the new common properties:  ('T', 'P', 'MolecularWeight', 'ZFactor', 'molarV', 'MassDensity', 'H', 'S', 'Cp', 'Cv', 'GibbsFreeEnergy', 'HelmholtzEnergy', 'IdealGasEnthalpy', 'IdealGasEntropy', 'IdealGasCp', 'ResidualEnthalpy', 'ResidualEntropy', 'ResidualCp', 'ResidualCv', 'Viscosity', 'ThermalConductivity', 'SurfaceTension', 'SpeedOfSound', 'IsothermalCompressibility', 'dPdVt', 'IdealGasFormation', 'IdealGasGibbs', 'MechanicalZFactor', 'InternalEnergy', 'pH', 'rxnBaseH') 
+
+Let's solve again and get viscosity again
+Viscosity value =  9.66883345945e-006 
+
+PropertiesHandling ++++++++++++++++++++++++++++++
+    

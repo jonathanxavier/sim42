@@ -1,0 +1,209 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>SimpleFlash - sim.unitop.Flash.SimpleFlash</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="scriptunitop.htm">previous</a> &nbsp; <a href="setsimunitopsetset.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>SimpleFlash - sim.unitop.Flash.SimpleFlash</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The separator is used to separate gas and liquid streams.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>s&nbsp;=&nbsp;Flash.SimpleFlash()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="width: 2.6875in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Flash.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Man-Sep2.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Man-Sep3.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>In Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Separator inlet</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Vap Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Separator vapor outlet</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Liq0 Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Separator liquid outlet. Note that the default for a separator is a single liquid outlet.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>LiquidPhases</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Tells the separator how many liquid phases it should consider. The default is 1</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Equations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext><img src="_s42-85.png"></p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: 0in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note><img src="_s42-86.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.75in">
+<p class=body-text>If you are running VMGSim, the SimpleFlash unit operation is equivalent to the Separator unit operation</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=source>#simple&nbsp;two&nbsp;phase&nbsp;separator&nbsp;example</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.NRTL/Ideal/HC</p>
+<p class=source>thermo&nbsp;+&nbsp;NITROGEN&nbsp;OXYGEN&nbsp;ETHANOL&nbsp;WATER</p>
+<p class=source>&nbsp;</p>
+<p class=source>s&nbsp;=&nbsp;Flash.SimpleFlash()</p>
+<p class=source>s.In.T&nbsp;=&nbsp;25&nbsp;C</p>
+<p class=source>s.In.P&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>s.In.MoleFlow&nbsp;=&nbsp;100</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;1&nbsp;1&nbsp;1&nbsp;1</p>
+<p class=source>&nbsp;</p>
+<p class=source>s.Vap</p>
+<p class=source>s.Liq0</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>You can change the SimplaFlash behavior to handle three phase calculations as well. Let's modify the example above and add some toluene to it, thus creating three phases.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>#simple&nbsp;two&nbsp;phase&nbsp;separator&nbsp;example</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.NRTL/Ideal/HC</p>
+<p class=source>thermo&nbsp;+&nbsp;NITROGEN&nbsp;OXYGEN&nbsp;ETHANOL&nbsp;WATER&nbsp;TOLUENE</p>
+<p class=source>&nbsp;</p>
+<p class=source>s&nbsp;=&nbsp;Flash.SimpleFlash()</p>
+<p class=source>s.In.T&nbsp;=&nbsp;25&nbsp;C</p>
+<p class=source>s.In.P&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>s.In.MoleFlow&nbsp;=&nbsp;100</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;1&nbsp;1&nbsp;1&nbsp;5&nbsp;5</p>
+<p class=source>&nbsp;</p>
+<p class=source>s.Vap</p>
+<p class=source>s.Liq0</p>
+<p class=body-text>If we look at the Liq0 results you will see the following:</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;25.0&nbsp;=&nbsp;C</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;101.325&nbsp;=&nbsp;kPa</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;83.1666875195&nbsp;=&nbsp;kgmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;4509.75543201&nbsp;=&nbsp;kg/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-28897.1222903&nbsp;=&nbsp;kJ/kmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-667577.205481&nbsp;=&nbsp;W</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;54.2255026203&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00253205803308&nbsp;=</p>
+<p class=source>NITROGEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.000545572106602&nbsp;=</p>
+<p class=source>OXYGEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0003835170671&nbsp;=</p>
+<p class=source>ETHANOL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0871952284155&nbsp;=</p>
+<p class=source>WATER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.45652250067&nbsp;=</p>
+<p class=source>TOLUENE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.455353181741&nbsp;=</p>
+<p class=body-text>Note that we have quite a bit of toluene and water in the liquid phase and there's a chance decantation is happening. Thus we change the LiquidPhases parameter from the default 1 to 2.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>#simple&nbsp;two&nbsp;phase&nbsp;separator&nbsp;example</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.NRTL/Ideal/HC</p>
+<p class=source>thermo&nbsp;+&nbsp;NITROGEN&nbsp;OXYGEN&nbsp;ETHANOL&nbsp;WATER&nbsp;TOLUENE</p>
+<p class=source>&nbsp;</p>
+<p class=source>s&nbsp;=&nbsp;Flash.SimpleFlash()</p>
+<p class=source>s.In.T&nbsp;=&nbsp;25&nbsp;C</p>
+<p class=source>s.In.P&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>s.In.MoleFlow&nbsp;=&nbsp;100</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;1&nbsp;1&nbsp;1&nbsp;5&nbsp;5</p>
+<p class=source>s.LiquidPhases&nbsp;=&nbsp;2</p>
+<p class=source>&nbsp;</p>
+<p class=source>s.Vap</p>
+<p class=source>s.Liq0</p>
+<p class=source>s.Liq1</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;25.0&nbsp;=&nbsp;C</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;101.325&nbsp;=&nbsp;kPa</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;41.7591769331&nbsp;=&nbsp;kgmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;3629.40241875&nbsp;=&nbsp;kg/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-24509.0074625&nbsp;=&nbsp;kJ/kmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-284298.883078&nbsp;=&nbsp;W</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;86.9126904623&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00412609342239&nbsp;=</p>
+<p class=source>NITROGEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00107911348596&nbsp;=</p>
+<p class=source>OXYGEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.000751644871561&nbsp;=</p>
+<p class=source>ETHANOL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0777178729581&nbsp;=</p>
+<p class=source>WATER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0206848457939&nbsp;=</p>
+<p class=source>TOLUENE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.89976652289&nbsp;=</p>
+<p class=body-text>You will now notice that one phase is rich in water and another phase is rich in toluene as one would expect.</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;25.0&nbsp;=&nbsp;C</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;101.325&nbsp;=&nbsp;kPa</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;41.4075105864&nbsp;=&nbsp;kgmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;880.353013265&nbsp;=&nbsp;kg/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-33322.5045676&nbsp;=&nbsp;kJ/kmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-383278.322403&nbsp;=&nbsp;W</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;21.2607085236&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.000924484795352&nbsp;=</p>
+<p class=source>NITROGEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;7.49945875783e-006&nbsp;=</p>
+<p class=source>OXYGEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.22628211252e-005&nbsp;=</p>
+<p class=source>ETHANOL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0967530733039&nbsp;=</p>
+<p class=source>WATER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.896061644326&nbsp;=</p>
+<p class=source>TOLUENE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00716552009065&nbsp;=</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><img src="_s42-87.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>If you are using VirtualMaterials as your thermodynamic property engine three phase calculations are on by default. This means that the flash results are always rigorous even if you see only a recombined liquid phase.</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Stream_Material - sim.unitop.Stream.Stream_Material</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="streamenergysimunitopstreamstreamenergy.htm">previous</a> &nbsp; <a href="streamsignalsimunitopstreamstreamsignal.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Stream_Material - sim.unitop.Stream.Stream_Material</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The Stream_Material unit operation acts like a holder for flash results and physical property values. Streams are useful placeholders for quick flash calculations, and to copy information through the use of the clone command.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>s&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="width: 2.6875in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Stream.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>man-material.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>In Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Stream_Material inlet port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Out Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Stream_Material outlet port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Equations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext><img src="_s42-93.png"></p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=source>#material&nbsp;stream&nbsp;example</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.Advanced_Peng-Robinson</p>
+<p class=source>thermo&nbsp;+&nbsp;WATER&nbsp;TRIETHYLENE_GLYCOL</p>
+<p class=source>#generate&nbsp;WATER/TEG&nbsp;bubble&nbsp;temperature&nbsp;curve</p>
+<p class=source>units&nbsp;Field</p>
+<p class=source>s&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>s.In.P&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>s.In.VapFrac&nbsp;=&nbsp;0.0</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.0&nbsp;1.0</p>
+<p class=source>s.Out.T</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.1&nbsp;0.9</p>
+<p class=source>s.Out.T</p>
+<p class=source>…</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;0.9&nbsp;0.1</p>
+<p class=source>s.Out.T</p>
+<p class=source>s.In.Fraction&nbsp;=&nbsp;1.0&nbsp;0.0</p>
+<p class=source>s.Out.T</p>
+<p></p>
+</body>
+</html>

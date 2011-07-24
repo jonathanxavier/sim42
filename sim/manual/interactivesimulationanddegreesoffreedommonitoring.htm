@@ -1,0 +1,277 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Interactive Simulation and Degrees of Freedom Monitoring</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="cvsandsourcecode.htm">previous</a> &nbsp; <a href="sim42usersguide.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Interactive Simulation and Degrees of Freedom Monitoring</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>Sim42 works by constantly monitoring every piece of information you provide. The information is placed under a logical framework provided by the degrees of freedom defined by the material, energy and thermodynamic equilibrium equations that define the physical behavior of each unit operation. Every piece of information you supply is propagated through the flowsheet as soon as entered, forward and backward from the point where the information was entered. When all the degrees of freedom are completed for a unit operation Sim42 will calculate everything that it can according to the thermodynamic basis you specified by performing the necessary balances and thermodynamic calculations dictated by phase equilibrium.</p>
+<p class=body-text>In order to illustrate this, let&#8217;s run the following example:</p>
+<p class=source>/s.In&gt;&nbsp;clear</p>
+<p class=source>/&gt;&nbsp;thermo&nbsp;=&nbsp;VirtualMaterials.SRK</p>
+<p class=source>/&gt;&nbsp;thermo&nbsp;+&nbsp;Benzene&nbsp;Toluene</p>
+<p class=source>/&gt;</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: 0in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note><img src="_s42-27.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.75in">
+<p class=body-text>the clear command deletes all objects previously created using Sim42 and starts a new simulation session</p></td>
+</tr>
+</table>
+<p class=body-text>Let's add a material stream to the simulation</p>
+<p class=source>/&gt;&nbsp;s&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><img src="_s42-28.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Note that in  Sim42 streams are just another unit operation</p></td>
+</tr>
+</table>
+<p class=body-text>Let's specify the temperature and pressure of this material stream.</p>
+<p class=source>/&gt;&nbsp;s.In.P&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>/&gt;&nbsp;s.In.T&nbsp;=&nbsp;80&nbsp;C</p>
+<p class=body-text><b>&nbsp;</p>
+</b><table cellpadding=0 cellspacing=0 border=0 style="margin-left: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><img src="_s42-29.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Note that usually Sim42's unit operations have In and Out material ports. The In and Out material ports hold the information you specify as well as information calculated by Sim42</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=margin-note><img src="_s42-30.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Note that you can perform unit conversions on the fly.</p></td>
+</tr>
+</table>
+<p class=body-text>Let's inspect the material stream In port</p>
+<p class=source>/&gt;&nbsp;s.In</p>
+<p class=source>Port:&nbsp;/s.In&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;None</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;80.0&nbsp;*&nbsp;C</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;101.325&nbsp;*&nbsp;kPa</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>BENZENE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>TOLUENE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=body-text><b>&nbsp;</p>
+</b><table cellpadding=0 cellspacing=0 border=0 style="margin-left: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><img src="_s42-31.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Note that values specified  are noted by the "*" symbol</p>
+<p class=body-text>Note that unknown values are represented by the None token</p></td>
+</tr>
+</table>
+<p class=body-text>Now let us specify the composition of the In port</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>/&gt;&nbsp;s.In.Fraction&nbsp;=&nbsp;1&nbsp;1</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><img src="_s42-32.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Mole fractions are automatically normalized</p></td>
+</tr>
+</table>
+<p class=body-text>Let's inspect the stream s again.</p>
+<p class=source>/&gt;&nbsp;s.In</p>
+<p class=source>Port:&nbsp;/s.In&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;None</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;80.0&nbsp;*&nbsp;C</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;101.325&nbsp;*&nbsp;kPa</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-16261.7960262&nbsp;=&nbsp;kJ/kmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;85.1275&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00401481886842&nbsp;=</p>
+<p class=source>BENZENE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.5&nbsp;*</p>
+<p class=source>TOLUENE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.5&nbsp;*</p>
+<p class=body-text>Note that Sim42 has performed the flash calculation for you automatically, and all <i>intensive</i> variables are defined, such as the vapor fraction and the molar enthalpy.</p>
+<p class=body-text>If we now specify the molar flow, all the extensive variables are also calculated,</p>
+<p class=source>/&gt;&nbsp;s.In.MoleFlow&nbsp;=&nbsp;100</p>
+<p class=source>/&gt;&nbsp;s.In</p>
+<p class=source>Port:&nbsp;/s.In&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;None</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;80.0&nbsp;*&nbsp;C</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;101.325&nbsp;*&nbsp;kPa</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;100.0&nbsp;*&nbsp;kgmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;8512.75&nbsp;=&nbsp;kg/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-16261.7960262&nbsp;=&nbsp;kJ/kmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-451716.556284&nbsp;=&nbsp;W</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;85.1275&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00401481886842&nbsp;=</p>
+<p class=source>BENZENE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.5&nbsp;*</p>
+<p class=source>TOLUENE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.5&nbsp;*</p>
+<p class=body-text>A convenient summary of Sim42 most used commands can be found in the table below.</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-33.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.9in">
+<p class=body-text style="padding: 0in 0.075in">A common operation in Sim42 is the forgetting of a specified value. You can do that by setting the value to None.</p>
+<p class=body-text>/&gt; Feed.In.T = None</p>
+<p class=body-text>&nbsp;</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.375in">
+<p class=tableheading>Command</p></td>
+<td valign=top style="width: 2.375in">
+<p class=tableheading>Meaning</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.375in">
+<p class=tabletext>clear</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.375in">
+<p class=tabletext>destroys the current simulation and starts a new one</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>go</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>resume simulation calculations, usually used after a hold command was issued</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>hold</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>stop simulation calculations. Useful to set up complex unit operation connections or change several simulation specifications without restarting calculations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>quit</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>end a simulation session</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>read &lt;file name&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>read a simulation script. Note that you can use "/" (Unix style) or "\" (DOS Style) as your folder separator.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>recall &lt;file name&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>read a simulation file. Same note as above</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>store &lt;file name&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>store a simulation to disk. Same note as above</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>=</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Assignment operator used to set a variable value. Example:</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Feed.In.T = 100 C</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>-&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Connection operator used to attach ports. Example:</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Feed.Out -&gt; cooler.In</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>~=</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Estimate operator. Used to set an estimated value. Example:</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Feed.In.T ~= 100. This allows values to be automatically overwritten during convergence without creating consistency problems</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.375in">
+<p class=tabletext>.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.375in">
+<p class=tabletext>Dereferencing operator. This allows you to transverse the object hierarchy. Example:</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>Feed.In.T allows you to access the Temperature BasicProperty object contained in the In material port object contained in the Feed Stream_Material object.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-34.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.9in">
+<p class=body-text style="padding: 0in 0.075in">When you read a case you read a Sim42 script. Sim42 scripts are text files containing command line interface tokens. When you recall a case you read the contents of all objects present in a Sim42 file stored in a special format defined by Python.</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

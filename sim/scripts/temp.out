@@ -1,0 +1,273 @@
+>> units SI
+>> # test 2-phase VL envelope
+>> $thermo = VirtualMaterials.Peng-Robinson
+>> / -> $thermo
+Thermo case attached to a unit operation. / to /thermo
+>> thermo + methane propane n-hexane water
+methane propane n-hexane water 
+>> env = Envelope.PTEnvelope()
+>> env.In.Fraction = 0.15 0.15 0.2 0.5
+>> # I need temperatures at these pressure values
+>> env.Pressures = 101.325 202.65 303.975 405.3 506.625 kPa
+>> # add a bubble/dew point curve
+>> env.bubble = Envelope.QualityCurve(0.0)
+>> # add a quality curve
+>> env.q4 = Envelope.QualityCurve(0.4)
+>> # examine results
+>> env
+Operation: env = sim.unitop.Envelope.PTEnvelope
+Port: In = sim.solver.Ports.Port_Material
+Port: Out = sim.solver.Ports.Port_Material
+Port: Crit_T = sim.solver.Ports.Port_Signal
+Port: Crit_P = sim.solver.Ports.Port_Signal
+Port: Cricondentherm_T = sim.solver.Ports.Port_Signal
+Port: Cricondenbar_T = sim.solver.Ports.Port_Signal
+Port: Cricondentherm_P = sim.solver.Ports.Port_Signal
+Port: Starting_P = sim.solver.Ports.Port_Signal
+Port: Cricondenbar_P = sim.solver.Ports.Port_Signal
+Parameter: Ignored = None
+Parameter: Hydrate = 0
+Parameter: DryBasis = 1
+Parameter: MaxNumPoints = 50
+DataSeries: Pressures = sim.unitop.XYTable.DataSeries; P 101.325 202.65 303.975 405.3 506.625
+QualityCurve: bubble
+QualityCurve: q4
+>> env.bubble.Results
+PT: [PTEnvelop::Terminate] P is out of range :       0.58115
+Total 33 points: pointType, P kPa, T C
+ Point 0: 	 0 	 101.325	 -153.143954431
+ Point 1: 	 0 	 111.530989441	 -151.675905678
+ Point 2: 	 0 	 136.325991528	 -148.476879005
+ Point 3: 	 7 	 202.64999944	 -141.596768279
+ Point 4: 	 0 	 207.007700804	 -141.203706397
+ Point 5: 	 7 	 303.975	 -133.659414269
+ Point 6: 	 0 	 330.522296452	 -131.88790054
+ Point 7: 	 7 	 405.3	 -127.366270837
+ Point 8: 	 7 	 506.625	 -122.04830653
+ Point 9: 	 0 	 522.780062311	 -121.264451532
+ Point 10: 	 0 	 817.764966771	 -109.054563237
+ Point 11: 	 0 	 1263.35932593	 -94.8452833933
+ Point 12: 	 0 	 1926.3209545	 -77.94062401
+ Point 13: 	 0 	 2899.97102679	 -57.0177499049
+ Point 14: 	 0 	 4309.32305658	 -29.3722314323
+ Point 15: 	 0 	 6260.33748637	 10.5076577729
+ Point 16: 	 0 	 8498.55663986	 72.2827854885
+ Point 17: 	 0 	 9247.11212811	 114.364722815
+ Point 18: 	 3 	 9315.66053098	 129.347211109
+ Point 19: 	 0 	 8779.98089177	 161.291350787
+ Point 20: 	 2 	 8080.4939945	 173.786572526
+ Point 21: 	 4 	 6379.61977918	 182.48015727
+ Point 22: 	 0 	 5057.3765639	 179.30179084
+ Point 23: 	 0 	 2589.04548251	 156.326393727
+ Point 24: 	 0 	 524.769266431	 93.2504088568
+ Point 25: 	 7 	 506.625	 92.0003775299
+ Point 26: 	 7 	 405.299999998	 84.2595235155
+ Point 27: 	 7 	 303.974999993	 74.7357004847
+ Point 28: 	 7 	 202.649999995	 62.1307522446
+ Point 29: 	 7 	 101.325	 42.6191446251
+ Point 30: 	 0 	 62.1369730937	 30.2758424406
+ Point 31: 	 0 	 6.2247509218	 -15.6673769423
+ Point 32: 	 0 	 0.581151154366	 -49.0629103276
+>> env.q4.Results
+PT: [PTEnvelop::Terminate] P is out of range :       0.35551
+Total 22 points: pointType, P kPa, T C
+ Point 0: 	 0 	 101.325	 -47.7098174991
+ Point 1: 	 0 	 158.140682734	 -37.1807753825
+ Point 2: 	 7 	 202.65	 -30.7668700915
+ Point 3: 	 7 	 303.975	 -19.3204083383
+ Point 4: 	 0 	 381.195221139	 -12.3181046687
+ Point 5: 	 7 	 405.3	 -10.3345554347
+ Point 6: 	 7 	 506.624999966	 -2.78869023657
+ Point 7: 	 0 	 1852.82642756	 54.233713228
+ Point 8: 	 0 	 6822.8734191	 149.675511489
+ Point 9: 	 3 	 8043.11995334	 171.120886482
+ Point 10: 	 2 	 7999.86587374	 172.359797797
+ Point 11: 	 4 	 7869.16293252	 172.778898294
+ Point 12: 	 0 	 3929.65386477	 139.134469965
+ Point 13: 	 0 	 585.4087649	 54.6135171007
+ Point 14: 	 7 	 506.625	 49.5211439746
+ Point 15: 	 7 	 405.299999998	 41.9804272345
+ Point 16: 	 7 	 303.974999996	 32.7918676156
+ Point 17: 	 7 	 202.649999997	 20.765393551
+ Point 18: 	 7 	 101.325	 2.39681983634
+ Point 19: 	 0 	 56.2452527867	 -11.3226643386
+ Point 20: 	 0 	 4.61976163541	 -55.7534181718
+ Point 21: 	 0 	 0.355506548787	 -86.7571284575
+>> # test deleting curve
+>> delete env.q4
+>> env
+Operation: env = sim.unitop.Envelope.PTEnvelope
+Port: In = sim.solver.Ports.Port_Material
+Port: Out = sim.solver.Ports.Port_Material
+Port: Crit_T = sim.solver.Ports.Port_Signal
+Port: Crit_P = sim.solver.Ports.Port_Signal
+Port: Cricondentherm_T = sim.solver.Ports.Port_Signal
+Port: Cricondenbar_T = sim.solver.Ports.Port_Signal
+Port: Cricondentherm_P = sim.solver.Ports.Port_Signal
+Port: Starting_P = sim.solver.Ports.Port_Signal
+Port: Cricondenbar_P = sim.solver.Ports.Port_Signal
+Parameter: Ignored = None
+Parameter: Hydrate = 0
+Parameter: DryBasis = 1
+Parameter: MaxNumPoints = 50
+DataSeries: Pressures = sim.unitop.XYTable.DataSeries; P 101.325 202.65 303.975 405.3 506.625
+QualityCurve: bubble
+>> # examine the critical point
+>> env.Crit_T
+Port: /env.Crit_T + sim.solver.Ports.Port_Signal
+Connected to: None
+T   = 173.786572526 = C
+
+>> env.Crit_P
+Port: /env.Crit_P + sim.solver.Ports.Port_Signal
+Connected to: None
+P   = 8080.4939945 = kPa
+
+>> 
+>> # Add a Enthalpy diagram
+>> env.th = Envelope.THEnvelope()
+>> # Add an isobar
+>> env.th.isobar1 = Envelope.QualityCurve(500)
+>> env.th.isobar2 = Envelope.QualityCurve(1000)
+>> 
+>> # examine results
+>> /env.th.isobar1.Results
+TH: 
+Total 37 points: pointType, P kPa, T C, H kJ/kmol
+ Point 0: 	 0 	 500.0	 -153.143954431	 -19896.2142016
+ Point 1: 	 0 	 500.0	 -151.675905678	 -19766.0014464
+ Point 2: 	 0 	 500.0	 -148.476879005	 -19481.182553
+ Point 3: 	 0 	 500.0	 -141.596768279	 -18863.4106614
+ Point 4: 	 0 	 500.0	 -141.203706397	 -18827.8938097
+ Point 5: 	 0 	 500.0	 -133.659414269	 -18141.2792297
+ Point 6: 	 0 	 500.0	 -131.88790054	 -17978.6561381
+ Point 7: 	 0 	 500.0	 -127.366270837	 -17561.0727478
+ Point 8: 	 0 	 500.0	 -122.374196846	 -17095.7407191
+ Point 9: 	 0 	 500.0	 -122.04830653	 -17022.9355957
+ Point 10: 	 0 	 500.0	 -121.264451532	 -16853.4677496
+ Point 11: 	 0 	 500.0	 -109.054563237	 -14851.3095114
+ Point 12: 	 0 	 500.0	 -102.815149137	 -14047.1337186
+ Point 13: 	 0 	 500.0	 -94.8452833933	 -13101.3305355
+ Point 14: 	 0 	 500.0	 -77.94062401	 -11203.4121632
+ Point 15: 	 0 	 500.0	 -57.0177499049	 -8811.56554925
+ Point 16: 	 0 	 500.0	 -49.0629103276	 -7845.18846765
+ Point 17: 	 0 	 500.0	 -29.3722314323	 -5225.51379371
+ Point 18: 	 0 	 500.0	 -15.6673769423	 -3158.12422194
+ Point 19: 	 0 	 500.0	 10.5076577729	 1303.67516975
+ Point 20: 	 0 	 500.0	 30.2758424406	 4933.02575145
+ Point 21: 	 0 	 500.0	 42.6191446251	 7380.79926717
+ Point 22: 	 0 	 500.0	 62.1307522446	 11978.676272
+ Point 23: 	 0 	 500.0	 72.2827854885	 15053.0530525
+ Point 24: 	 0 	 500.0	 74.7357004847	 15909.4515249
+ Point 25: 	 0 	 500.0	 84.2595235155	 19857.0767166
+ Point 26: 	 0 	 500.0	 91.5348557811	 23868.1243476
+ Point 27: 	 0 	 500.0	 92.0003775299	 23918.7332669
+ Point 28: 	 0 	 500.0	 93.2504088568	 24054.8326704
+ Point 29: 	 0 	 500.0	 114.364722815	 26398.6494243
+ Point 30: 	 0 	 500.0	 117.551952139	 26759.8641973
+ Point 31: 	 0 	 500.0	 129.347211109	 28113.64593
+ Point 32: 	 0 	 500.0	 156.326393727	 31311.0609899
+ Point 33: 	 0 	 500.0	 161.291350787	 31914.7920856
+ Point 34: 	 0 	 500.0	 173.786572526	 33455.2293869
+ Point 35: 	 0 	 500.0	 179.30179084	 34144.7213119
+ Point 36: 	 0 	 500.0	 182.48015727	 34544.7247115
+>> /env.th.isobar2.Results
+TH: 
+Total 37 points: pointType, P kPa, T C, H kJ/kmol
+ Point 0: 	 0 	 1000.0	 -153.143954431	 -19863.1155561
+ Point 1: 	 0 	 1000.0	 -151.675905678	 -19732.9389385
+ Point 2: 	 0 	 1000.0	 -148.476879005	 -19448.201837
+ Point 3: 	 0 	 1000.0	 -141.596768279	 -18830.6208397
+ Point 4: 	 0 	 1000.0	 -141.203706397	 -18795.1155449
+ Point 5: 	 0 	 1000.0	 -133.659414269	 -18108.737497
+ Point 6: 	 0 	 1000.0	 -131.88790054	 -17946.1742102
+ Point 7: 	 0 	 1000.0	 -127.366270837	 -17528.7513668
+ Point 8: 	 0 	 1000.0	 -122.374196846	 -17063.6105923
+ Point 9: 	 0 	 1000.0	 -122.04830653	 -17033.0851558
+ Point 10: 	 0 	 1000.0	 -121.264451532	 -16959.5815178
+ Point 11: 	 0 	 1000.0	 -109.054563237	 -15799.2924364
+ Point 12: 	 0 	 1000.0	 -102.815149137	 -15194.7044754
+ Point 13: 	 0 	 1000.0	 -94.8452833933	 -13896.4657287
+ Point 14: 	 0 	 1000.0	 -77.94062401	 -11684.8423733
+ Point 15: 	 0 	 1000.0	 -57.0177499049	 -9208.97268125
+ Point 16: 	 0 	 1000.0	 -49.0629103276	 -8265.24919393
+ Point 17: 	 0 	 1000.0	 -29.3722314323	 -5831.63251468
+ Point 18: 	 0 	 1000.0	 -15.6673769423	 -4008.8796718
+ Point 19: 	 0 	 1000.0	 10.5076577729	 -119.528156693
+ Point 20: 	 0 	 1000.0	 30.2758424406	 3191.55197308
+ Point 21: 	 0 	 1000.0	 42.6191446251	 5402.49807387
+ Point 22: 	 0 	 1000.0	 62.1307522446	 9170.08694711
+ Point 23: 	 0 	 1000.0	 72.2827854885	 11340.2431183
+ Point 24: 	 0 	 1000.0	 74.7357004847	 11896.2641982
+ Point 25: 	 0 	 1000.0	 84.2595235155	 14210.2284071
+ Point 26: 	 0 	 1000.0	 91.5348557811	 16192.4969111
+ Point 27: 	 0 	 1000.0	 92.0003775299	 16327.2564058
+ Point 28: 	 0 	 1000.0	 93.2504088568	 16694.4423427
+ Point 29: 	 0 	 1000.0	 114.364722815	 24603.7829305
+ Point 30: 	 0 	 1000.0	 117.551952139	 26199.5621693
+ Point 31: 	 0 	 1000.0	 129.347211109	 27586.8496369
+ Point 32: 	 0 	 1000.0	 156.326393727	 30848.8302181
+ Point 33: 	 0 	 1000.0	 161.291350787	 31462.9615335
+ Point 34: 	 0 	 1000.0	 173.786572526	 33027.9014796
+ Point 35: 	 0 	 1000.0	 179.30179084	 33727.5156625
+ Point 36: 	 0 	 1000.0	 182.48015727	 34133.1752734
+>> 
+>> copy /env
+Copied /env to the clipboard
+>> paste /
+Pasting /env
+Pasted /env as /envClone
+>> /envClone.Crit_T
+Port: /envClone.Crit_T + sim.solver.Ports.Port_Signal
+Connected to: None
+T   = 173.786572526 = C
+
+>> /envClone.Crit_P
+Port: /envClone.Crit_P + sim.solver.Ports.Port_Signal
+Connected to: None
+P   = 8080.4939945 = kPa
+
+>> /envClone.bubble.Results
+PT: [PTEnvelop::Terminate] P is out of range :       0.58115
+Total 37 points: pointType, P kPa, T C
+ Point 0: 	 0 	 101.325	 -153.143954431
+ Point 1: 	 0 	 111.530989441	 -151.675905678
+ Point 2: 	 0 	 136.325991528	 -148.476879005
+ Point 3: 	 7 	 202.64999944	 -141.596768279
+ Point 4: 	 0 	 207.007700804	 -141.203706397
+ Point 5: 	 7 	 303.975	 -133.659414269
+ Point 6: 	 0 	 330.522296452	 -131.88790054
+ Point 7: 	 7 	 405.3	 -127.366270837
+ Point 8: 	 7 	 500.0	 -122.374196846
+ Point 9: 	 7 	 506.625	 -122.04830653
+ Point 10: 	 0 	 522.780062311	 -121.264451532
+ Point 11: 	 0 	 817.764966771	 -109.054563237
+ Point 12: 	 7 	 1000.0	 -102.815149137
+ Point 13: 	 0 	 1263.35932593	 -94.8452833933
+ Point 14: 	 0 	 1926.3209545	 -77.94062401
+ Point 15: 	 0 	 2899.97102679	 -57.0177499049
+ Point 16: 	 0 	 4309.32305658	 -29.3722314323
+ Point 17: 	 0 	 6260.33748637	 10.5076577729
+ Point 18: 	 0 	 8498.55663986	 72.2827854885
+ Point 19: 	 0 	 9247.11212811	 114.364722815
+ Point 20: 	 3 	 9315.66053098	 129.347211109
+ Point 21: 	 0 	 8779.98089177	 161.291350787
+ Point 22: 	 2 	 8080.4939945	 173.786572526
+ Point 23: 	 4 	 6379.61977918	 182.48015727
+ Point 24: 	 0 	 5057.3765639	 179.30179084
+ Point 25: 	 0 	 2589.04548251	 156.326393727
+ Point 26: 	 7 	 999.999997603	 117.551952139
+ Point 27: 	 0 	 524.769266431	 93.2504088568
+ Point 28: 	 7 	 506.625	 92.0003775299
+ Point 29: 	 7 	 500.0	 91.5348557811
+ Point 30: 	 7 	 405.299999998	 84.2595235155
+ Point 31: 	 7 	 303.974999993	 74.7357004847
+ Point 32: 	 7 	 202.649999995	 62.1307522446
+ Point 33: 	 7 	 101.325	 42.6191446251
+ Point 34: 	 0 	 62.1369730937	 30.2758424406
+ Point 35: 	 0 	 6.2247509218	 -15.6673769423
+ Point 36: 	 0 	 0.581151154366	 -49.0629103276
+
+GARBAGE:
+
+GARBAGE OBJECTS:

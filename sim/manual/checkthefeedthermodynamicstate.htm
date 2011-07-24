@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Check the Feed Thermodynamic State</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="definefeedintogasplant.htm">previous</a> &nbsp; <a href="definefrontendgasliquidseparator.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Check the Feed Thermodynamic State</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>Note that in the step above we have fixed all the necessary degrees of freedom to completely specify the thermodynamic state of the Feed inlet port. Check this out as suggested below.</p>
+<p class=source>/&gt;&nbsp;Feed.In</p>
+<p class=source>Port:&nbsp;/Feed.In&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;None</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.484843878759&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;60.0&nbsp;*&nbsp;F</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;600.0&nbsp;*&nbsp;psia</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;144.0&nbsp;*&nbsp;lbmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;5438.159&nbsp;=&nbsp;lb/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1294.84967014&nbsp;=&nbsp;Btu/lbmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;186426.99748&nbsp;=&nbsp;Btu/hr</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;37.7649930556&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.488411316227&nbsp;=</p>
+<p class=source>METHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.486111111111&nbsp;*</p>
+<p class=source>ETHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.138888888889&nbsp;*</p>
+<p class=source>PROPANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0694444444444&nbsp;*</p>
+<p class=source>ISOBUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0625&nbsp;*</p>
+<p class=source>n-BUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0555555555556&nbsp;*</p>
+<p class=source>ISOPENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0486111111111&nbsp;*</p>
+<p class=source>n-PENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0416666666667&nbsp;*</p>
+<p class=source>n-HEXANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0486111111111&nbsp;*</p>
+<p class=source>n-HEPTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0277777777778&nbsp;*</p>
+<p class=source>n-OCTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0208333333333&nbsp;*</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: 0in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note><img src="_s42-144.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.75in">
+<p class=body-text>Note that Sim42 always provides immediate feedback to you as to what was specified and what was calculated.</p>
+<p class=body-text>The symbol "*" follows after every specified value, while the symbol "=" follows after every calculated value.</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

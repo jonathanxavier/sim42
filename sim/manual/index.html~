@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+
+<html><head>
+
+<title>Sim42 Manual</title>
+
+<frameset name="rowframe" rows="108,*">
+<frame src="logo.html" name="logo">
+<frameset name="mainframe" cols="154,*">
+<frame src="menu.html" name="menu">
+<frame src="sim42.htm" name="display">
+</frameset>
+</frameset>
+</body></html>
+

@@ -1,0 +1,133 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Ports</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="unitoperations.htm">previous</a> &nbsp; <a href="flowsheets.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Ports</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>Unit operations exchange information with other unit operations by means of ports. A port is essentially an attachment point for the flow of information into and out of the unit operation calculation. It might be a material port, which carries all of the information normally associated with a process stream (temperature, pressure, flow, composition etc.) or it might be an energy port that just carries an energy flow or even a Signal Port that transmits a single piece of information such as pressure drop.</p>
+<p class=body-text>Every port has a single connector which may be connected to one other port of a similar type. Material ports may only connect to material ports, energy ports to energy ports and a Signal Port can only connect to a Signal Port carrying the same type of information (i.e. temperature, pressure or whatever). </p>
+<p class=body-text>Every material and energy port is either an inlet or an outlet port and as such can only connect to the opposite type of port. That is, an inlet port can only connect to an outlet port, not to another inlet port. The directions are only significant in terms of the flow direction of the material or energy they contain, but not in terms of calculation sequence. There is no direction associated with a Signal Port. </p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-47.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.9in">
+<p class=body-text style="padding: 0in 0.075in">In ports can only be connected to Out ports</p>
+<p class=body-text>Out ports can only be connected to In ports</p></td>
+</tr>
+</table>
+<p class=body-text>The figure below shows the connections one would typically see for a simple cooler connected to two material streams and one energy stream. Note that streams, either material or energy, are just unit operations.</p>
+<p class=figures><img src="_s42-48.jpg"></p>
+<p class=figures-p>&nbsp;</p>
+<p class=caption>Connections in Sim42. Note that the pressure drop is not a parameter since it can be calculated by the simulator and can dynamically change during calculations</p>
+<p class=caption-p>&nbsp;</p>
+<p class=body-text><b>Port Variables</b></p>
+<p class=body-text>The information for a port is contained in special variables encapsulated by a special class, BasicProperty that retain status information about the values they hold. This includes information on how the value came to be known:</p>
+<p class=c1h-bullet>&#8226;</p><p class=c1h-bullet-tab1>Fixed by the user </p>
+<p class=c1h-bullet>&#8226;</p><p class=c1h-bullet-tab1>Calculated by the unit operation owning the port </p>
+<p class=c1h-bullet>&#8226;</p><p class=c1h-bullet-tab1>Passed from the connected port. </p>
+<p class=c1h-bullet>&#8226;</p><p class=c1h-bullet-tab1>Estimated by the user (in the case of iterative recycles) </p>
+<p class=c1h-bullet style="margin-left: -18pt;">&#8226;</p><p class=c1h-bullet-tab1 style="margin-left: -18pt;">A BasicProperty also has information about the type of value it contains: </p>
+<p class=c1h-bullet>&#8226;</p><p class=c1h-bullet-tab1>Name - temperature, pressure etc. </p>
+<p class=c1h-bullet>&#8226;</p><p class=c1h-bullet-tab1>A calculation type - extensive, intensive, can be used for a flash etc. </p>
+<p class=c1h-bullet>&#8226;</p><p class=c1h-bullet-tab1>Conversion unit method to use i.e. how to convert to SI, Field etc. </p>
+<p class=c1h-bullet>&#8226;</p><p class=c1h-bullet-tab1>Scale factor - used to determine tolerances </p>
+<p class=c1h-bullet>&#8226;</p><p class=c1h-bullet-tab1>Minimum and Maximum allowed values for sanity checking </p>
+<p class=body-text>Therefore, when you look at a port, you actually have an array of BasicProperties holding information as shown below.</p>
+<p class=caption><img src="_s42-49.png">Note that a port is composed of multiple Basic Properties</p>
+<p class=caption-p>&nbsp;</p>
+<p class=figures><b>Cloned Material or Energy Ports</p>
+<p class=figures-p>&nbsp;</p>
+</b><p class=body-text>Sim42 allows only single connections between ports. Nevertheless, sometimes we want to pool material or energy ports for balance purposes. You can make as many duplicates of ports as desired by cloning ports. These clones provide identical information as contained in the original port.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>/&gt;&nbsp;S1&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>/&gt;&nbsp;cd&nbsp;/S1.In</p>
+<p class=source>/S1.In&gt;&nbsp;T&nbsp;=&nbsp;298.15</p>
+<p class=source>/S1.In&gt;P&nbsp;=&nbsp;101.325</p>
+<p class=source>/S1.In&gt;MoleFlow&nbsp;=&nbsp;100</p>
+<p class=source>/S1.In&gt;Fraction&nbsp;=&nbsp;&nbsp;0.25&nbsp;0.25&nbsp;0.25&nbsp;0.25</p>
+<p class=source>/&gt;&nbsp;&nbsp;/S1.Out1&nbsp;=&nbsp;Stream.ClonePort(1)</p>
+<p class=figures><b>&nbsp;</p>
+<p class=figures-p>&nbsp;</p>
+</b><table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-50.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Use the parameter in the ClonePort to determine the type of cloned port you want to create.</p>
+<p class=body-text>0 &#8211; In Port</p>
+<p class=body-text>1 &#8211; Out Port</p></td>
+</tr>
+</table>
+<p class=figures><b>Sensor Ports</p>
+<p class=figures-p>&nbsp;</p>
+</b><p class=body-text>Sometimes, such as when using controllers, you may be interested in just a single piece of information from a stream instead of all of its basic properties. In order to access a single basic property from a stream just create a Sensor port from the Stream package.</p>
+<p class=source>/&gt;&nbsp;/S1.md&nbsp;=&nbsp;Stream.SensorPort('MassDensity')</p>
+<p class=caption>&nbsp;</p>
+<p class=caption-p>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-51.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">You can choose what type of value you want to sense as a parameter in the SensorPort method. Check the appendix Sim42 Constants - _simProps for more details.</p></td>
+</tr>
+</table>
+<p class=body-text>If you inspect the value of the sensor port we just created (e.g. by typing S1.md) and the stream was properly specified you would see something like this:</p>
+<p class=source>Port:&nbsp;/S1.md&nbsp;+&nbsp;sim.solver.Ports.Port_Signal</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connected&nbsp;to:&nbsp;None</p>
+<p class=source>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MassDensity&nbsp;&nbsp;&nbsp;=&nbsp;1.44063419965&nbsp;=&nbsp;kg/m3</p>
+<p class=body-text>Sensor ports are actually <b>signal ports</b> connected to material or energy streams.</p>
+<p class=figures><b>Signal Ports</b></p>
+<p class=figures-p>&nbsp;</p>
+<p class=body-text>Signal ports are responsible for transmitting information you define to other operations in the flowsheet. They are very useful when dealing with variables you want to adjust in the flowsheet in order to match some calculated value, such as in controllers or sets.</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><img src="_s42-52.jpg"></p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.075in">
+<tr>
+<td valign=top>
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-53.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Signal ports have no In or Out convention. They just share a single value with another Signal port.</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=figures><b>Streams</b></p>
+<p class=figures-p>&nbsp;</p>
+<p class=body-text>Streams are unit operations that represent the flow of material, energy or signals between unit operations. It is not necessary to use a stream to connect two unit operations together however. It is perfectly permissible for example to directly connect the vapour port from a flash drum directly to the inlet port of a heat exchanger or any other inlet material port.</p>
+<p class=body-text>In a calculation sense, a stream simply shares any information it has between its inlet and outlet ports and so might seem rather pointless. However this assignment is quite efficient and many flow sheets will have named streams that a user will wish to have present in calculation.</p>
+<p class=body-text>As might be expected, there are different types of streams depending on the type of information they carry and corresponding to the different types of ports:</p>
+<p class=body-text>Material Stream (class Stream_Material) </p>
+<p class=body-text>Energy Stream (class Stream_Energy) </p>
+<p class=body-text>Signal Stream (class Stream_Signal) </p>
+<p class=body-text>Streams do have another important function as a means of duplicating information. For instance in some process it might well be that by supplying an overall material balance on some portion of the process a user could provide the key information that allows the flow sheet to solve. Or it might be that the engineer wishes to perform some sort of side calculation on one of the flows, such as a vapour pressure check.</p>
+<p class=body-text>However since each port can only be connected to one other port, some mechanism is needed to permit the information to not only be connected to their normal destinations, but also to these side calculations. Streams provide that capability by allowing the user to add any number of clone or sensor ports to the stream in addition to its normal inlet and outlet ports. See the discussion on ports and port cloning from the previous section.</p>
+<p></p>
+</body>
+</html>

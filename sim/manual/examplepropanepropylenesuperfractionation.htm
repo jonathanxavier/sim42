@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Example - Propane / Propylene Super Fractionation</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="examples.htm">previous</a> &nbsp; <a href="exampleethanolproductiontower.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Example &#8211; Propane / Propylene Super Fractionation</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The separation of propane and propylene is an important industrial operation. Due to the close volatility of propane and propylene this separation is usually done using relatively high reflux ratios and a large number of ideal trays.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>#&nbsp;C3&nbsp;splitter&nbsp;test&nbsp;(from&nbsp;old&nbsp;Hysim&nbsp;manual)</p>
+<p class=source>units&nbsp;Field</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.SRK</p>
+<p class=source>thermo&nbsp;+&nbsp;PROPANE&nbsp;PROPYLENE</p>
+<p class=source>&nbsp;</p>
+<p class=source>c3splitter&nbsp;=&nbsp;Tower.Tower()</p>
+<p class=source>c3splitter.Stage_0&nbsp;+&nbsp;183&nbsp;&nbsp;#&nbsp;185&nbsp;stages`</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;c3splitter.Stage_0</p>
+<p class=source>&nbsp;</p>
+<p class=source>l&nbsp;=&nbsp;Tower.LiquidDraw()</p>
+<p class=source>l.Port.P&nbsp;=&nbsp;280</p>
+<p class=source>l.Port.MoleFlow&nbsp;=&nbsp;774.3</p>
+<p class=source>&nbsp;</p>
+<p class=source>cond&nbsp;=&nbsp;Tower.EnergyFeed(0)</p>
+<p class=source>&nbsp;</p>
+<p class=source>estT&nbsp;=&nbsp;Tower.Estimate('T')</p>
+<p class=source>estT.Value&nbsp;=&nbsp;114.8</p>
+<p class=source>&nbsp;</p>
+<p class=source>reflux&nbsp;=&nbsp;Tower.StageSpecification('Reflux')</p>
+<p class=source>reflux.Value&nbsp;=&nbsp;16.4</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;../Stage_137</p>
+<p class=source>f&nbsp;=&nbsp;Tower.Feed()</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;../Stage_184</p>
+<p class=source>l&nbsp;=&nbsp;Tower.LiquidDraw()</p>
+<p class=source>l.Port.P&nbsp;=&nbsp;280</p>
+<p class=source>&nbsp;</p>
+<p class=source>reb&nbsp;=&nbsp;Tower.EnergyFeed(1)</p>
+<p class=source>estT&nbsp;=&nbsp;Tower.Estimate('T')</p>
+<p class=source>estT.Value&nbsp;=&nbsp;129.2</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>&nbsp;</p>
+<p class=source>feed&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>cd&nbsp;feed.In</p>
+<p class=source>P&nbsp;=&nbsp;280</p>
+<p class=source>VapFrac&nbsp;=&nbsp;1</p>
+<p class=source>MoleFlow&nbsp;=&nbsp;1322.76</p>
+<p class=source>Fraction&nbsp;=&nbsp;.4&nbsp;.6</p>
+<p class=source>cd&nbsp;/c3splitter</p>
+<p class=source>/feed.Out&nbsp;-&gt;&nbsp;Stage_137.f.Port</p>
+<p class=source>&nbsp;</p>
+<p class=source>/overhead&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>/overhead.In&nbsp;-&gt;&nbsp;Stage_0.l.Port</p>
+<p class=source>&nbsp;</p>
+<p class=source>/bottoms&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>/bottoms.In&nbsp;-&gt;&nbsp;Stage_184.l.Port</p>
+<p class=source>&nbsp;</p>
+<p class=source>TryToSolve&nbsp;=&nbsp;1&nbsp;&nbsp;#&nbsp;start&nbsp;calculation</p>
+<p class=source>&nbsp;</p>
+<p class=source>/overhead.Out</p>
+<p class=source>/bottoms.Out</p>
+<p></p>
+</body>
+</html>

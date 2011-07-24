@@ -1,0 +1,202 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tower Degrees of Freedom</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="understandingsim42stowerspecifications.htm">previous</a> &nbsp; <a href="towerspecifications.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Tower Degrees of Freedom</p>
+<p class=heading-4-p>&nbsp;</p>
+<p class=body-text>Sim42 automatically and continually monitors the degrees of freedom of all unit operations, including the distillation tower unit operation. Traditional process simulators usually separate the tower unit operation from the main solver creating the need for a special algorithm for degrees of freedom monitoring as well as displaying such information to the user. </p>
+<p class=body-text>Sim42 behaves quite differently. The tower unit operation is seen as just another unit operation, and the degrees of freedom calculations are performed automatically depending on the tower configuration you are creating, of course in an interactive manner. Depending on the specified values that you provide in the tower material or energy ports <i>or any attached material and energy streams</i>, the tower unit operation will attempt to solve the particular configuration. This provides you with unparalleled flexibility in the specification of distillation towers.</p>
+<p class=body-text>The number of degrees of freedom in any tower can be summarized as the result of the following expression:</p>
+<p class=body-text><img src="_s42-140.png"></p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 1.375in">
+<p class=body-text style="padding: 0in 0.075in">DF</p></td>
+<td valign=top style="width: 3.3125in">
+<p class=body-text style="padding: 0in 0.075in">number of degrees of freedom</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">SVD</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">number of side vapor draws</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">SLD</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">number of side liquid draws</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">ED</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">number of energy draws</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">EF</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">number of energy feeds</p></td>
+</tr>
+</table>
+<p class=body-text>For example, if you have a simple absorption tower, SVD = 1, SLD = 1 and therefore you do not have any degrees of freedom. As soon as the top and bottoms feeds are completely specified the tower can be run.</p>
+<p class=body-text>The following table summarizes the DEGREES OF FREEDOM analysis for simple tower types.</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 1.3125in">
+<p class=body-text style="padding: 0in 0.075in">Tower Type</p></td>
+<td valign=top style="width: 0.6875in">
+<p class=body-text style="padding: 0in 0.075in">SVD</p></td>
+<td valign=top style="width: 0.625in">
+<p class=body-text style="padding: 0in 0.075in">SLD</p></td>
+<td valign=top style="width: 0.6875in">
+<p class=body-text style="padding: 0in 0.075in">ED</p></td>
+<td valign=top style="width: 0.6875in">
+<p class=body-text style="padding: 0in 0.075in">EF</p></td>
+<td valign=top style="width: 0.6875in">
+<p class=body-text style="padding: 0in 0.075in">DF</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Absorption</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">0</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">0</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">0</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Reboiled Absorber</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">0</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Refluxed Absorber</p>
+<p class=body-text>(Total Condenser)</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">0</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">2</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">0</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Refluxed Absorber</p>
+<p class=body-text>(Partial Condenser with vapor draw only)</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">0</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Refluxed Absorber</p>
+<p class=body-text>(Partial Condenser with vapor and liquid draws)</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">2</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">0</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">2</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Distillation Tower</p>
+<p class=body-text>(Total Condenser)</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">0</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">2</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">2</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Distillation Tower</p>
+<p class=body-text>(Partial Condenser with vapor draw only)</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">2</p></td>
+</tr>
+<tr>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">Distillation Tower</p>
+<p class=body-text>(Partial Condenser with vapor and liquid draw)</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">2</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">1</p></td>
+<td valign=top>
+<p class=body-text style="padding: 0in 0.075in">3</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

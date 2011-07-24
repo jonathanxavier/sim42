@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Troubleshooting installation</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a
+    href="s42-index.htm" target="left">index</a> &nbsp; <a
+    href="downloads.htm">previous</a> &nbsp; <a href="commandlist.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Troubleshooting installation</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>Using CVS to get the source code is fairly easy. In windows, you can just download it to the folder where you wish to work, open your DOS prompt and type</p>
+<p class=body-text>cvs -d:pserver:anonymous@cvs.sim42.org/home/cvs login</p>
+<p class=body-text>then just press enter when asked for a password. To download everything now type</p>
+<p class=body-text>cvs -d:pserver:anonymous@cvs.sim42.org/home/cvs co sim</p>
+<p class=body-text>Most windows installations should work with out any extra work. The most common problem you'll encounter (usually Win98 or Win95) is an error related to a missing "home" folder. If you wan to get things going right away, just type SET HOME=&lt;path&gt; (where &lt;path&gt; is the path of where you are going to download sim42, for example D:). To avoid typing that line every time you want to download, you can go to your autoexec.bat file and add the same line there and restart your computer.</p>
+<p class=body-text style="margin-left: -144pt;">&nbsp;</p>
+<p class=body-text>The most common problem you will face when running this application is "paths". This shouldn't be a problem if you keep certain things in mind:</p>
+<p class=body-text style="font-family: Wingdings; margin-left: 144pt;">§</p><p class=body-text style="margin-left: 162pt; margin-top: -12pt;">Click "Yes" when asked about setting the system path while installing VMG software.</p>
+<p class=body-text style="font-family: Wingdings; margin-left: 144pt;">§</p><p class=body-text style="margin-left: 162pt; margin-top: -12pt;">Make sure Python is also in your system path (should be done by default after installing it).</p>
+<p class=body-text style="font-family: Wingdings; margin-left: 144pt;">§</p><p class=body-text style="margin-left: 162pt; margin-top: -12pt;">Most likely, your application of sim42 will not be in the Python path. The easiest way to work this out is to open your Notepad, write the path of your sim folder and save it as sim.pth in a valid python path location. For example, I have the folder sim in my D drive, so I wrote D:\ in the sim.pth file and saved it in D:\Python22\Lib\site-packages .</p>
+<p class=body-text style="font-family: Wingdings; margin-left: -144pt;">&nbsp;</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text>&nbsp;</p>
+<p></p>
+</body>
+</html>

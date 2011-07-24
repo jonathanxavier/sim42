@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Create Gas-Gas Heat Exchanger</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="checkthestateofthegasliquidseparatorinlet.htm">previous</a> &nbsp; <a href="connecttheseparatorvaporporttothegasgasheatexchangerhotsideinlet.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Create Gas-Gas Heat Exchanger</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>In this example, we use the chilled sales gas to cool the natural gas leaving the separator Sep.</p>
+<p class=source>/&gt;&nbsp;Gas-Gas&nbsp;=&nbsp;Heater.HeatExchanger()</p>
+<p class=source>/&gt;&nbsp;cd&nbsp;Gas-Gas</p>
+<p class=source>/Gas-Gas</p>
+<p class=source>/Gas-Gas&gt;&nbsp;DeltaPH&nbsp;=&nbsp;10</p>
+<p class=source>/Gas-Gas&gt;&nbsp;DeltaPC&nbsp;=&nbsp;10</p>
+<p class=source>/Gas-Gas&gt;&nbsp;DeltaTHI&nbsp;=&nbsp;10</p>
+<p class=source>/Gas-Gas&gt;&nbsp;cd&nbsp;..</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><img src="_s42-146.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Sim42 has an object-oriented design and a well-defined hierarchy of objects. You can get into the object you just created by using the "cd &lt;object name&gt;" command, very much like you would do if you were getting into a file folder. Conversely you move up in the object hierarchy by using the "cd .." command.</p>
+<p class=body-text>Note that Sim42 shows you where in the object level you are through the command line prompt.</p>
+<p class=body-text>Note that you can use the dereferencing operator (".") as well. For example, the commands:</p>
+<p class=body-text>/Gas-Gas&gt; DeltaPH = 10</p>
+<p class=body-text>/&gt; Gas-Gas.DeltaPH = 10</p>
+<p class=body-text>are identical.</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

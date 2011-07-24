@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Pump - sim.unitop.Pump.Pump</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="propertysensorsimunitopsensorpropertysensor.htm">previous</a> &nbsp; <a href="pumpwithcurvesimunitoppumppumpwithcurve.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Pump - sim.unitop.Pump.Pump</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The pump unit operation performs the mechanical energy balance necessary to determine the power necessary to move a liquid fluid for a given pressure increase. Note that the pump performs an ideal energy balance and therefore it does not require pump curves.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>p&nbsp;=&nbsp;Pump.Pump()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="width: 2.6875in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Pump.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>man-idealpump.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>In Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Pump inlet</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Out Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Pump outlet </p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>InQ Energy Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Pump duty</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Efficiency</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Pump efficiency</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Equations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext><img src="_s42-78.png"></p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=source>#&nbsp;ideal&nbsp;pump&nbsp;test</p>
+<p class=source>units&nbsp;SI</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.Peng-Robinson</p>
+<p class=source>thermo&nbsp;+&nbsp;&nbsp;WATER</p>
+<p class=source>&nbsp;</p>
+<p class=source>#&nbsp;A&nbsp;theoretical&nbsp;pump:&nbsp;calculate&nbsp;flow&nbsp;from&nbsp;delP&nbsp;-------------</p>
+<p class=source>pump&nbsp;=&nbsp;Pump.Pump()</p>
+<p class=source>cd&nbsp;pump</p>
+<p class=source>In.Fraction&nbsp;=&nbsp;1.0</p>
+<p class=source>In.P&nbsp;=&nbsp;101.325</p>
+<p class=source>In.T&nbsp;=&nbsp;20</p>
+<p class=source>&nbsp;</p>
+<p class=source>Out.P&nbsp;=&nbsp;300.0</p>
+<p class=source>Efficiency&nbsp;=&nbsp;0.8</p>
+<p class=source>InQ&nbsp;=&nbsp;300</p>
+<p class=source>In</p>
+<p class=source>Out</p>
+<p class=source>InQ</p>
+<p></p>
+</body>
+</html>

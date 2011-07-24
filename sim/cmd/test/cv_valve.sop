@@ -1,0 +1,30 @@
+inlet = Stream.Stream_Material()
+
+valve = Valve.Valve()
+inlet.Out -> valve.In
+outlet = Stream.Stream_Material()
+valve.Out -> outlet.In
+
+inlet.portP = Stream.SensorPort('P')
+outlet.portP = Stream.SensorPort('P')
+inlet.flowPort = Stream.SensorPort('MoleFlow')
+
+cv_eqn = Equation.Equation()
+cd cv_eqn
+Equation = '''
+Signal P(pIn, pOut) MoleFlow(f)
+Signal Generic(cv) DP(deltaP)
+
+pIn-pOut = cv*f^2
+deltaP = pIn-pOut
+'''
+
+cd ..
+cv_eqn.pIn -> inlet.portP
+cv_eqn.pOut -> outlet.portP
+cv_eqn.f -> inlet.flowPort
+
+inlet.In @ In
+outlet.Out @ Out
+cv_eqn.cv @ Cv
+cv_eqn.deltaP @ DeltaP

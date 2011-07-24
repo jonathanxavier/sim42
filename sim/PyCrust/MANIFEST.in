@@ -1,0 +1,5 @@
+include PyCrust.ico
+recursive-include Data *.py *.txt
+recursive-include Demos *.py *.txt
+recursive-include Docs *.py *.txt
+recursive-include tests *.py *.txt

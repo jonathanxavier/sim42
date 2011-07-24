@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Creating New Unit Operations Without Python</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="flowsheetconvergenceandinconsistencies.htm">previous</a> &nbsp; <a href="subflowsheetssimsolverflowsheetsubflowsheet.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Creating New Unit Operations Without Python</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>Sim42 provides a powerful mechanism for the creation of complex unit operations by piecing together available unit operations and defining a new unit operation. This is accomplished by using <i>script unit operations</i>, commonly known as SOP files or scripts. In a nutshell, when a SOP script is read into the case a subflowsheet is created, and this subflowsheet in turn "wraps" the unit operations and connections you have defined as a new unit operation. This wrapper also defines what information is available to the users of the SOP unit operation.<br>
+</p>
+<p class=source>inlet&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>&nbsp;</p>
+<p class=source>valve&nbsp;=&nbsp;Valve.Valve()</p>
+<p class=source>inlet.Out&nbsp;-&gt;&nbsp;valve.In</p>
+<p class=source>outlet&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>valve.Out&nbsp;-&gt;&nbsp;outlet.In</p>
+<p class=source>&nbsp;</p>
+<p class=source>inlet.portP&nbsp;=&nbsp;Stream.SensorPort('P')</p>
+<p class=source>outlet.portP&nbsp;=&nbsp;Stream.SensorPort('P')</p>
+<p class=source>inlet.flowPort&nbsp;=&nbsp;Stream.SensorPort('MoleFlow')</p>
+<p class=source>&nbsp;</p>
+<p class=source>cv_eqn&nbsp;=&nbsp;Equation.Equation()</p>
+<p class=source>cd&nbsp;cv_eqn</p>
+<p class=source>Equation&nbsp;=&nbsp;'''</p>
+<p class=source>Signal&nbsp;P(pIn,&nbsp;pOut)&nbsp;MoleFlow(f)</p>
+<p class=source>Signal&nbsp;Generic(cv)&nbsp;DP(deltaP)</p>
+<p class=source>&nbsp;</p>
+<p class=source>pIn-pOut&nbsp;=&nbsp;cv*f^2</p>
+<p class=source>deltaP&nbsp;=&nbsp;pIn-pOut</p>
+<p class=source>'''</p>
+<p class=source>&nbsp;</p>
+<p class=source>cd&nbsp;..</p>
+<p class=source>cv_eqn.pIn&nbsp;-&gt;&nbsp;inlet.portP</p>
+<p class=source>cv_eqn.pOut&nbsp;-&gt;&nbsp;outlet.portP</p>
+<p class=source>cv_eqn.f&nbsp;-&gt;&nbsp;inlet.flowPort</p>
+<p class=source>&nbsp;</p>
+<p class=source><b>inlet.In&nbsp;@&nbsp;In</p>
+<p class=source><b>outlet.Out&nbsp;@&nbsp;Out</p>
+<p class=source><b>cv_eqn.cv&nbsp;@&nbsp;Cv</p>
+</b><p class=source><b>cv_eqn.deltaP&nbsp;@&nbsp;DeltaP</p>
+</b><p class=body-text>&nbsp;</p>
+<p class=body-text>Note that the interface to the external world is defined using the "@" symbol. For example, inlet.In @ In means that the port inlet.In is exported using the name In. All the other objects inside the script are invisible to the user.</p>
+<p></p>
+</body>
+</html>

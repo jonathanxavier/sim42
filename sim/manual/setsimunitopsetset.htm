@@ -1,0 +1,154 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Set - sim.unitop.Set.Set</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="simpleflashsimunitopflashsimpleflash.htm">previous</a> &nbsp; <a href="splittersimunitopsplitsplitter.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Set - sim.unitop.Set.Set</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The set is used to specify a value based on a value calculated by a different port.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>set&nbsp;=&nbsp;Set.Set()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="width: 2.6875in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Set.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>man-set.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Addition</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Signal for addition</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Signal0</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Signal being sent from the source port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Signal1</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Signal being sent to receiving port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>multiplier</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Signal for multiplication</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Signal Type</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Type of signal being broadcast. The type has to be set before using the Set operation</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Equations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext><img src="_s42-88.png"></p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=source>thermo&nbsp;+&nbsp;NITROGEN&nbsp;OXYGEN&nbsp;ETHANOL&nbsp;WATER</p>
+<p class=source>h1&nbsp;=&nbsp;Heater.Heater()</p>
+<p class=source>h1.In.T&nbsp;=&nbsp;25&nbsp;C</p>
+<p class=source>h1.In.P&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>h1.In.MoleFlow&nbsp;=&nbsp;100</p>
+<p class=source>h1.In.Fraction&nbsp;=&nbsp;1&nbsp;1&nbsp;10&nbsp;100</p>
+<p class=source>h1.DeltaP&nbsp;=&nbsp;5.0</p>
+<p class=source>h1.InQ&nbsp;=&nbsp;10000</p>
+<p class=source>h1.Out</p>
+<p class=source>&nbsp;</p>
+<p class=source>h2&nbsp;=&nbsp;Heater.Heater()</p>
+<p class=source>h1.Out&nbsp;-&gt;&nbsp;h2.In</p>
+<p class=source>h2.InQ&nbsp;=&nbsp;5000</p>
+<p class=source>h2.Out</p>
+<p class=source>#set&nbsp;pressure&nbsp;drop&nbsp;of&nbsp;heater&nbsp;2&nbsp;to&nbsp;be&nbsp;1.5&nbsp;times&nbsp;larger&nbsp;than&nbsp;</p>
+<p class=source>#heater&nbsp;1</p>
+<p class=source>set&nbsp;=&nbsp;Set.Set()</p>
+<p class=source>set.SignalType&nbsp;=&nbsp;DP</p>
+<p class=source>set.multiplier&nbsp;=&nbsp;1.5</p>
+<p class=source>set.addition&nbsp;&nbsp;&nbsp;=&nbsp;0.0</p>
+<p class=source>h1.DeltaP&nbsp;-&gt;&nbsp;set.Signal0</p>
+<p class=source>sig&nbsp;=&nbsp;Stream.Stream_Signal()</p>
+<p class=source>sig.In&nbsp;-&gt;&nbsp;set.Signal1</p>
+<p class=source>sig.Out&nbsp;-&gt;&nbsp;h2.DeltaP</p>
+<p class=source>&nbsp;</p>
+<p class=source>h2.Out</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: 0in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note><img src="_s42-89.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.75in">
+<p class=body-text>Remember that you can only set variables that have the same unit.</p></td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: -0.075in">
+<tr>
+<td valign=top style="width: 2in">
+<p class=margin-note style="padding: 0in 0.075in"><img src="_s42-90.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.9in">
+<p class=body-text style="padding: 0in 0.075in">You should be careful when using the multipliers for variables expressed in non absolute units. For example, if you are setting a temperature, and the system of units is not SI, you will get apparently unexpected results since Sim42 will convert the temperature to its absolute value and then apply the multiplier.</p>
+<p class=body-text>As a general rule, if you have a variable that may be expressed in non absolute terms leave the multiplier at 1.0</p></td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>

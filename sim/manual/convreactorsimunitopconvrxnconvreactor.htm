@@ -1,0 +1,215 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>ConvReactor - sim.unitop.ConvRxn.ConvReactor</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onmousedown=d2hpopup() onload="d2hload()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none style="DISPLAY: none">
+</iframe>
+</div>
+<div id=ienav>
+<ILAYER id=nsnav>
+<br>
+<center>
+<p class=normal><A href="s42-toc.htm" target=left>contents</A> &nbsp; <A href="s42-index.htm" target=left>index</A> &nbsp; <A href="controllersimunitopcontrollercontroller.htm">previous</A> &nbsp; <A href="coolersimunitopheatercooler.htm">next</A></p>
+</center>
+<br>
+<hr noshade size=1>
+</ILAYER>
+</div>
+<p class=heading-3>ConvReactor - sim.unitop.ConvRxn.ConvReactor</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The ConvReactor unit operation is designed to perform the necessary material and energy balances around a <i>conversion</i> reactor. A conversion reactor is a reactor where the user specifies the conversion of each reaction with respect to a key component. Each reaction is specified by defining the stoichiometric relationships between reactants and products.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>rxn&nbsp;=&nbsp;ConvRxn.ConvReactor()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="MARGIN-LEFT: -0.015in">
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>ConvRxn.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>convrxn.tst</p>
+<p class=tabletext-p>&nbsp;</p>
+<p class=tabletext>man-convrxn.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>In Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Reactor feed</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>Out Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Reactor outlet</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>OutQ</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Reactor energy stream</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>DeltaP</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext>Pressure drop across reactor</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>NumberRxn</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Number of chemical reactions</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Rxn&lt;n&gt;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Reaction "n"</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Rxn&lt;n&gt;.Formula</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Chemical reaction</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="WIDTH: 2.062in">
+<p class=tabletext>Equations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 2.687in">
+<p class=tabletext><IMG src="_s42-67.png"></p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>In order to define the reactor, we have to initially define the chemical reactions taking place. This is done using the Rxn&lt;n&gt;.Formula command. The syntax for the definition of a chemical reaction is:</p>
+<p class=body-text><IMG src="_s42-68.png"></p>
+<p class=source>Rxn0.Formula&nbsp;=&nbsp;PropaneAFT:4*WATER+3*"CARBON&nbsp;DIOXIDE"-!PROPANE-5*OXYGEN</p>
+<p class=list>•</p><p class=list-tab1>The "PropaneAFT" is a tag for the reaction</p>
+<p class=list>•</p><p class=list-tab1>The basis component is designated using the ! symbol</p>
+<p class=list>•</p><p class=list-tab1>The numbers prefacing the component name are the stoichiometric coefficients for the chemical reaction</p>
+<p class=list>•</p><p class=list-tab1>You can also use the position of the component instead of the component name in the Formula definition:</p>
+<p class=list>PropaneAFT:4*4+3*3-!0-5*1</p>
+<p class=list>•</p><p class=list-tab1>Components with a blank in the name have to be written using the "" enclosing the name.</p>
+<table cellpadding=0 cellspacing=0 border=1 style="MARGIN-LEFT: 0in">
+<tr>
+<td valign=top style="WIDTH: 2in">
+<p class=margin-note><IMG src="_s42-69.png">Useful tidbit</p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top style="WIDTH: 4.75in">
+<p class=body-text>Combustion reactions for hydrocarbons can be written using the following general formula:</p>
+<p class=body-text><IMG src="_s42-70.png"></p></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<P>&nbsp;</P>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">thermo 
+  = VirtualMaterials.Peng-Robinson<?xml:namespace prefix = o ns = 
+  "urn:schemas-microsoft-com:office:office" /><o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">thermo 
+  + HYDROGEN WATER CARBON_MONOXIDE CARBON_DIOXIDE <o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">thermo 
+  + METHANE OXYGEN NITROGEN AMMONIA ETHANE PROPANE<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><o:p><FONT 
+  face="Courier New">&nbsp;</FONT></o:p></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">units 
+  SI<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><o:p><FONT 
+  face="Courier New">&nbsp;</FONT></o:p></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New"># A 
+  conversion reactor - isothermal, no pressure drop<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">rxn = 
+  ConvRxn.ConvReactor()<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">cd 
+  /rxn<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">In.P = 
+  0.0 psig<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">In.T = 
+  70.08 F<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">In.MoleFlow = 21.1497<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">In.Fraction = 0. 0. 0. 0. 1.0 4.0 5.0 0. 0. 
+  0.<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">DeltaP 
+  = 0<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New">Out.T 
+  = 70.08 F<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><o:p><FONT 
+  face="Courier New">&nbsp;</FONT></o:p></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New"># Test 
+  1 : Single reaction, complete 
+  reaction----------------------------------<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New"># The 
+  default is 100 % conversion<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">NumberRxn = 1<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New"># Note 
+  the use of quotes around CO2<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">Rxn0.Formula = CH4-Combustion:2*WATER+"CARBON 
+  DIOXIDE"-!METHANE-2*OXYGEN<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New"># 
+  review reaction and results<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">Rxn0<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">Rxn0.Coeff<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">valueOf Rxn0.Coeff.GetValues<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">In<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">Out<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">OutQ<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><o:p><FONT 
+  face="Courier New">&nbsp;</FONT></o:p></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT face="Courier New"># Test 
+  2<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>: Single reaction, 25% 
+  conversion-------------------------------------<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">Rxn0.Conversion = 0.25<o:p></o:p></FONT></P>
+  <P class=MsoNormal style="MARGIN: 0in 0in 0pt"><FONT 
+  face="Courier New">Out<o:p></o:p></FONT></P></BLOCKQUOTE>
+<P>&nbsp;</P>
+</body>
+</html>

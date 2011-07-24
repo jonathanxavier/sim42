@@ -1,0 +1,118 @@
+#This file presents a summary of the additions and changes
+#in every version of sim42
+
+v1.1.6.0
+Command Line Interface:
+- Display StdLiqVolflow as default
+- Added about command in cli to display version. 
+"about $" displays the version of the thermo provider.
+"about " displays the version of the active object.
+"about /" displays the version of sim42.
+- Changes to the export command to facilitate adding custom code to export sim42 cases into custom formats.
+
+
+Unit Operations:
+- Added HydrateThermoBased where the ThermoProvider is responsible of the hydrate formation calculation.
+   Also includes a HydrateCurve unit operation.
+- Added profiels to heaters and coolers.
+- Fixes in multisided exchanger to make it faster. It can now track phase changes when in blance mode (no ua specified)
+- Re-coded PipeSegment completely. Itnow inlcudes differnt options for PressureDrop calculations and also uses a Plug-In model concept
+   where more pressure drop correlations can be added by users given that they comply to a specific interface.
+   The pressure models include, Laminar, Colebrook, Churchill for one phase and LockartMartinelli for two phases
+   A number of profiles are also provided including properties, velocity, Re.
+- Tower:
+   Added PumpAround specs such as Return T, DeltaT, and return properties
+   Added degrees of subcooling
+   Now the tower can start from 'LastConvergedSolution' even if the last attempt unconverged the tower.
+   Added 'TriggerSolve' parameter which can be set to 1 and solves the tower only once flipping TriggerSolve back to 0.
+   Pass messages while calculating long jacobians, so the tower doesn't look dead while calculating them.
+   Added a pressure profile object which allows for easier specification of pressures for stages with no objects.
+   Added PropertySpecWithSettings which only implements for now CutTemperature specs.
+- Special properties now notify users of messages/warnings passed by the thermo provider when calculating the properties.
+
+
+Simba:
+- Can specify P profiles in towers directly
+- Degrees of subcooling (towers)
+- Profiles and plots in heat exchangers
+- Added Hydrate unit op and Hydrate curve unit op with specific forms
+- PipeSegment form
+- Heater/Cooler form
+- Pump Around specs in tower
+- Allow for displaying volume fractions everywhere
+
+
+
+
+v1.1.5.0
+- Added FlowFraction0 ... FlowFractionN, for specifying the flow from a splitter as a fractio of the feed flow.
+- Added >> for copying the specs from a port into another port.
+- Added the maxversions commands in order to keep maxversions backups of a simulation, where maxversions can be any integer value.
+- A bunch of enhancements to the Tower focused on converging difficult TEG absorbers.
+- Check for the reactor stoichiometry not to yieald an unbalance
+- Efficiencies in tower for specific compounds
+
+
+simba:
+- Tower summary now displays internal connections and breaks the summary for each section (side stripper).
+- Bug fix when selecting compounds with  more than one space in their name.
+
+
+
+
+v1.1.4.1
+- Fixed a nasty units problem when running reactors and having vmgsim installed froma previous version
+- Support for changing names of feed and draws (including pump arounds)
+- support for special properties as specs in the tower
+- support for volume and std volume specs in the tower
+- commonproperties can be set without having to specify a property package
+
+
+Simba:
+- Added links at the top of the tower form in simba to quickly move to its different sections
+- Simba now displays the version of sim42 that it runs
+- Added a special form for special properties and boiling point curves
+- Added shortcuts to add special properties as specs
+- Shortcuts to change names and stages of feeds and draws
+
+
+
+v1.1.4.0
+A bunch of bug fixes such as:
+- Problems converging columns near azeotropes,
+- Occassional errors when calculating StdLiqMolarVol
+- Added PFR
+- Got rid of error message that woud pop up when storing cases
+- Fixed a ton of memory leaks,  fund when running sim42 for hours coupled to
+  an optimizer and a DCS from a distiallation column from a lab
+- Fixes to import different s42 files into one same case.
+
+
+Simba:
+- Preferences option in the File menu. Can be used to view molar fractions,
+  mole flows, right beow material ports; To default a language ana bunch of
+  other things.
+- Bug fixes for displaying some preferences.
+- A few extra filters when selecting compounds besided the default "Gas
+  Processing"
+- Prop pkgs can be selected with and advnaced option to assign different
+  packages to different phases
+- Prop pkgs can be changed within the same thermo case (results are not lost)
+
+
+
+v1.1.3.0
+- Added Kinetic Reactor with support for complex rate expressions
+
+- Added support for oil charachterization 
+
+- Added design objects support. Used for sizing of unit operations
+
+- Added 5 different options of design objects for 3PhaseSep and 3 options for 2PhaseSep
+
+- Added support for a solid phase. The separator updates the ports accordingly. To set it in the CLI...
+SolidPhases = 1 #Default 0
+
+- Added a Properties.SpecialProps() unit op. It can be used to display properties such as, pH, PNA, BubblePoint,
+WaterDewPoint, RVPD323, etc
+

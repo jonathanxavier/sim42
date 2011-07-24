@@ -1,0 +1,144 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Ethanol Production Plant</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="exampleethanolproductiontower.htm">previous</a> &nbsp; <a href="styreneethylbenzeneseparation.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Ethanol Production Plant</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=body-text>In this example we will model an entire ethanol production facility ranging from the raw feed of sucrose and water to the azeotropic grade ethanol product. </p>
+<p class=body-text><img src="_s42-150.png"></p>
+<p class=body-text>In the above flowsheet we have a fermentation vessel CRx1 transforming an aqueous solution of sucrose into ethanol and carbon dioxide. The excess CO2 is vented in the separator ( Sep1), and the dilute ethanol product in stream S4 is fed to a feed/bottoms product  heat exchanger (Hx1) for pre-heating.   The warm dilute ethanol stream is fed into the ethanol rectification tower (T1) and  an azeotropic grade ethanol is produced in stream S7. Note that, a small CO2 vent is provided in stream S6. The vent flow was determined based on the amount of CO2 coming into the tower. Note that, you could also specify the top tower in a different way, by working with the available cooling water temperature and assuming an approach for the condenser you could also specify the top stage temperature. However, in this example we set the vent flow rate (<b>S6)</b>.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>units&nbsp;VMG</p>
+<p class=source>#instruct&nbsp;the&nbsp;flash&nbsp;to&nbsp;look&nbsp;for&nbsp;2&nbsp;liquid&nbsp;phases</p>
+<p class=source>/LiquidPhases&nbsp;=&nbsp;2</p>
+<p class=source>/thermo&nbsp;=&nbsp;VirtualMaterials.NRTL/Ideal/HC</p>
+<p class=source>/thermo&nbsp;+&nbsp;ETHANOL</p>
+<p class=source>/thermo&nbsp;+&nbsp;WATER</p>
+<p class=source>/thermo&nbsp;+&nbsp;SUCROSE</p>
+<p class=source>/thermo&nbsp;+&nbsp;CARBON_DIOXIDE</p>
+<p class=source>#note&nbsp;that&nbsp;the&nbsp;sugar&nbsp;is&nbsp;being&nbsp;modeled&nbsp;as&nbsp;sucrose</p>
+<p class=source>S1&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>cd&nbsp;/S1.In</p>
+<p class=source>/S1.In.T&nbsp;=&nbsp;298.15</p>
+<p class=source>/S1.In.P&nbsp;=&nbsp;101.325</p>
+<p class=source>/S1.In.MassFlow&nbsp;=&nbsp;30000</p>
+<p class=source>/S1.In.MassFraction&nbsp;=&nbsp;&nbsp;0&nbsp;0.85&nbsp;0.15&nbsp;0</p>
+<p class=source>/S1.In.MassFlow&nbsp;=&nbsp;30000</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>CRx1&nbsp;=&nbsp;ConvRxn.ConvReactor()</p>
+<p class=source>/S1.Out&nbsp;-&gt;&nbsp;/CRx1.In</p>
+<p class=source>S2&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>/CRx1.Out&nbsp;-&gt;&nbsp;/S2.In</p>
+<p class=source>Q1&nbsp;=&nbsp;Stream.Stream_Energy()</p>
+<p class=source>/CRx1.OutQ&nbsp;-&gt;&nbsp;/Q1.In</p>
+<p class=source>cd&nbsp;/S2.In</p>
+<p class=source>/S2.In.P&nbsp;=&nbsp;101.325</p>
+<p class=source>cd&nbsp;/Q1.In</p>
+<p class=source>/S2.In.T&nbsp;=&nbsp;305.15</p>
+<p class=source>cd&nbsp;/CRx1.In</p>
+<p class=source>/CRx1.NumberRxn&nbsp;=&nbsp;0</p>
+<p class=source>cd&nbsp;/Q1.Out</p>
+<p class=source>/CRx1.NumberRxn&nbsp;=&nbsp;1</p>
+<p class=source>cd&nbsp;/Q1.In</p>
+<p class=source>#the&nbsp;fermentation&nbsp;reaction&nbsp;is&nbsp;simplified&nbsp;by&nbsp;taking&nbsp;into&nbsp;account</p>
+<p class=source>#sucrose&nbsp;only</p>
+<p class=source>#Sucrose&nbsp;+&nbsp;Water&nbsp;-&gt;&nbsp;4CO2&nbsp;+&nbsp;4Ethanol</p>
+<p class=source>#note&nbsp;that&nbsp;we&nbsp;are&nbsp;assuming&nbsp;100%&nbsp;sucrose&nbsp;conversion</p>
+<p class=source>/CRx1.Rxn0.Formula&nbsp;=&nbsp;frm:4*0+4*3-1-!2</p>
+<p class=source>/CRx1.Rxn0.Conversion&nbsp;=&nbsp;1</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>Sep1&nbsp;=&nbsp;Flash.SimpleFlash("LiquidPhases&nbsp;=&nbsp;1")</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>/S2.Out&nbsp;-&gt;&nbsp;/Sep1.In</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>S3&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>/Sep1.Vap&nbsp;-&gt;&nbsp;/S3.In</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>S4&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>/Sep1.Liq0&nbsp;-&gt;&nbsp;/S4.In</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>Hx1&nbsp;=&nbsp;Heater.HeatExchanger()</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>/S4.Out&nbsp;-&gt;&nbsp;/Hx1.InC</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>S5&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>/Hx1.OutC&nbsp;-&gt;&nbsp;/S5.In</p>
+<p class=source>cd&nbsp;/Hx1.InC</p>
+<p class=source>#we&nbsp;are&nbsp;assuming&nbsp;no&nbsp;pressure&nbsp;drop&nbsp;for&nbsp;simplicity</p>
+<p class=source>#and&nbsp;a&nbsp;10&nbsp;C&nbsp;approach&nbsp;in&nbsp;the&nbsp;heat&nbsp;exchanger</p>
+<p class=source>#note&nbsp;that&nbsp;since&nbsp;we&nbsp;have&nbsp;a&nbsp;recycle&nbsp;we&nbsp;effectively&nbsp;lose&nbsp;one&nbsp;degree&nbsp;of&nbsp;</p>
+<p class=source>#freedom&nbsp;in&nbsp;the&nbsp;heat&nbsp;exchanger</p>
+<p class=source>/Hx1.DeltaPC.DP&nbsp;=&nbsp;0</p>
+<p class=source>cd&nbsp;/Q1.Out</p>
+<p class=source>/Hx1.DeltaPH.DP&nbsp;=&nbsp;0</p>
+<p class=source>cd&nbsp;/S5.In</p>
+<p class=source>#we&nbsp;now&nbsp;estimate&nbsp;the&nbsp;temperature&nbsp;of&nbsp;the&nbsp;warm&nbsp;dilute&nbsp;ethanol&nbsp;feed&nbsp;to</p>
+<p class=source>#the&nbsp;tower.&nbsp;This&nbsp;temperature&nbsp;is&nbsp;going&nbsp;to&nbsp;change&nbsp;when&nbsp;we&nbsp;hook&nbsp;up</p>
+<p class=source>#the&nbsp;bottoms&nbsp;of&nbsp;the&nbsp;distillation&nbsp;tower&nbsp;waste&nbsp;water&nbsp;stream&nbsp;to&nbsp;the&nbsp;heat&nbsp;recovery&nbsp;exchanger&nbsp;Hx1</p>
+<p class=source>/S5.In.T&nbsp;~=&nbsp;333.15</p>
+<p class=source>cd&nbsp;/Q1.Out</p>
+<p class=source>/Hx1.DeltaTHO.DT&nbsp;=&nbsp;10</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>T1&nbsp;=&nbsp;Tower.DistillationColumn()</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>/T1.TryToSolve&nbsp;=&nbsp;0</p>
+<p class=source>/T1.Stage_0&nbsp;+&nbsp;17</p>
+<p class=source>cd&nbsp;/T1.Variable_0_Reflux</p>
+<p class=source>/T1.TryToSolve&nbsp;=&nbsp;0</p>
+<p class=source>cd&nbsp;/T1.Variable_0_Reflux</p>
+<p class=source>/S5.Out&nbsp;-&gt;&nbsp;/T1.Feed_16eed</p>
+<p class=source>cd&nbsp;/T1</p>
+<p class=source>/T1.LiquidDraw_0_condenserL.P&nbsp;=&nbsp;101.325</p>
+<p class=source>cd&nbsp;/T1</p>
+<p class=source>/T1.LiquidDraw_19_reboilerL.P&nbsp;=&nbsp;101.325</p>
+<p class=source>cd&nbsp;/T1</p>
+<p class=source>/T1.LiquidDraw_0_condenserL.MoleFlow&nbsp;=&nbsp;50</p>
+<p class=source>cd&nbsp;/T1</p>
+<p class=source>/T1.VapourDraw_0_condenserV.MoleFlow&nbsp;=&nbsp;1</p>
+<p class=source>cd&nbsp;/T1</p>
+<p class=source>/T1.Variable_0_Reflux.Generic&nbsp;=&nbsp;7</p>
+<p class=source>cd&nbsp;/T1</p>
+<p class=source>/T1.TryToRestart&nbsp;=&nbsp;0</p>
+<p class=source>/T1.TryToSolve&nbsp;=&nbsp;1</p>
+<p class=source>#tower&nbsp;does&nbsp;not&nbsp;converge&nbsp;in&nbsp;20&nbsp;iterations,&nbsp;restart&nbsp;by&nbsp;setting&nbsp;</p>
+<p class=source>#TryToSolve&nbsp;=&nbsp;1</p>
+<p class=source>cd&nbsp;/T1</p>
+<p class=source>/T1.TryToRestart&nbsp;=&nbsp;1</p>
+<p class=source>/T1.TryToSolve&nbsp;=&nbsp;1</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>#close&nbsp;the&nbsp;recycle&nbsp;for&nbsp;the&nbsp;heat&nbsp;recovery&nbsp;section</p>
+<p class=source>/S8.Out&nbsp;-&gt;&nbsp;/Hx1.InH</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>S9&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>cd&nbsp;/</p>
+<p class=source>/Hx1.OutH&nbsp;-&gt;&nbsp;/S9.In</p>
+<p class=source>cd&nbsp;/S9.In</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><img src="_s42-151.png"></p>
+<p></p>
+</body>
+</html>

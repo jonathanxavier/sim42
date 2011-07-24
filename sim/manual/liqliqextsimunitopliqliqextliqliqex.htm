@@ -1,0 +1,168 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>LiqLiqExt - sim.unitop.LiqLiqExt.LiqLiqEx</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="heatexchangersimunitopheaterheatexchanger.htm">previous</a> &nbsp; <a href="mixersimunitopmixermixer.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>LiqLiqExt &#8211; sim.unitop.LiqLiqExt.LiqLiqEx</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The LiqLiqExt unit operation models a liquid-liquid counter-current extractor.  Note that this unit operation is derived from a Flowsheet unit operation containing normal flash and balance operations and just uses the normal recycle solver to solve the concurrent flows.</p>
+<p class=body-text>&nbsp;</p>
+<p class=body-text><img src="_s42-75.jpg"></p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="width: 2.6875in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>LiqLiqExt.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Man-extractor.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Feed Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Extrator feed</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Solvent Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Extractor solvent feed</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Extract Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Extract product</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Raffinate Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Raffinate product</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>MaxError</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Maximum error in convergence or material and energy balances. The default is 0.0001</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>&nbsp;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>&nbsp;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>MaxNumIterations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Maximum number of iterations. The default is 40.</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>NumberOfStages</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Number of extraction stages</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>LiquidPhases</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Number of liquid phases for flash calculations. The default is 2</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>&nbsp;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>&nbsp;</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Equations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext><img src="_s42-76.png"></p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=source>#liquid-liquid&nbsp;extractor&nbsp;example</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.UNIQUAC/Ideal/HC</p>
+<p class=source>thermo&nbsp;+&nbsp;ACETIC_ACID&nbsp;WATER&nbsp;DIISOPROPYL_ETHER</p>
+<p class=source>units&nbsp;SI</p>
+<p class=source>&nbsp;</p>
+<p class=source>llex&nbsp;=&nbsp;LiqLiqExt.LiqLiqEx()</p>
+<p class=source>&nbsp;</p>
+<p class=source>llex.NumberStages&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;8</p>
+<p class=source>&nbsp;</p>
+<p class=source>llex.Feed.MassFraction&nbsp;=&nbsp;30&nbsp;70&nbsp;0</p>
+<p class=source>llex.Feed.T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;25&nbsp;C</p>
+<p class=source>llex.Feed.P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>llex.Feed.MassFlow&nbsp;=&nbsp;8000.0</p>
+<p class=source>&nbsp;</p>
+<p class=source>llex.Solvent.MassFraction&nbsp;=&nbsp;0.0&nbsp;0.0&nbsp;1.0</p>
+<p class=source>llex.Solvent.T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;25&nbsp;C</p>
+<p class=source>llex.Solvent.P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>llex.Solvent.MassFlow&nbsp;=&nbsp;20000</p>
+<p class=source>&nbsp;</p>
+<p class=source>llex.Extract</p>
+<p class=source>llex.Raffinate</p>
+<p></p>
+</body>
+</html>

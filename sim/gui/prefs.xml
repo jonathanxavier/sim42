@@ -1,0 +1,248 @@
+<?xml version="1.0" ?>
+<Preferences>
+	<Generic>
+		<Language PreferenceType="Choice" KeyName="lang" Group="Generic">
+			<Description>Language to use in messages</Description>
+			<Value>English</Value>
+		</Language>
+		<Decimals PreferenceType="Integer" KeyName="decimals" Group="Grid">
+			<Description>Decimals to display in grids</Description>
+			<Value>4</Value>
+		</Decimals>
+		<Units PreferenceType="Choice" KeyName="units" Group="Generic">
+			<Description>Default unit set</Description>
+			<Value>SI</Value>
+		</Units>
+	</Generic>
+	<PortValues>
+		<FixedValues>
+			<BackgroundColour PreferenceType="Colour" KeyName="clrBkFixed" Group="Grid">
+				<Description>Background colour of fixed vals</Description>
+				<Red>230</Red>
+				<Green>230</Green>
+				<Blue>250</Blue>
+			</BackgroundColour>
+			<TextColour PreferenceType="Colour" KeyName="clrTxFixed" Group="Grid">
+				<Description>Text colour of fixed vals</Description>
+				<Red>255</Red>
+				<Green>128</Green>
+				<Blue>0</Blue>
+			</TextColour>
+			<Font PreferenceType="Font" KeyName="fntFixed" Group="Grid">
+				<Description>Text font of fixed vals</Description>
+				<Size>8</Size>
+				<Family>70</Family>
+				<Style>90</Style>
+				<Weight>92</Weight>
+				<Underlined>0</Underlined>
+				<Face>Arial</Face>
+			</Font>
+		</FixedValues>
+		<CalculatedValues>
+			<BackgroundColour PreferenceType="Colour" KeyName="clrBkCalc" Group="Grid">
+				<Description>Background colour of calculated vals</Description>
+				<Red>152</Red>
+				<Green>251</Green>
+				<Blue>152</Blue>
+			</BackgroundColour>
+			<TextColour PreferenceType="Colour" KeyName="clrTxCalc" Group="Grid">
+				<Description>Text colour of calculated vals</Description>
+				<Red>0</Red>
+				<Green>0</Green>
+				<Blue>0</Blue>
+			</TextColour>
+			<Font PreferenceType="Font" KeyName="fntCalc" Group="Grid">
+				<Description>Text font of calculated vals</Description>
+				<Size>8</Size>
+				<Family>70</Family>
+				<Style>90</Style>
+				<Weight>90</Weight>
+				<Underlined>0</Underlined>
+				<Face>Arial</Face>
+			</Font>
+		</CalculatedValues>
+		<PassedValues>
+			<BackgroundColour PreferenceType="Colour" KeyName="clrBkPass" Group="Grid">
+				<Description>Background colour of passed vals</Description>
+				<Red>255</Red>
+				<Green>215</Green>
+				<Blue>0</Blue>
+			</BackgroundColour>
+			<TextColour PreferenceType="Colour" KeyName="clrTxPass" Group="Grid">
+				<Description>Text colour of passed vals</Description>
+				<Red>0</Red>
+				<Green>0</Green>
+				<Blue>0</Blue>
+			</TextColour>
+			<Font PreferenceType="Font" KeyName="fntPass" Group="Grid">
+				<Description>Text font of passed vals</Description>
+				<Size>8</Size>
+				<Family>70</Family>
+				<Style>90</Style>
+				<Weight>90</Weight>
+				<Underlined>0</Underlined>
+				<Face>Arial</Face>
+			</Font>
+		</PassedValues>
+		<EstimatedValues>
+			<BackgroundColour PreferenceType="Colour" KeyName="clrBkEst" Group="Grid">
+				<Description>Background colour of estimated vals</Description>
+				<Red>0</Red>
+				<Green>191</Green>
+				<Blue>255</Blue>
+			</BackgroundColour>
+			<TextColour PreferenceType="Colour" KeyName="clrTxEst" Group="Grid">
+				<Description>Text colour of estimated vals</Description>
+				<Red>0</Red>
+				<Green>0</Green>
+				<Blue>0</Blue>
+			</TextColour>
+			<Font PreferenceType="Font" KeyName="fntEst" Group="Grid">
+				<Description>Text font of estimated vals</Description>
+				<Size>8</Size>
+				<Family>70</Family>
+				<Style>93</Style>
+				<Weight>90</Weight>
+				<Underlined>0</Underlined>
+				<Face>Arial</Face>
+			</Font>
+		</EstimatedValues>
+		<UnknownValues>
+			<BackgroundColour PreferenceType="Colour" KeyName="clrBkUnk" Group="Grid">
+				<Description>Background colour of unknown vals</Description>
+				<Red>173</Red>
+				<Green>173</Green>
+				<Blue>173</Blue>
+			</BackgroundColour>
+			<TextColour PreferenceType="Colour" KeyName="clrTxUnk" Group="Grid">
+				<Description>Text colour of unknown vals</Description>
+				<Red>0</Red>
+				<Green>0</Green>
+				<Blue>0</Blue>
+			</TextColour>
+			<Font PreferenceType="Font" KeyName="fntUnk" Group="Grid">
+				<Description>Text font of unknown vals</Description>
+				<Size>8</Size>
+				<Family>70</Family>
+				<Style>93</Style>
+				<Weight>90</Weight>
+				<Underlined>0</Underlined>
+				<Face>Arial</Face>
+			</Font>
+		</UnknownValues>
+		<WhenWaitingForValues>
+			<BackgroundColour PreferenceType="Colour" KeyName="clrBkWait" Group="Grid">
+				<Description>Background colour of values when waiting for something</Description>
+				<Red>255</Red>
+				<Green>255</Green>
+				<Blue>255</Blue>
+			</BackgroundColour>
+			<TextColour PreferenceType="Colour" KeyName="clrTxWait" Group="Grid">
+				<Description>Text colour of values when waiting for something</Description>
+				<Red>0</Red>
+				<Green>0</Green>
+				<Blue>0</Blue>
+			</TextColour>
+		</WhenWaitingForValues>
+		<GridLabels>
+			<BackgroundColour PreferenceType="Colour" KeyName="clrBkCellLbl" Group="Grid">
+				<Description>Background colour of cell labels</Description>
+				<Red>192</Red>
+				<Green>192</Green>
+				<Blue>192</Blue>
+			</BackgroundColour>
+			<TextColour PreferenceType="Colour" KeyName="clrTxCellLbl" Group="Grid">
+				<Description>Text colour of cell labels</Description>
+				<Red>255</Red>
+				<Green>255</Green>
+				<Blue>255</Blue>
+			</TextColour>
+			<Font PreferenceType="Font" KeyName="fntCellLbl" Group="Grid">
+				<Description>Text font of cell labels</Description>
+				<Size>10</Size>
+				<Family>70</Family>
+				<Style>90</Style>
+				<Weight>92</Weight>
+				<Underlined>0</Underlined>
+				<Face>Arial</Face>
+			</Font>
+		</GridLabels>
+	</PortValues>
+	<Pfd>
+		<Connections>
+			<MaterialColour PreferenceType="Colour" KeyName="clrLineMat" Group="Pfd">
+				<Description>Line colour for a material connection</Description>
+				<Red>0</Red>
+				<Green>128</Green>
+				<Blue>225</Blue>
+			</MaterialColour>
+			<MaterialStyle PreferenceType="Integer" KeyName="sLineMat" Group="Pfd">
+				<Description>Line style for a material connection</Description>
+				<Value>100</Value>
+			</MaterialStyle>
+			<EnergyColour PreferenceType="Colour" KeyName="clrLineEne" Group="Pfd">
+				<Description>Line colour for an energy connection</Description>
+				<Red>255</Red>
+				<Green>0</Green>
+				<Blue>0</Blue>
+			</EnergyColour>
+			<EnergyStyle PreferenceType="Integer" KeyName="sLineEne" Group="Pfd">
+				<Description>Line style for an energy connection</Description>
+				<Value>100</Value>
+			</EnergyStyle>
+			<SignalColour PreferenceType="Colour" KeyName="clrLineSig" Group="Pfd">
+				<Description>Line colour for a signal connection</Description>
+				<Red>225</Red>
+				<Green>255</Green>
+				<Blue>0</Blue>
+			</SignalColour>
+			<SignalStyle PreferenceType="Integer" KeyName="sLineSig" Group="Pfd">
+				<Description>Line style for a signal connection</Description>
+				<Value>102</Value>
+			</SignalStyle>
+		</Connections>
+		<Ports>
+			<MaterialColour PreferenceType="Colour" KeyName="clrPortMat" Group="Pfd">
+				<Description>Colour for a material port</Description>
+				<Red>240</Red>
+				<Green>220</Green>
+				<Blue>0</Blue>
+			</MaterialColour>
+			<EnergyColour PreferenceType="Colour" KeyName="clrPortEne" Group="Pfd">
+				<Description>Colour for an energy port</Description>
+				<Red>255</Red>
+				<Green>0</Green>
+				<Blue>0</Blue>
+			</EnergyColour>
+			<SignalColour PreferenceType="Colour" KeyName="clrPortSig" Group="Pfd">
+				<Description>Colour for a signal port</Description>
+				<Red>225</Red>
+				<Green>255</Green>
+				<Blue>0</Blue>
+			</SignalColour>
+		</Ports>
+		<UnitOperations>
+			<NameColour PreferenceType="Colour" KeyName="clrUOName" Group="Pfd">
+				<Description>Text colour of unit op names</Description>
+				<Red>0</Red>
+				<Green>0</Green>
+				<Blue>0</Blue>
+			</NameColour>
+			<NameFont PreferenceType="Font" KeyName="fntUOName" Group="Pfd">
+				<Description>Text font of unit op names</Description>
+				<Size>8</Size>
+				<Family>74</Family>
+				<Style>90</Style>
+				<Weight>90</Weight>
+				<Underlined>0</Underlined>
+				<Face>Arial</Face>
+			</NameFont>
+			<MaterialColour PreferenceType="Colour" KeyName="clrPfd" Group="Pfd">
+				<Description>Pfd background color</Description>
+				<Red>255</Red>
+				<Green>255</Green>
+				<Blue>255</Blue>
+			</MaterialColour>
+		</UnitOperations>
+	</Pfd>
+</Preferences>

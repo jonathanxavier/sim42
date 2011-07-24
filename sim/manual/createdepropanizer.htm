@@ -1,0 +1,149 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Create Depropanizer</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="mixliquidstreamstofeeddepropanizer.htm">previous</a> &nbsp; <a href="addrefrigerationplantforchiller.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Create Depropanizer</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=source>deprop&nbsp;=&nbsp;Tower.Tower()</p>
+<p class=body-text>With the tower created, we can now specify the tower layout. We start by specifying the number of trays.</p>
+<p class=source>deprop.Stage_0&nbsp;+&nbsp;10</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=0 style="margin-left: 0in">
+<tr>
+<td valign=top>
+<p class=margin-note><img src="_s42-149.png"></p><p class=margin-note-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=body-text>Note that the trays are always numbered from top to bottom using indexes starting from 0. Therefore deprop.Stage_0 + 10 is a tower with 12 stages.</p></td>
+</tr>
+</table>
+<p class=body-text>With the number of trays defined we will now define the top of the tower.</p>
+<p class=source>/&gt;&nbsp;cd&nbsp;deprop.Stage_0</p>
+<p class=source>/deprop.Stage_0</p>
+<p class=source>/deprop.Stage_0&gt;&nbsp;v&nbsp;=&nbsp;Tower.VapourDraw()</p>
+<p class=source>/deprop.Stage_0&gt;&nbsp;v.Port.P&nbsp;=&nbsp;200</p>
+<p class=source>/deprop.Stage_0&gt;&nbsp;reflux&nbsp;=&nbsp;Tower.RefluxRatioSpec()</p>
+<p class=source>/deprop.Stage_0&gt;&nbsp;reflux.Port&nbsp;=&nbsp;1</p>
+<p class=source>/deprop.Stage_0&gt;&nbsp;cond&nbsp;=&nbsp;Tower.EnergyFeed(0)</p>
+<p class=source>/deprop.Stage_0&gt;&nbsp;estT&nbsp;=&nbsp;Tower.Estimate('T')</p>
+<p class=source>/deprop.Stage_0&gt;&nbsp;estT.Value&nbsp;=&nbsp;40</p>
+<p class=body-text>Note that when we are in the Stage_0 object we can directly create vapor or liquid draws, specifications, energy feeds and estimates.</p>
+<p class=body-text>With the top of the tower specified we now specify the feed tray.</p>
+<p class=source>/deprop.Stage_0&gt;&nbsp;cd&nbsp;../Stage_5</p>
+<p class=source>/deprop.Stage_5</p>
+<p class=source>/deprop.Stage_5&gt;&nbsp;f&nbsp;=&nbsp;Tower.Feed()</p>
+<p class=source>/deprop.Stage_5&gt;&nbsp;/Mixer.Out&nbsp;-&gt;&nbsp;f.Port</p>
+<p class=source>/deprop.Stage_5&gt;</p>
+<p class=body-text>And finally we specify the bottoms of the distillation tower.</p>
+<p class=source>/deprop.Stage_5&gt;&nbsp;cd&nbsp;../Stage_11</p>
+<p class=source>/deprop.Stage_11</p>
+<p class=source>/deprop.Stage_11&gt;&nbsp;l&nbsp;=&nbsp;Tower.LiquidDraw()</p>
+<p class=source>/deprop.Stage_11&gt;&nbsp;l.Port.P&nbsp;=&nbsp;205</p>
+<p class=source>/deprop.Stage_11&gt;&nbsp;l.Port.Fraction.PROPANE&nbsp;=&nbsp;0.02</p>
+<p class=source>/deprop.Stage_11&gt;&nbsp;reb&nbsp;=&nbsp;Tower.EnergyFeed(1)</p>
+<p class=source>/deprop.Stage_11&gt;&nbsp;estT&nbsp;=&nbsp;Tower.Estimate('T')</p>
+<p class=source>/deprop.Stage_11&gt;&nbsp;estT.Value&nbsp;=&nbsp;200</p>
+<p class=source>/deprop.Stage_11&gt;</p>
+<p class=body-text>Finally we specify the connecting material streams leaving the tower</p>
+<p class=source>deprop.Stage_11&gt;&nbsp;cd&nbsp;..</p>
+<p class=source>deprop</p>
+<p class=source>deprop&gt;&nbsp;/overhead&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>deprop&gt;&nbsp;/bottoms&nbsp;=&nbsp;Stream.Stream_Material()</p>
+<p class=source>deprop&gt;&nbsp;/overhead.In&nbsp;-&gt;&nbsp;Stage_0.v.Port</p>
+<p class=source>deprop&gt;&nbsp;/bottoms.In&nbsp;-&gt;&nbsp;Stage_11.l.Port</p>
+<p class=body-text>Now we run the tower by setting the TryToSolve flag equal to 1.</p>
+<p class=source>/deprop&gt;&nbsp;TryToSolve&nbsp;=&nbsp;1</p>
+<p class=source>Calculating&nbsp;Jacobian&nbsp;for&nbsp;/deprop</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.085249</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.016256</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000564</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000065</p>
+<p class=source>/deprop&nbsp;Iteration&nbsp;1&nbsp;Outer&nbsp;Error&nbsp;0.075233</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.047255</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.009214</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000780</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000076</p>
+<p class=source>/deprop&nbsp;Iteration&nbsp;2&nbsp;Outer&nbsp;Error&nbsp;0.008632</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.032138</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.004838</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000207</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000020</p>
+<p class=source>/deprop&nbsp;Iteration&nbsp;3&nbsp;Outer&nbsp;Error&nbsp;0.001351</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.003836</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000150</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000006</p>
+<p class=source>/deprop&nbsp;Iteration&nbsp;4&nbsp;Outer&nbsp;Error&nbsp;0.000240</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000235</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000011</p>
+<p class=source>/deprop&nbsp;Iteration&nbsp;5&nbsp;Outer&nbsp;Error&nbsp;0.000055</p>
+<p class=source>/deprop&nbsp;Inner&nbsp;Error&nbsp;0.000016</p>
+<p class=body-text>Let's check to make sure the overhead and bottoms are properly calculated.</p>
+<p class=source>/deprop&gt;&nbsp;/overhead.Out</p>
+<p class=source>Port:&nbsp;/overhead.Out&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;None</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.0&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;17.3781459859&nbsp;=&nbsp;F</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;200.0&nbsp;=&nbsp;psia</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;33.8194342075&nbsp;=&nbsp;lbmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;915.898345933&nbsp;=&nbsp;lb/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;3956.8573244&nbsp;=&nbsp;Btu/lbmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;133796.172871&nbsp;=&nbsp;Btu/hr</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;27.0820126769&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.866469774683&nbsp;=</p>
+<p class=source>METHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.441671475526&nbsp;=</p>
+<p class=source>ETHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.336517607971&nbsp;=</p>
+<p class=source>PROPANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.214959935525&nbsp;=</p>
+<p class=source>ISOBUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00556242090631&nbsp;=</p>
+<p class=source>n-BUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.00128001766976&nbsp;=</p>
+<p class=source>ISOPENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;6.28418562471e-006&nbsp;=</p>
+<p class=source>n-PENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2.25716342236e-006&nbsp;=</p>
+<p class=source>n-HEXANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.05122523091e-009&nbsp;=</p>
+<p class=source>n-HEPTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.99244827749e-012&nbsp;=</p>
+<p class=source>n-OCTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;4.81768391747e-015&nbsp;=</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>/deprop&gt;&nbsp;/bottoms.Out</p>
+<p class=source>Port:&nbsp;/bottoms.Out&nbsp;+&nbsp;sim.solver.Ports.Port_Material</p>
+<p class=source>Connected&nbsp;to:&nbsp;None</p>
+<p class=source>VapFrac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0&nbsp;=</p>
+<p class=source>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;259.247767362&nbsp;=&nbsp;F</p>
+<p class=source>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;205.0&nbsp;=&nbsp;psia</p>
+<p class=source>MoleFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;43.3705273481&nbsp;=&nbsp;lbmole/h</p>
+<p class=source>MassFlow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;3220.89554276&nbsp;=&nbsp;lb/h</p>
+<p class=source>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;6373.6864337&nbsp;=&nbsp;Btu/lbmol</p>
+<p class=source>Energy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;276383.657016&nbsp;=&nbsp;Btu/hr</p>
+<p class=source>MolecularWeight&nbsp;&nbsp;&nbsp;=&nbsp;74.2646156204&nbsp;=</p>
+<p class=source>ZFactor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0635461399659&nbsp;=</p>
+<p class=source>METHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;7.99944465157e-008&nbsp;=</p>
+<p class=source>ETHANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.000104324260624&nbsp;=</p>
+<p class=source>PROPANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.02&nbsp;=</p>
+<p class=source>ISOBUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.188190005044&nbsp;=</p>
+<p class=source>n-BUTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.17386978922&nbsp;=</p>
+<p class=source>ISOPENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.158647894251&nbsp;=</p>
+<p class=source>n-PENTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.136610230101&nbsp;=</p>
+<p class=source>n-HEXANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.161197449776&nbsp;=</p>
+<p class=source>n-HEPTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0922103136517&nbsp;=</p>
+<p class=source>n-OCTANE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0.0691693858072&nbsp;=</p>
+<p></p>
+</body>
+</html>

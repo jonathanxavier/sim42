@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Mixer - sim.unitop.Mixer.Mixer</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="liqliqextsimunitopliqliqextliqliqex.htm">previous</a> &nbsp; <a href="propertysensorsimunitopsensorpropertysensor.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Mixer - sim.unitop.Mixer.Mixer</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=body-text>The Mixer unit operation models an adiabatic mixing process.</p>
+<p class=body-text>&nbsp;</p>
+<p class=source>m&nbsp;=&nbsp;Mixer.Mixer()</p>
+<p class=body-text>&nbsp;</p>
+<table cellpadding=0 cellspacing=0 border=1 style="margin-left: -0.0159722in">
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tableheading>Item</p></td>
+<td valign=top style="width: 2.6875in">
+<p class=tableheading>Value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Sim42 File</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Mixer.py</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>Example</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>man-mixer.tst</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>In0 Material Port </p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Mixer inlet number 0</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top>
+<p class=tabletext>In1 Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top>
+<p class=tabletext>Mixer inlet number 1</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Out Material Port</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Mixer outlet </p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>NumberStreamsIn</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext>Number of inlet streams (default is two)</p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.0625in">
+<p class=tabletext>Equations</p><p class=tabletext-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.6875in">
+<p class=tabletext><img src="_s42-77.png"></p><p class=tabletext-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=body-text>&nbsp;</p>
+<p class=source>#adiabatic&nbsp;mixer&nbsp;example</p>
+<p class=source>thermo&nbsp;=&nbsp;VirtualMaterials.PSRK</p>
+<p class=source>thermo&nbsp;+&nbsp;ETHANOL&nbsp;WATER</p>
+<p class=source>units&nbsp;SI</p>
+<p class=source>&nbsp;</p>
+<p class=source>m&nbsp;=&nbsp;Mixer.Mixer()</p>
+<p class=source>&nbsp;</p>
+<p class=source>m.In0.P&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>m.In0.T&nbsp;=&nbsp;25&nbsp;C</p>
+<p class=source>m.In0.MoleFlow&nbsp;=&nbsp;1.0</p>
+<p class=source>m.In0.Fraction&nbsp;=&nbsp;1.0&nbsp;0.0</p>
+<p class=source>&nbsp;</p>
+<p class=source>m.In1.P&nbsp;=&nbsp;1&nbsp;atm</p>
+<p class=source>m.In1.T&nbsp;=&nbsp;25&nbsp;C</p>
+<p class=source>m.In1.MoleFlow&nbsp;=&nbsp;1.0</p>
+<p class=source>m.In1.Fraction&nbsp;=&nbsp;0.0&nbsp;1.0</p>
+<p class=source>&nbsp;</p>
+<p class=source>m.Out</p>
+<p></p>
+</body>
+</html>

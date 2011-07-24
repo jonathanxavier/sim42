@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Gas Plant Tutorial</title>
+<link rel="stylesheet" href="C1H_HTML.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="DocToHelp.js"></script>
+</head>
+<body onload="d2hload()" onmousedown="d2hpopup()">
+<div id=popupDiv>
+<iframe onload="d2hframeload()" id=popupFrame frameborder=none scrolling=auto style="display:none">
+</iframe>
+</div>
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="s42-toc.htm" target="left">contents</a> &nbsp; <a href="s42-index.htm" target="left">index</a> &nbsp; <a href="valvesimunitopvalvevalve.htm">previous</a> &nbsp; <a href="selectdesiredunitbasis.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Gas Plant Tutorial</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=body-text>In this example we examine in detail the simulation of a simple natural gas plant. We have a natural gas feed that we want to process and produce a sales gas that has a specified dew point temperature for a given operating pressure. Please compare this example with the refrigeration plant example discussed in a previous section. The refrigeration plant was created using a more procedural style where unit operations were created, connected and finally automatically solved when the connections were completed. In this example we will proceed in a less structured manner to show the fully interactive nature of Sim42. Naturally you are free to choose your work style and Sim42 will always properly keep track of over specifications and connectivity.</p>
+<p class=body-text><b>Start up Sim42</p>
+</b><p class=source>C:\adams\sim\cmd\test&gt;python&nbsp;..\CommandInterface.py</p>
+<p class=relatedhead>More:</p>
+<p class=relatedhead-p>&nbsp;</p>
+<p class=normal><a href="selectdesiredunitbasis.htm"><img src="button.gif" border=0></a><a href="selectdesiredunitbasis.htm" style="text-decoration:none;">Select Desired Unit Basis</a></p>
+<p class=normal><a href="createthermodynamicbasis.htm"><img src="button.gif" border=0></a><a href="createthermodynamicbasis.htm" style="text-decoration:none;">Create Thermodynamic Basis</a></p>
+<p class=normal><a href="addnecessarycomponentsforcalculations.htm"><img src="button.gif" border=0></a><a href="addnecessarycomponentsforcalculations.htm" style="text-decoration:none;">Add Necessary Components for Calculations</a></p>
+<p class=normal><a href="definefeedintogasplant.htm"><img src="button.gif" border=0></a><a href="definefeedintogasplant.htm" style="text-decoration:none;">Define Feed into Gas Plant</a></p>
+<p class=normal><a href="checkthefeedthermodynamicstate.htm"><img src="button.gif" border=0></a><a href="checkthefeedthermodynamicstate.htm" style="text-decoration:none;">Check the Feed Thermodynamic State</a></p>
+<p class=normal><a href="definefrontendgasliquidseparator.htm"><img src="button.gif" border=0></a><a href="definefrontendgasliquidseparator.htm" style="text-decoration:none;">Define Front End Gas-Liquid Separator</a></p>
+<p class=normal><a href="connectgasfeedtogasliquidseparator.htm"><img src="button.gif" border=0></a><a href="connectgasfeedtogasliquidseparator.htm" style="text-decoration:none;">Connect Gas Feed to Gas-Liquid Separator</a></p>
+<p class=normal><a href="checkthestateofthegasliquidseparatorinlet.htm"><img src="button.gif" border=0></a><a href="checkthestateofthegasliquidseparatorinlet.htm" style="text-decoration:none;">Check the State of the Gas-Liquid Separator Inlet</a></p>
+<p class=normal><a href="creategasgasheatexchanger.htm"><img src="button.gif" border=0></a><a href="creategasgasheatexchanger.htm" style="text-decoration:none;">Create Gas-Gas Heat Exchanger</a></p>
+<p class=normal><a href="connecttheseparatorvaporporttothegasgasheatexchangerhotsideinlet.htm"><img src="button.gif" border=0></a><a href="connecttheseparatorvaporporttothegasgasheatexchangerhotsideinlet.htm" style="text-decoration:none;">Connect the Separator Vapor Port to the Gas-Gas Heat Exchanger Hot Side Inlet</a></p>
+<p class=normal><a href="createchiller.htm"><img src="button.gif" border=0></a><a href="createchiller.htm" style="text-decoration:none;">Create Chiller</a></p>
+<p class=normal><a href="connectgasgasheatexchangerhotsideoutlettochillerhotsideinlet.htm"><img src="button.gif" border=0></a><a href="connectgasgasheatexchangerhotsideoutlettochillerhotsideinlet.htm" style="text-decoration:none;">Connect Gas-gas Heat Exchanger Hot Side outlet to Chiller Hot Side Inlet</a></p>
+<p class=normal><a href="createnestedflowsheetfordewpointcalculations.htm"><img src="button.gif" border=0></a><a href="createnestedflowsheetfordewpointcalculations.htm" style="text-decoration:none;">Create Nested Flowsheet for Dew Point Calculations</a></p>
+<p class=normal><a href="specifynestedflowsheet.htm"><img src="button.gif" border=0></a><a href="specifynestedflowsheet.htm" style="text-decoration:none;">Specify Nested Flowsheet</a></p>
+<p class=normal><a href="mixliquidstreamstofeeddepropanizer.htm"><img src="button.gif" border=0></a><a href="mixliquidstreamstofeeddepropanizer.htm" style="text-decoration:none;">Mix Liquid Streams to Feed Depropanizer</a></p>
+<p class=normal><a href="createdepropanizer.htm"><img src="button.gif" border=0></a><a href="createdepropanizer.htm" style="text-decoration:none;">Create Depropanizer</a></p>
+<p class=normal><a href="addrefrigerationplantforchiller.htm"><img src="button.gif" border=0></a><a href="addrefrigerationplantforchiller.htm" style="text-decoration:none;">Add Refrigeration Plant for Chiller</a></p>
+<p></p>
+</body>
+</html>
