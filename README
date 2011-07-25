@@ -1,0 +1,11 @@
+Simulator42 is an open source process simulator project with the goal of providing an affordable and accessible chemical process simulator to the chemical engineering community.
+
+Some interesting features of the project:
+ * It is being written in the Python language.
+ * The simulator core has been designed to be independent of both user interfaces and thermo providers.
+ * The flow sheet solver can propagate partial information both backward and forward through the flow sheet. This feature allows many complex problems to be solved without iterative calculation of recycle loops. Consistency checks are used to avoid unintended over specification of problems.
+ * A distillation column employing a Russell inside/out algorithm and capable of solving complex pump around and side stripper problems has been implemented.
+ * Several user interfaces are already available or being developed for Sim42, including a basic command line interface, a graphical interface based on wxWindows, a web browser based interface/server and a professional commercial interface.
+ 
+ source:
+ http://sim42.org as 5 November 1605
