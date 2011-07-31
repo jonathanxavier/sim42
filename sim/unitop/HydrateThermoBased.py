@@ -13,8 +13,8 @@ from sim.solver import Ports
 from sim.unitop import UnitOperations, Properties
 from Properties import EMPTY_VAL
 
-import Numeric 
-from Numeric import zeros, ones, Float, Int, reshape, transpose, array
+import numpy 
+from numpy import zeros, ones, float, int, reshape, transpose, array
 
 THYDRATE_PORT = 'HydrateTemp'
 PHYDRATE_PORT = 'HydratePress'

@@ -13,7 +13,7 @@ from DesignTools import HNATable, GTable, FinalValue, VesselWeightAndWallThickne
 from sim.solver.Variables import *
 from sim.unitop import Flash
 
-import Numeric, math
+import numpy, math
 from math import log, pi, ceil
 PI = math.pi
 

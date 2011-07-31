@@ -16,11 +16,10 @@ from sim.unitop.ConvRxn import ConversionReaction
 from sim.unitop.Pump import DataSeries, ATable, LookupTable
 from sim.solver.Messages import MessageHandler
 
-from Numeric import *
-#from Numeric import array, zeros, ones, Float, Int, take, put, add, clip
-#from Numeric import transpose, dot, outerproduct, matrixmultiply, absolute, identity
-from LinearAlgebra import solve_linear_equations, inverse
-
+from numpy import *
+#from numpy import array, zeros, ones, float, int, take, put, add, clip
+#from numpy import transpose, dot, outer as outerproduct, dot as matrixmultiply, absolute, identity
+from numpy.linalg import solve as solve_linear_equations, inv as inverse, det as determinant
 
 #Common constants
 from BaseForReactors import QEXOTHERMIC_ISPOS_PAR, NURXN_PAR, REACTION, COEFF

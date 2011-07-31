@@ -1,3 +1,5 @@
+# -*- coding: latin-1 -*-
+
 def Messages():
     m = {}
     m['CMDAliasNotForUO']       = "Solo op unit pueden crear alias y %s no es una op unit"

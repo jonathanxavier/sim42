@@ -9,8 +9,8 @@ RefineryProp -- Class for refinery properties
 from sim.solver.Variables import *
 from sim.solver import S42Glob
 from sim.unitop import UnitOperations
-import Numeric
-from Numeric import array, Float, zeros
+import numpy
+from numpy import array, float, zeros
 
 #Keywords used in the PropertyPackge
 

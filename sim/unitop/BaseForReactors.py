@@ -9,7 +9,7 @@ import re, string
 import UnitOperations
 from sim.solver import Flowsheet, Error
 from sim.solver.Variables import *
-from Numeric import *
+from numpy import *
 
 NURXN_PAR = 'NumberRxn'
 REACTION = 'Rxn'

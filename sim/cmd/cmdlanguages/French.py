@@ -1,3 +1,5 @@
+# -*- coding: latin-1 -*-
+
 # Contributed by J.-Henrique Pinto  2003-Nov-18
 # Contribution de J.-Henrique Pinto  2003-Nov-18
 

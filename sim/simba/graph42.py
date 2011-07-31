@@ -4,7 +4,7 @@ Graphing tool - this is essentially the graphite package with some additions and
 
 from graphite import *
 import graphite
-import Numeric
+import numpy
 
 class Text(graphite.Text):
     """

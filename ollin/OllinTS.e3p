@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-3.9.dtd">
+<!-- Project file for project OllinTS -->
+<!-- Saved: 2007-10-01, 04:27:27 -->
+<!-- Copyright (C) 2007 Lira Conde Abad, abadtlatzca@gmail.com -->
+<Project version="3.9">
+  <ProgLanguage mixed="0">Python</ProgLanguage>
+  <UIType>Qt</UIType>
+  <Description>Thermo Serve</Description>
+  <Version>0.1</Version>
+  <Author>Lira Conde Abad</Author>
+  <Email>abadtlatzca@gmail.com</Email>
+  <Sources>
+    <Source>
+      <Name>SysVar.py</Name>
+    </Source>
+    <Source>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>Administrator</Dir>
+      <Name>AdmOllin.py</Name>
+    </Source>
+    <Source>
+      <Dir>Administrator</Dir>
+      <Name>ThemoObj.py</Name>
+    </Source>
+    <Source>
+      <Dir>Administrator</Dir>
+      <Name>ThermoCase.py</Name>
+    </Source>
+    <Source>
+      <Dir>Administrator</Dir>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>CES</Dir>
+      <Name>RedlichKwong.py</Name>
+    </Source>
+    <Source>
+      <Dir>DataBase</Dir>
+      <Name>DataBase.py</Name>
+    </Source>
+    <Source>
+      <Dir>DataBase</Dir>
+      <Name>SysData.py</Name>
+    </Source>
+    <Source>
+      <Dir>EOS</Dir>
+      <Name>eos.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>buscador.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>cargar.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>ejemplo.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>ejemplo2.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>ejemplo3.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>prueba.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>prueba01.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>prueba02.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>prueba04.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>prueba05.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>pruebax2.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>pruebax3.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>setup.py</Name>
+    </Source>
+    <Source>
+      <Dir>Thermodinamics</Dir>
+      <Name>PresureVapor.py</Name>
+    </Source>
+    <Source>
+      <Dir>Thermodinamics</Dir>
+      <Name>Thermodinamic.py</Name>
+    </Source>
+    <Source>
+      <Dir>Tools</Dir>
+      <Name>MixingRules.py</Name>
+    </Source>
+    <Source>
+      <Dir>Tools</Dir>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>Tools</Dir>
+      <Name>plot_xy.py</Name>
+    </Source>
+    <Source>
+      <Dir>Tools</Dir>
+      <Name>tools.py</Name>
+    </Source>
+    <Source>
+      <Dir>DataBase</Dir>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>Thermodinamics</Dir>
+      <Name>Constans.py</Name>
+    </Source>
+    <Source>
+      <Dir>CES</Dir>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>Flash</Dir>
+      <Name>Flash.py</Name>
+    </Source>
+    <Source>
+      <Dir>Thermodinamics</Dir>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>CES</Dir>
+      <Name>SoaveRK.py</Name>
+    </Source>
+    <Source>
+      <Dir>CES</Dir>
+      <Name>PengRobinson.py</Name>
+    </Source>
+    <Source>
+      <Dir>CES</Dir>
+      <Name>RedlichKwongS.py</Name>
+    </Source>
+    <Source>
+      <Name>cdm.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>prueba_01.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>tren.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>UOS.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>GasCooling.py</Name>
+    </Source>
+    <Source>
+      <Dir>Flash</Dir>
+      <Name>Flash2.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>compresor.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>KiT.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>KiP.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>__init__.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>FracT.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>ZPr.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>Pvapor.py</Name>
+    </Source>
+    <Source>
+      <Dir>Example</Dir>
+      <Name>cavett.py</Name>
+    </Source>
+  </Sources>
+  <Forms>
+  </Forms>
+  <Translations>
+  </Translations>
+  <Interfaces>
+  </Interfaces>
+  <Others>
+  </Others>
+  <Vcs>
+    <VcsType>None</VcsType>
+    <VcsOptions>(dp0
+S'status'
+p1
+(lp2
+S'-v'
+p3
+asS'log'
+p4
+(lp5
+S''
+p6
+asS'global'
+p7
+(lp8
+S'-f'
+p9
+asS'update'
+p10
+(lp11
+S'-dP'
+p12
+asS'remove'
+p13
+(lp14
+g9
+asS'add'
+p15
+(lp16
+g6
+asS'tag'
+p17
+(lp18
+S'-c'
+p19
+asS'export'
+p20
+(lp21
+g6
+asS'diff'
+p22
+(lp23
+S'-u3'
+p24
+aS'-p'
+p25
+asS'commit'
+p26
+(lp27
+g6
+asS'checkout'
+p28
+(lp29
+g6
+asS'history'
+p30
+(lp31
+S'-e'
+p32
+aS'-a'
+p33
+as.</VcsOptions>
+    <VcsOtherData>(dp0
+.</VcsOtherData>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.ui.h" type="FORMS" />
+    <FiletypeAssociation pattern="*.ui" type="FORMS" />
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES" />
+    <FiletypeAssociation pattern="*.py" type="SOURCES" />
+    <FiletypeAssociation pattern="*.ptl" type="SOURCES" />
+  </FiletypeAssociations>
+</Project>

@@ -1,3 +1,5 @@
+# -*- coding: latin-1 -*-
+
 def Messages():
     """create dictionary of Spanish messages"""
     m = {}

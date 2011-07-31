@@ -5,8 +5,8 @@ ThermoInterface -- Main class of the interfase
 
 """
 
-import string, sys, Numeric, re
-from Numeric import Float, Int, zeros, ones, array
+import string, sys, numpy, re
+from numpy import float, int, zeros, ones, array
 from sim.solver.Variables import *
 from sim.solver.Messages import MessageHandler
 from ThermoConstants import *

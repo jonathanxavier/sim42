@@ -2,9 +2,9 @@
 
 from sim.solver import Ports, Error
 from sim.solver.Variables import *
-import Numeric
-from Numeric import array, Float, Int, ones, zeros, matrixmultiply
-from LinearAlgebra import solve_linear_equations, determinant
+import numpy
+from numpy import array, float, int, ones, zeros #, dot as matrixmultiply
+from numpy.linalg import solve as solve_linear_equations, det as determinant
 import UnitOperations
 
 MASS_BALANCE = 1

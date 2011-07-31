@@ -13,7 +13,7 @@ from sim.solver.Variables import *
 from sim.solver import S42Glob
 from sim.unitop import Flash
 
-import Numeric, math
+import numpy, math
 from math import log, pi, ceil
 PI = math.pi
 

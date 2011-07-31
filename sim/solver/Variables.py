@@ -22,8 +22,8 @@ CompoundList -- List with compounds
 import re, os, sys, copy
 from Error import ConsistencyError
 from vmgunits import units
-import Numeric
-from Numeric import Float, Int, array, zeros, ones, sum
+import numpy
+from numpy import float, int, array, zeros, ones, sum
 import S42Glob
 
 #Redefine them as integers

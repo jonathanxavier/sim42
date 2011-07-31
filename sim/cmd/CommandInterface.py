@@ -10,7 +10,7 @@ import StringIO, types, copy, zipfile, tempfile
 pickle = cPickle
 #import pickle
 import gc    
-import Numeric
+import numpy
 import traceback
 import sim.cmd.cmdlanguages
 
