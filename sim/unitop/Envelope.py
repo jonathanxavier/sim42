@@ -14,8 +14,8 @@ from Pump import DataSeries
 import UnitOperations
 import Stream
 
-import numpy 
-from numpy import float, reshape, array
+import Numeric 
+from Numeric import Float, reshape, array
 
 THCURVE_INDICATOR = 'TH'
 PHCURVE_INDICATOR = 'PH'

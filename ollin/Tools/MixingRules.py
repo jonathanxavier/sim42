@@ -1,4 +1,4 @@
-from numpy import sqrt,array,power
+from Numeric import sqrt,array,power
 
 def Molar(fraction, proper):
     """

@@ -1,5 +1,5 @@
 from ollin.Administrator.AdmOllin import Ollin
-from numpy import array
+from Numeric import array
 
 RK=Ollin.AddModel("PR","PR","ANTOINE")
 Ollin.Add(["METHANOL","HYDROGEN","CARBON MONOXIDE","CARBON DIOXIDE","WATER","METHANE"],"PR")

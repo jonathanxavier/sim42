@@ -3,7 +3,7 @@ from math import sqrt
 from ollin.Flash.Flash import Flash
 from ollin.EOS.eos import EOS
 from ollin.Thermodinamics.Thermodinamic import Thermo
-from numpy import sqrt,array,power,log,exp,absolute
+from Numeric import sqrt,array,power,log,exp,absolute
 from ollin.Tools.tools import lagrange
 from ollin.Thermodinamics.Constans import R
 

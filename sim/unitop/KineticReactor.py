@@ -7,8 +7,8 @@ from sim.solver import S42Glob
 from sim.solver import EquationSolver, Flowsheet
 from sim.solver.Messages import MessageHandler
 
-import numpy
-from numpy import array, float, int, ones, zeros, dot as matrixmultiply, absolute, where
+import Numeric
+from Numeric import array, Float, Int, ones, zeros, matrixmultiply, absolute, where
 import math, string, copy, re, operator
 PI = math.pi
 

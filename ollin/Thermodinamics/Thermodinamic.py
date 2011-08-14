@@ -1,4 +1,4 @@
-from numpy import log
+from Numeric import log
 from ollin.Thermodinamics.Constans import T_ref
 
 class Thermo:

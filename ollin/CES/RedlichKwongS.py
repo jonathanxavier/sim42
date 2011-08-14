@@ -1,7 +1,7 @@
 from ollin.Tools import MixingRules
 from ollin.Flash.Flash import Flash
 from ollin.EOS.eos import EOS
-from numpy import sqrt,array,power,log,exp,absolute
+from Numeric import sqrt,array,power,log,exp,absolute
 from ollin.Tools.tools import lagrange
 from ollin.Thermodinamics.Constans import R
 

@@ -13,8 +13,8 @@ from Variables import *
 import S42Glob
 from Error import SimError
 import re, string
-import numpy
-from numpy import array, float, int, zeros, ones
+import Numeric
+from Numeric import array, Float, Int, zeros, ones
 
 
 ENERGY_PORT = 'Ene'

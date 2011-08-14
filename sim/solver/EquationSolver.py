@@ -1,8 +1,8 @@
 
-import numpy, math, time
-from numpy import array, zeros, ones, float, int, take, put, add, clip
-from numpy import transpose, dot, outer as outerproduct, dot as matrixmultiply, absolute, identity
-from numpy.linalg import solve as solve_linear_equations, inv as inverse
+import Numeric, math, time
+from Numeric import array, zeros, ones, Float, Int, take, put, add, clip
+from Numeric import transpose, dot, outerproduct, matrixmultiply, absolute, identity
+from LinearAlgebra import solve_linear_equations, inverse
 from math import sqrt, pow
 
 

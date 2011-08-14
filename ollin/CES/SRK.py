@@ -1,5 +1,5 @@
 from ollin.pvt import MixingRules
-from numpy import sqrt,power
+from Numeric import sqrt,power
 from ollin.pvt.rkzf import RKZ
 from ollin.pvt.zfi import ZFI
 from ollin.pvt.Fuga import CoeFugo,CoeFugM

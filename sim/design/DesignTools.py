@@ -10,7 +10,7 @@
 #   6) Kvalue - to calculate K-constant in Stoke's Law
 
 
-import numpy
+import Numeric
 from math import log, pi, ceil
 
 # need to change sim42 units to field units to be able to use all the methods in here

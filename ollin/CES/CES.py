@@ -5,7 +5,7 @@ from math import sqrt
 from ollin.pvt.Flash import Flash
 from ollin.pvt.eos import EOS
 from ollin.pvt.Thermodinamic import Thermo
-from numpy import sqrt,array,power,log,exp
+from Numeric import sqrt,array,power,log,exp
 from ollin.tools.tools import lagrange
 
 Equation = {}
