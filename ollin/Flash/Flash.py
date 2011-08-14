@@ -14,7 +14,7 @@ def Flash(k,z,fr=None):
             Frac = FracVap(k,z,fr)
         return (Frac,x,y)
     
-    if k==1.0:
+    if k.any()==1.0:
 ##        print "k=1",k
         Frac = 1.0
         y = z

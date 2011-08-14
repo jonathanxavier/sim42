@@ -1,4 +1,5 @@
 # This class defin the cubic eos
+import numpy
 from numpy.oldnumeric import sqrt,array,power,log,exp,absolute
 from ollin.Thermodinamics.Thermodinamic import Thermo
 from ollin.Thermodinamics.Constans import R
@@ -19,7 +20,7 @@ class EOS:
 # Fuction to calculate Z factor
     def ZL(self,A,B):
 
-        if type(A) == int or type(A)== float:
+        if type(A) == int or type(A) == float or type(A) == numpy.float64:
             A = list((A,))
             B = list((B,))
         numE = len (A) 
@@ -90,7 +91,7 @@ class EOS:
 
     def ZG(self,A,B):
 
-        if type(A) == int or type(A)== float:
+        if type(A) == int or type(A) == float or type(A) == numpy.float64:
             A = list((A,))
             B = list((B,))
         numE = len (A) 
