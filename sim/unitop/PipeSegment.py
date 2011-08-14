@@ -8,9 +8,9 @@ from sim.solver import EquationSolver
 from sim.solver.Error import SimError
 from sim.solver.Messages import MessageHandler
 
-import numpy
-from numpy import array, float, int, where, zeros, ones, sum, repeat
-from numpy import take, reshape, transpose
+import Numeric
+from Numeric import array, Float, Int, where, zeros, ones, sum, repeat
+from Numeric import take, reshape, transpose
 import math, string, copy
 from math import exp, log, sqrt, sin , asin, log10
 PI = math.pi
