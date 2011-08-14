@@ -16,9 +16,9 @@ from sim.unitop.ConvRxn import ConversionReaction
 from sim.unitop.Pump import DataSeries, ATable, LookupTable
 from sim.solver.Messages import MessageHandler
 
-from Numeric import *
-#from Numeric import array, zeros, ones, Float, Int, take, put, add, clip
-#from Numeric import transpose, dot, outerproduct, matrixmultiply, absolute, identity
+from numpy.oldnumeric import *
+#from numpy.oldnumeric import array, zeros, ones, Float, Int, take, put, add, clip
+#from numpy.oldnumeric import transpose, dot, outerproduct, matrixmultiply, absolute, identity
 from LinearAlgebra import solve_linear_equations, inverse
 
 

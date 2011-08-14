@@ -1,4 +1,4 @@
-from Numeric import array
+from numpy.oldnumeric import array
 
 def lagrange(x,y,x_nw):
     n=range(len(x))

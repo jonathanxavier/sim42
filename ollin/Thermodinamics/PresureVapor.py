@@ -1,6 +1,6 @@
 ##This fuction contain the Presuse Vapor Model}
 ##from ollin.pvt import antoine
-from Numeric import array,exp,log,power,absolute
+from numpy.oldnumeric import array,exp,log,power,absolute
 
 Equation =  {}
 

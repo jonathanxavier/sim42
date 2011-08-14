@@ -12,9 +12,9 @@ MultiSidedHeatExchangerOp - models a multisided heat exchanger solving simultane
 
 import math, string, copy, operator
 
-import Numeric
-from Numeric import array, Float, zeros, ones, Int, sum, argmin, concatenate
-from Numeric import transpose, repeat, reshape, take, put, absolute, where
+import numpy.oldnumeric
+from numpy.oldnumeric import array, Float, zeros, ones, Int, sum, argmin, concatenate
+from numpy.oldnumeric import transpose, repeat, reshape, take, put, absolute, where
 from LinearAlgebra import solve_linear_equations, determinant
 
 import UnitOperations

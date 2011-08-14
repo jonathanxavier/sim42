@@ -1,5 +1,5 @@
 #thermo case
-from Numeric import array,Float0
+from numpy.oldnumeric import array,Float0
 import ollin.Thermodinamics.PresureVapor as PresureVapor
 import ollin.CES
 import sys, imp, re

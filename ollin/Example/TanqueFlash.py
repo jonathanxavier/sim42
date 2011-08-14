@@ -1,5 +1,5 @@
 from ollin.Administrator.AdmOllin import Ollin
-from Numeric import array,power,pi
+from numpy.oldnumeric import array,power,pi
 
 PR=Ollin.AddModel("PR","PR")
 Ollin.Add(["HYDROGEN","METHANE","BENZENE","TOLUENE","DIPHENYL",],"PR")

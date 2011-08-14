@@ -1,5 +1,5 @@
 from ollin.pvt.CpCalc import CapG
-from Numeric import array
+from numpy.oldnumeric import array
 
 def ThermoCalc(case):
     case.CpGi = CapG(case)

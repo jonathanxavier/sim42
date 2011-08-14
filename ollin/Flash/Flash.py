@@ -1,4 +1,4 @@
-from Numeric import power,array
+from numpy.oldnumeric import power,array
 from ollin.Tools.tools import lagrange
 
 def Flash(k,z,fr=None):

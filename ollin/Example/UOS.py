@@ -3,7 +3,7 @@ sys.path.append("/Users/jonathanxavier/Developer/sim42")
 
 ##from ollin.Administrator.AdmOllin import Ollin
 from ollin.Administrator.ThemoObj import ThermoObj
-from Numeric import array,Float0
+from numpy.oldnumeric import array,Float0
 
 #Create the stream material for solve cases
 ##S1=Ollin.AddCase("S1")

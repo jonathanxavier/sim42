@@ -17,8 +17,8 @@ from sim.solver.Error import SimError
 from ThermoConstants import *
 from Hypo import *
 from sim.solver.Messages import MessageHandler
-import Numeric
-from Numeric import array, ones, zeros, Float, Int, sum
+import numpy.oldnumeric
+from numpy.oldnumeric import array, ones, zeros, Float, Int, sum
 
 
 VMModName = 'VirtualMaterials'

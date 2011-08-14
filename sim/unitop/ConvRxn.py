@@ -15,7 +15,7 @@ import UnitOperations, Balance, Heater, Sensor, Stream
 
 from sim.solver import Flowsheet, Error
 from sim.solver.Variables import *
-from Numeric import *
+from numpy.oldnumeric import *
 
 
 #Reactor constants

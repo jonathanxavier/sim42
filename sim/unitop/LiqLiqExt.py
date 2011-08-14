@@ -13,7 +13,7 @@ from sim.solver.Variables import *
 from sim.solver.Messages import MessageHandler
 from sim.thermo.VMConstants import *  # this should be replaced with generic import
 import UnitOperations, Flash, Balance
-from Numeric import *
+from numpy.oldnumeric import *
 
 VALID_UNIT_OPERATIONS = ['LLStage',
                          'LiqLiqEx']

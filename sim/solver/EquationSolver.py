@@ -1,7 +1,7 @@
 
-import Numeric, math, time
-from Numeric import array, zeros, ones, Float, Int, take, put, add, clip
-from Numeric import transpose, dot, outerproduct, matrixmultiply, absolute, identity
+import numpy.oldnumeric, math, time
+from numpy.oldnumeric import array, zeros, ones, Float, Int, take, put, add, clip
+from numpy.oldnumeric import transpose, dot, outerproduct, matrixmultiply, absolute, identity
 from LinearAlgebra import solve_linear_equations, inverse
 from math import sqrt, pow
 

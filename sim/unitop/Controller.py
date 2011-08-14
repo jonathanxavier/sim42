@@ -14,9 +14,9 @@ from sim.solver import Error
 from sim.solver.Variables import *
 from sim.solver.Ports import SIGNAL_TYPE_NONE
 
-import Numeric, math
-from Numeric import array, zeros, ones, Float, take, put, add, clip
-from Numeric import transpose, dot, outerproduct, matrixmultiply, where
+import numpy.oldnumeric, math
+from numpy.oldnumeric import array, zeros, ones, Float, take, put, add, clip
+from numpy.oldnumeric import transpose, dot, outerproduct, matrixmultiply, where
 from LinearAlgebra import solve_linear_equations, inverse
 
 TARGET_PORT = 'Target'

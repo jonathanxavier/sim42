@@ -5,10 +5,10 @@ import traceback
 import sha
 import threading
 import cPickle
-import Numeric
+import numpy.oldnumeric
 import webbrowser, urllib
 import ConfigParser
-from Numeric import zeros, ones, reshape, Float, Int, array
+from numpy.oldnumeric import zeros, ones, reshape, Float, Int, array
 
 pickle = cPickle
 

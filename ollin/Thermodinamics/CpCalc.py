@@ -1,5 +1,5 @@
 from math import pow
-from Numeric import array
+from numpy.oldnumeric import array
 
 
 def CapG(case):

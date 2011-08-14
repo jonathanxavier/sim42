@@ -17,7 +17,7 @@ from sim.thermo.ThermoAdmin import ThermoCase, ThermoAdmin
 from sim.design import Design
 
 import re, StringIO, time, os, sys, cPickle, copy
-from Numeric import array, Int, Float
+from numpy.oldnumeric import array, Int, Float
 
 SIMINFO = 'Info'
 TH_ADMIN_KEYWORD = '$'

@@ -1,5 +1,5 @@
 # This class defin the cubic eos
-from Numeric import sqrt,array,power,log,exp,absolute
+from numpy.oldnumeric import sqrt,array,power,log,exp,absolute
 from ollin.Thermodinamics.Thermodinamic import Thermo
 from ollin.Thermodinamics.Constans import R
 

@@ -2,8 +2,8 @@
 
 from sim.solver import Ports, Error
 from sim.solver.Variables import *
-import Numeric
-from Numeric import array, Float, Int, ones, zeros, matrixmultiply
+import numpy.oldnumeric
+from numpy.oldnumeric import array, Float, Int, ones, zeros, matrixmultiply
 from LinearAlgebra import solve_linear_equations, determinant
 import UnitOperations
 

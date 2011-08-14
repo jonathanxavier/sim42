@@ -1,5 +1,5 @@
 #Themo objetc
-from Numeric import array,float,power
+from numpy.oldnumeric import array,float,power
 
 class ThermoObj:
 

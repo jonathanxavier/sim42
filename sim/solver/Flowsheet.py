@@ -21,9 +21,9 @@ import Ports
 import Error
 from Variables import *
 
-import Numeric
-from Numeric import array, zeros, ones, Float, identity, clip
-from Numeric import transpose, dot, outerproduct, matrixmultiply, where
+import numpy.oldnumeric
+from numpy.oldnumeric import array, zeros, ones, Float, identity, clip
+from numpy.oldnumeric import transpose, dot, outerproduct, matrixmultiply, where
 
 VERSION = (79, 'V2.0.0.0')
 

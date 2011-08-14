@@ -2,7 +2,7 @@
 ##sys.path.append("/Users/jonathanxavier/Developer/sim42")
 from pysqlite2 import dbapi2 as sq
 from ollin.DataBase.SysData import DataBaseVars
-from Numeric import array
+from numpy.oldnumeric import array
 
 class DataBase:
     """

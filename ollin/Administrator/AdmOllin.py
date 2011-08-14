@@ -3,7 +3,7 @@
 from ollin.DataBase.DataBase import DataBase
 from ollin.Administrator.ThermoCase import ThermoCase
 from ollin.Administrator.ThemoObj import ThermoObj
-from Numeric import array
+from numpy.oldnumeric import array
 
 class AdmOllin:
     """

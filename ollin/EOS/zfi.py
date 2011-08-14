@@ -1,4 +1,4 @@
-from Numeric import array
+from numpy.oldnumeric import array
 
 def ZFI(Zo, A, B):
     list_temp = []
