@@ -12,11 +12,11 @@ from sim.solver.Variables import *
 from sim.solver.Error import SimError
 from sim.solver.Messages import MessageHandler
 
-import numpy.oldnumeric, math
-N = Numeric
+import numpy, math
+#N = numpy
 from numpy.oldnumeric import array, zeros, ones, Float, Int, take, put, add, clip, sum
 from numpy.oldnumeric import transpose, dot, outerproduct, matrixmultiply, where, absolute
-from LinearAlgebra import solve_linear_equations, inverse
+from numpy.linalg import solve as solve_linear_equations, inv as inverse
 
 NORMAL_STAGE = 0
 TOP_STAGE = 1

@@ -5,12 +5,13 @@ try:
 except:
     pass
 
-import sys, os, re, string, cPickle, time, errno 
+import sys, os, re, string, cPickle, time, errno
+sys.path.append("/Users/jonathanxavier/Developer/sim42")
 import StringIO, types, copy, zipfile, tempfile
 pickle = cPickle
 #import pickle
 import gc    
-import numpy.oldnumeric
+import numpy
 import traceback
 import sim.cmd.cmdlanguages
 

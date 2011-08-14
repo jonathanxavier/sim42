@@ -6,7 +6,7 @@ from sim.solver.Messages import MessageHandler
 from sim.unitop import UnitOperations, Balance
 
 from numpy.oldnumeric import array, zeros, ones, Float, Int, pi, where
-import numpy.oldnumeric
+import numpy
 PI = pi  #To be consistent, make pi uppercase like any other constant
 
 

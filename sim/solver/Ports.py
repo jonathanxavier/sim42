@@ -13,7 +13,7 @@ from Variables import *
 import S42Glob
 from Error import SimError
 import re, string
-import numpy.oldnumeric
+import numpy
 from numpy.oldnumeric import array, Float, Int, zeros, ones
 
 

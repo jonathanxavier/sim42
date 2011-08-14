@@ -13,7 +13,7 @@ from sim.solver import Ports
 from sim.unitop import UnitOperations, Properties
 from Properties import EMPTY_VAL
 
-import numpy.oldnumeric 
+import numpy 
 from numpy.oldnumeric import zeros, ones, Float, Int, reshape, transpose, array
 
 THYDRATE_PORT = 'HydrateTemp'

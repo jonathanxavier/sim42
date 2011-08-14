@@ -14,10 +14,10 @@ from sim.solver import Error
 from sim.solver.Variables import *
 from sim.solver.Ports import SIGNAL_TYPE_NONE
 
-import numpy.oldnumeric, math
+import numpy, math
 from numpy.oldnumeric import array, zeros, ones, Float, take, put, add, clip
 from numpy.oldnumeric import transpose, dot, outerproduct, matrixmultiply, where
-from LinearAlgebra import solve_linear_equations, inverse
+from numpy.linalg import solve as solve_linear_equations, inv as inverse
 
 TARGET_PORT = 'Target'
 STEPSIZE_PORT = 'StepSize'

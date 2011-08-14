@@ -5,7 +5,7 @@ import traceback
 import sha
 import threading
 import cPickle
-import numpy.oldnumeric
+import numpy
 import webbrowser, urllib
 import ConfigParser
 from numpy.oldnumeric import zeros, ones, reshape, Float, Int, array

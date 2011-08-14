@@ -22,7 +22,7 @@ CompoundList -- List with compounds
 import re, os, sys, copy
 from Error import ConsistencyError
 from vmgunits import units
-import numpy.oldnumeric
+import numpy
 from numpy.oldnumeric import Float, Int, array, zeros, ones, sum
 import S42Glob
 

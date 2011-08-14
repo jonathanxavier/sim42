@@ -17,7 +17,7 @@ from sim.solver.Error import SimError
 from ThermoConstants import *
 from Hypo import *
 from sim.solver.Messages import MessageHandler
-import numpy.oldnumeric
+import numpy
 from numpy.oldnumeric import array, ones, zeros, Float, Int, sum
 
 

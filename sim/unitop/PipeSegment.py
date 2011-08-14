@@ -8,7 +8,7 @@ from sim.solver import EquationSolver
 from sim.solver.Error import SimError
 from sim.solver.Messages import MessageHandler
 
-import numpy.oldnumeric
+import numpy
 from numpy.oldnumeric import array, Float, Int, where, zeros, ones, sum, repeat
 from numpy.oldnumeric import take, reshape, transpose
 import math, string, copy

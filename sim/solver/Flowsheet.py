@@ -21,7 +21,7 @@ import Ports
 import Error
 from Variables import *
 
-import numpy.oldnumeric
+import numpy
 from numpy.oldnumeric import array, zeros, ones, Float, identity, clip
 from numpy.oldnumeric import transpose, dot, outerproduct, matrixmultiply, where
 

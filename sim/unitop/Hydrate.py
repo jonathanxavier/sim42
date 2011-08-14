@@ -15,7 +15,7 @@ from sim.solver.Variables import *
 from sim.unitop import UnitOperations, Sensor, Stream
 from sim.solver import Ports
 
-import numpy.oldnumeric 
+import numpy 
 
 THYDRATE_PORT = 'HydrateTemp'
 
