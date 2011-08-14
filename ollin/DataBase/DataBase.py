@@ -1,5 +1,5 @@
 ##import sys
-##sys.path.append("/Users/jonathanxavier/Developer/sim42/ollin")
+##sys.path.append("/Users/jonathanxavier/Developer/sim42")
 from pysqlite2 import dbapi2 as sq
 from ollin.DataBase.SysData import DataBaseVars
 from numpy import array

@@ -7,7 +7,7 @@ def DataBaseVars():
     SysDic = {}
 
     #database file path
-    SysDic["BasePath"] = "C:\\Python24\\ollin\\DataBase\\"
+    SysDic["BasePath"] = "/Users/jonathanxavier/Developer/sim42/ollin/DataBase/"
     #Name of file database
     SysDic["DataBase"] = "data.db"
     #Name of table componets

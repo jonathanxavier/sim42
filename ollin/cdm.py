@@ -1,6 +1,6 @@
 #Comand simple comand interface for ollin thermo server
 import sys
-sys.path.append("/Users/jonathanxavier/Developer/sim42/ollin")
+sys.path.append("/Users/jonathanxavier/Developer/sim42")
 from ollin.Administrator.AdmOllin import AdmOllin
 
 adm = AdmOllin()

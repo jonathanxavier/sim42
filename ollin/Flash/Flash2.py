@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/Users/jonathanxavier/Developer/sim42/ollin")
+sys.path.append("/Users/jonathanxavier/Developer/sim42")
 from numpy import power,array
 from ollin.Tools.tools import lagrange
 ##kk= 

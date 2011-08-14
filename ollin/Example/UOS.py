@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/Users/jonathanxavier/Developer/sim42/ollin")
+sys.path.append("/Users/jonathanxavier/Developer/sim42")
 
 ##from ollin.Administrator.AdmOllin import Ollin
 from ollin.Administrator.ThemoObj import ThermoObj
